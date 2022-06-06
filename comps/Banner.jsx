@@ -21,7 +21,7 @@ const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName, i
             </p>
 
             <button className=" text-xl font-bold bg-zinc-300 cursor-pointer
-            hover:bg-cyan-700 transition-colors py-1 px-2 rounded-lg">
+            hover:bg-cyan-500 hover:text-white transition-colors py-1 px-2 rounded-md">
                 <Link href={linkName} >
                     <a>
                         {buttonText}
