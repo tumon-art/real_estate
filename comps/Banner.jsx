@@ -3,11 +3,12 @@ import Link from "next/link"
 
 const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName, imageUrl }) => (
 
-    <div className=" block sm:flex items-center gap-5">
+    <div className=" block sm:flex items-center justify-center my-10 gap-5">
 
         <Image src={imageUrl} width={500} height={300} alt='img' />
 
-        <section className=" ml-2 sm:ml-0">
+        <section className=" ml-2 sm:ml-0 ">
+
             <h4 className=" text-zinc-600">
                 {purpose}
             </h4>

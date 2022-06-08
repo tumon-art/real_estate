@@ -24,9 +24,9 @@ const Property = ({ property }) => {
   return (
     <Link href={`/property/${externalID}`} passHref>
       <div className=" shadow-m shadow-zinc-200 transition-shadow
-      overflow-hidden relative
+      overflow-hidden relative 
       ">
-    <div className=" absolute bg-cyan-300 w-full hover:hidden skew-x-[40deg] z-[-1] h-full">
+    <div className=" absolute bg-sky-600 w-full md:block hidden skew-x-[40deg] z-[-1] h-full">
               </div>
               {/* <div className=" absolute bg-cyan-100 w-full  skew-y-2 z-[-10] h-full"></div> */}
         <div className=" leading-[0] mt-1 mr-1 ml-1 overflow-hidden">
@@ -35,7 +35,7 @@ const Property = ({ property }) => {
             width={400}
             height={260}
             alt="img"
-            className="hover:scale-125 transition-transform rounded-sm duration-1000"
+            className="hover:scale-125 transition-transform sm:rounded-sm duration-1000"
           />
         </div>
 
@@ -49,7 +49,7 @@ const Property = ({ property }) => {
               </div>
               <div className="font-bold">
                 AED
-                <span className="  ml-2 text-blue-900 ">
+                <span className="  ml-2 text-sky-800 ">
                   {millify(price)}
                 </span>{" "}
                 
