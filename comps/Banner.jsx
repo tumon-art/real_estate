@@ -21,13 +21,17 @@ const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName, i
                 {desc1} {desc2}
             </p>
 
-            <button className=" text-md sm:text-xl font-bold bg-zinc-300 cursor-pointer
-            hover:bg-cyan-500 hover:text-white transition-colors py-1 px-2 rounded-md">
+            <button className=" group  relative text-md sm:text-xl font-bold bg-zinc-300 cursor-pointer
+            transition-color hover:bg-zinc-200 py-1 px-2 ">
                 <Link href={linkName} >
                     <a>
                         {buttonText}
                     </a>
                 </Link>
+
+                {/* === BEFORE */}
+                <div className=" transition-all duration-500 group-hover:bg-sky-600 bottom-[-7px] group-hover:w-full absolute h-1 w-0 left-0 " />
+
             </button>
         </section>
 

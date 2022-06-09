@@ -22,7 +22,7 @@ export async function getStaticProps() {
 export default function Home({propertyForSale,propertyForRent}) {
 console.log(propertyForRent[0])
   return (
-    <div className=" flex flex-col items-center">
+    <div className=" flex flex-col items-center  md:mx-20">
 
       <Banner purpose='RENT A HOME'
         title1='Rental Homes for'
@@ -36,7 +36,7 @@ console.log(propertyForRent[0])
 
         {/* === PROPERTY MAP */}
         <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 my-10
-         md:mx-10">
+        ">
         {propertyForRent.slice(1,7).map((property)=> <Property property={property} key={property.id} />)}
         </div>
 
@@ -52,7 +52,7 @@ console.log(propertyForRent[0])
 
         {/* === PROPERTY MAP */}
         <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 my-10
-         md:mx-10">
+         ">
         {propertyForSale.slice(0,6).map((property)=> <Property property={property} key={property.id} />)}
         </div>
 
