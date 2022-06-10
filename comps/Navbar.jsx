@@ -5,6 +5,8 @@ import { FiKey } from "react-icons/fi";
 import { useState } from "react";
 import styles from "../styles/Menu.module.css";
 
+import { CgClose } from 'react-icons/cg'
+
 export const Navbar = () => {
   const [showPopup, setshowPopup] = useState(false);
 
@@ -14,11 +16,11 @@ export const Navbar = () => {
         <a className=" text-sky-600 text-2xl font-extrabold">Real Estate</a>
       </Link>
 
-      <div className={`  transition
+      <div className={` transition hover:scale-125 cursor-pointer
       p-2 flex items-center justify-center z-30`}
         onClick={() => setshowPopup((p) => !p)}
       >
-        {showPopup ? <FcCollapse /> : <FcMenu />}
+        {showPopup ? <CgClose /> : <FcMenu  />}
       </div>
 
       {/* === POP-UP MENU  */}
@@ -27,26 +29,34 @@ export const Navbar = () => {
       >
         <ul className="  ring-2 ring-zinc-200">
 
-          <Link href="/" passHref>
-            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2">
+          <Link href="/" passHref
+          >
+            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2"
+            onClick={() => setshowPopup((p) => !p)}>
               <FcHome /> Home
             </a>
           </Link>
 
-          <Link href="/search" passHref>
-            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2">
+          <Link href="/search" passHref
+          >
+            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2"
+            onClick={() => setshowPopup((p) => !p)}>
               <BsSearch /> Search
             </a>
           </Link>
 
-          <Link href="/search?purpose=for-sale" passHref>
-            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2">
+          <Link href="/search?purpose=for-sale" passHref
+          >
+            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2"
+            onClick={() => setshowPopup((p) => !p)}>
               <FcAbout /> Buy Property
             </a>
           </Link>
 
-          <Link href="/search?purpose=for-rent" passHref>
-            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2">
+          <Link href="/search?purpose=for-rent" passHref
+          >
+            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2"
+            onClick={() => setshowPopup((p) => !p)}>
               <FiKey /> Rent Property
             </a>
           </Link>
