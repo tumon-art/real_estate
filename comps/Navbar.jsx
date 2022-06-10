@@ -9,7 +9,7 @@ export const Navbar = () => {
   const [showPopup, setshowPopup] = useState(false);
 
   return (
-    <div className=" relative px-2 md:mx-10 flex justify-between mt-2">
+    <div className=" relative px-2 md:mx-10 flex justify-between my-2">
       <Link href="/">
         <a className=" text-sky-600 text-2xl font-extrabold">Real Estate</a>
       </Link>

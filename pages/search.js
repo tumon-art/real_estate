@@ -5,11 +5,35 @@ import { BsFilter } from 'react-icons/bs'
 import Property from "../comps/Property";
 import { SearchFilters } from "../comps/SearchFilters";
 
-
-
+// SVG 
 import noresult from '../assets/images/noresult.svg'
 
-export default function Search() {
+import { baseUrl, fetchApi } from "../utils/fetchData";
+
+export async function getServerSideProps({query}) {
+    
+    const purpose = query.purpose || 'for-rent';
+    const rentFrequency = query.rentFrequency || 'yearly';
+    const minPrice = query.minPrice || '0';
+    const maxPrice = query.maxPrice || '1000000';
+    const roomsMin = query.roomsMin || '0';
+    const bathsMin = query.bathsMin || '0';
+    const sort = query.sort || 'price-desc';
+    const areaMax = query.areaMax || '35000';
+    const locationExternalIDs = query.locationExternalIDs || '5002';
+    const categoryExternalID = query.categoryExternalID || '4';
+
+    const data = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}&hitsPerPage=10&categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&priceMin=${minPrice}&priceMax=${maxPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}`)
+
+    return {
+        props: {
+            properties: data?.hits
+        }
+    }
+}
+
+export default function Search({ properties }) {
+
     const [searchFilters,setsearchFilters] = useState(false);
 
     // ROUTER
@@ -22,26 +46,27 @@ export default function Search() {
     onClick={()=> setsearchFilters(p=>!p)}
     >
 
-        <p className=" text-2xl text-white font-extrabold">
+        <p className=" text-xl text-white font-extrabold">
         Search Property by filters
         </p>
 
-        <BsFilter className=" text-white text-3xl" />
+        <BsFilter className=" text-white text-xl mt-1" />
 
     </div>
 
     {/* === SEARCH FILTER COMP */}
     {searchFilters && <SearchFilters />}
 
-    <p className=" text-2xl font-extrabold">
+    <p className=" text-xl ml-2 mt-2 font-extrabold">
         Properties {router.query.purpose}
     </p>
 
-    <div>
-        {[].map((property)=> <Property property={property} key={property._id} />)}
+    {/* === SHOW PROPERTIES */}
+    <div className=" grid sm:grid-cols-3 ">
+        {properties.map((property)=> <Property property={property} key={property.id} />)}
     </div>
-
-    {[].length === 0 && (
+    {/* === NO RESULT COMP */}
+    {properties.length == 0 && (
         <div className=" flex justify-center relative">
         <Image alt="no result" height={400} width='400' src={noresult} />
         <p className=" absolute top-40 text-white font-bold "> NO RESULT ! </p>
