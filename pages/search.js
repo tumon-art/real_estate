@@ -4,6 +4,7 @@ import { useState } from "react"
 import { BsFilter } from 'react-icons/bs'
 import Property from "../comps/Property";
 import { SearchFilters } from "../comps/SearchFilters";
+import { MdSell } from 'react-icons/md'
 
 // SVG 
 import noresult from '../assets/images/noresult.svg'
@@ -19,7 +20,7 @@ export default function Search({ properties }) {
 
   return (
    <div>
-    <div className=" bg-zinc-600 flex justify-center 
+    <div className=" bg-sky-500 flex border-b-4 border-t-4 border-sky-400 justify-center 
     items-center gap-4 py-4 cursor-pointer"
     onClick={()=> setsearchFilters(p=>!p)}
     >
@@ -34,14 +35,16 @@ export default function Search({ properties }) {
 
     {/* === SEARCH FILTER COMP */}
     {searchFilters && <SearchFilters />}
+    <p className=" flex items-center text-xl text-sky-600 ml-4 mt-2 font-extrabold  ">
 
-    <p className=" text-xl ml-2 mt-2 font-extrabold">
-        Properties {router.query.purpose}
+     <span className=" flex gap-2 items-center border-b-4 py-2 px-4">
+     <MdSell />  Properties {router.query.purpose}
+     </span>
     </p>
 
     {/* === SHOW PROPERTIES */}
-    <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 my-10">
-        {properties.map((property)=> <Property property={property} key={property.id} />)}
+    <div className=" grid sm:grid-cols-2 sm:mx-20 my-10 md:grid-cols-3 justify-center gap-8 ">
+        {properties.slice(0,9).map((property)=> <Property property={property} key={property.id} />)}
     </div>
     {/* === NO RESULT COMP */}
     {properties.length == 0 && (

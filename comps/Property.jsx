@@ -28,19 +28,19 @@ const Property = ({ property }) => {
       ">
 
       {/* === AFTER */}
-    <div className={`
+    <div className={` blur-[30px]
     group-hover:skew-x-[0deg] duration-1000 
     absolute bg-sky-600 w-full md:block hidden skew-x-[40deg] z-[-1] h-full`}>
 
     </div>
               {/* <div className=" absolute bg-cyan-100 w-full  skew-y-2 z-[-10] h-full"></div> */}
-        <div className=" leading-[0] mt-1 mr-1 ml-1 overflow-hidden">
-          <Image
+        <div className=" leading-[0] box-border mt-1 mr-1 ml-1 overflow-hidden">
+          <Image loading="lazy"
             src={coverPhoto ? coverPhoto.url : DefaultImage}
             width={400}
             height={260}
             alt="img"
-            className=" group-hover:scale-125 transition-transform sm:rounded-sm duration-1000"
+            className=" min-w-full group-hover:scale-125 transition-transform sm:rounded-sm duration-1000"
           />
         </div>
 
