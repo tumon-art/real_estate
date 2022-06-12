@@ -1,5 +1,6 @@
 import Layout from '../comps/Layout'
 import '../styles/globals.css'
+import { SessionProvider } from "next-auth/react"
 
 import NProgress from 'nprogress';
 import "nprogress/nprogress.css";
@@ -16,8 +17,15 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-function MyApp({ Component, pageProps }) {
-  return <Layout> <Component {...pageProps} /> </Layout>
+export default function MyApp({ 
+  Component, 
+  pageProps: { session, ...pageProps } 
+}) {
+  return (
+    <SessionProvider session={session}>
+      <Layout>
+      <Component {...pageProps} />
+      </Layout>
+    </SessionProvider>
+  )
 }
-
-export default MyApp
