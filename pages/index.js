@@ -1,7 +1,6 @@
 import { data } from "autoprefixer"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
 import Banner from "../comps/Banner"
 import { IsLoggedIn } from "../comps/IsLoggedIn"
 import Property from "../comps/Property"
@@ -12,6 +11,7 @@ import { baseUrl, fetchApi } from "../utils/fetchData"
 
 // GET STATIC PROPS 
 export async function getStaticProps() {
+
   const propertyForSale = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`)
   const propertyForRent = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`)
 
@@ -24,42 +24,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ propertyForSale, propertyForRent }) {
-
-  // Save Api Data into Mongodb
-  // useEffect(() => {
-  //   async function run() {
-  //     const propertyForSale = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=25&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`)
-  //     const propertyForRent = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=25&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`)
-  //     const array = {
-  //       array:[
-  //         propertyForRent,
-  //         propertyForSale
-  //       ]
-  //     }
-  //     if (array) {
-
-  //       const response = await fetch('http://localhost:3000/api/savearray', {
-  //         method: 'POST', // *GET, POST, PUT, DELETE, etc.
-  //         credentials: 'same-origin', // include, *same-origin, omit
-  //         headers: {
-  //           'Content-Type': 'application/json'
-  //           // 'Content-Type': 'application/x-www-form-urlencoded',
-  //         },
-  //         body: JSON.stringify(array) // body data type must match "Content-Type" header
-  //       });
-  //       return response.json(); // parses JSON response into native JavaScript objects
-
-  //     }
-  //   } run()
-  // }, [])
-
-  // useEffect(()=>{
-  //   (async function(){
-  //     const res = await fetch('http://localhost:3000/api/savearray')
-  //     const data = await res.json()
-  //     console.log(data.data[0].array[0].hits)
-  //   })()
-  // },[])
 
   return (
     <div className=" flex flex-col items-center  md:mx-20">
