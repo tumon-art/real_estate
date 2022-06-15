@@ -1,11 +1,13 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@next-auth/mongodb-adapter': ^1.0.3
   autoprefixer: ^10.4.7
   eslint: 8.16.0
   eslint-config-next: 12.1.6
   framer-motion: ^6.3.10
   millify: ^4.0.0
+  mongodb: ^4.7.0
   mongoose: ^6.3.6
   next: 12.1.6
   next-auth: ^4.5.0
@@ -19,8 +21,10 @@ specifiers:
   tailwindcss: ^3.0.24
 
 dependencies:
+  '@next-auth/mongodb-adapter': 1.0.3_h3jvr4sw33dco7uklkcksh3gvi
   framer-motion: 6.3.10_ef5jwxihqo6n7gxfmzogljlgcm
   millify: 4.0.0
+  mongodb: 4.7.0
   mongoose: 6.3.6
   next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
   next-auth: 4.5.0_5ygs74o5bgk2vdqrahrydzhqe4
@@ -98,6 +102,16 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@next-auth/mongodb-adapter/1.0.3_h3jvr4sw33dco7uklkcksh3gvi:
+    resolution: {integrity: sha512-oO8OYjMhYx8s5qsdWWD+yNCqszCO7ewg6UkDhvfY0KhJRbcoOAwOgYYH5Bo4ZGJDqmIw8g6JeGipP7+xLa2Ynw==}
+    peerDependencies:
+      mongodb: ^4.1.1
+      next-auth: ^4.0.1
+    dependencies:
+      mongodb: 4.7.0
+      next-auth: 4.5.0_5ygs74o5bgk2vdqrahrydzhqe4
+    dev: false
 
   /@next/env/12.1.6:
     resolution: {integrity: sha512-Te/OBDXFSodPU6jlXYPAXpmZr/AkG6DCATAxttQxqOWaq6eDFX25Db3dK0120GZrSZmv4QCe9KsZmJKDbWs4OA==}
@@ -1556,6 +1570,18 @@ packages:
 
   /mongodb/4.5.0:
     resolution: {integrity: sha512-A2l8MjEpKojnhbCM0MK3+UOGUSGvTNNSv7AkP1fsT7tkambrkkqN/5F2y+PhzsV0Nbv58u04TETpkaSEdI2zKA==}
+    engines: {node: '>=12.9.0'}
+    dependencies:
+      bson: 4.6.4
+      denque: 2.0.1
+      mongodb-connection-string-url: 2.5.2
+      socks: 2.6.2
+    optionalDependencies:
+      saslprep: 1.0.3
+    dev: false
+
+  /mongodb/4.7.0:
+    resolution: {integrity: sha512-HhVar6hsUeMAVlIbwQwWtV36iyjKd9qdhY+s4wcU8K6TOj4Q331iiMy+FoPuxEntDIijTYWivwFJkLv8q/ZgvA==}
     engines: {node: '>=12.9.0'}
     dependencies:
       bson: 4.6.4
