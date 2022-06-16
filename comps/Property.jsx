@@ -6,8 +6,13 @@ import { GoVerified } from "react-icons/go";
 import millify from "millify";
 
 import DefaultImage from "../assets/images/house.webp";
+import { useState } from "react";
 
 const Property = ({ property }) => {
+  const [hoverFunc,sethoverFunc] = useState()
+  const [fav,setfav] = useState([])
+
+
    const {
     coverPhoto,
       price,
@@ -19,12 +24,13 @@ const Property = ({ property }) => {
       agency,
       isVerified,
       externalID
-  } = property
+  } = property 
 
+  const hoverin = (c) =>  sethoverFunc(c)
   return (
-    <Link href={`/property/${externalID}`} passHref>
+    
       <div className=" group hover:shadow-xl shadow-zinc-200 transition-shadow
-      overflow-hidden relative 
+      overflow-hidden relative
       ">
 
       {/* === AFTER */}
@@ -42,8 +48,24 @@ const Property = ({ property }) => {
             alt="img"
             className=" min-w-full group-hover:scale-125 transition-transform sm:rounded-sm duration-1000"
           />
+
+          {/* === FAV */}
+        <svg className={` transition duration-300 right-4 fill-transparent bottom-[100px]  
+        text-gray-300 absolute h-10 w-10 ${hoverFunc}`} 
+        viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} 
+
+        onClick={()=> setfav(p=> p? [...p,property] : property)}
+
+        onMouseOver={()=>hoverin('fill-sky-400 ')}
+        onMouseLeave={()=>hoverin('fill-transparent ')}>
+        <path d="M4.318 6.318a4.5 
+        4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 
+        7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+
         </div>
 
+        <Link href={`/property/${externalID}`} passHref>
         <div className="  px-2 py-1 text-sm bg-zinc-100">
           <div className=" flex items-center justify-between">
 
@@ -91,8 +113,8 @@ const Property = ({ property }) => {
               </div>
            </div>
         </div>
+        </Link>
       </div>
-    </Link>
   );
 };
 
