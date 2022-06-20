@@ -6,12 +6,13 @@ import { GoVerified } from "react-icons/go";
 import millify from "millify";
 
 import DefaultImage from "../assets/images/house.webp";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UC } from "../context/UC";
+import { findDOMNode } from "react-dom";
 
 const Property = ({ property }) => {
   const [hoverFunc,sethoverFunc] = useState()
-  const [fav,setfav] = useState([])
-
+  const {fav,dispatch} = useContext(UC)
 
    const {
     coverPhoto,
@@ -26,6 +27,17 @@ const Property = ({ property }) => {
       externalID
   } = property 
 
+  const favHandle = (id) => { 
+    if(fav.filter((e)=> e.id == id).length >= 1) {
+      alert(" Alrady exist in Fav!")
+      return
+    } else {
+      dispatch({
+        type:"FAV_ADD",
+        payload: property
+      })
+    }
+  } 
   const hoverin = (c) =>  sethoverFunc(c)
   return (
     
@@ -51,10 +63,14 @@ const Property = ({ property }) => {
 
           {/* === FAV */}
         <svg className={` transition duration-300 right-4 fill-transparent bottom-[100px]  
-        text-gray-300 absolute h-10 w-10 ${hoverFunc}`} 
+        text-gray-300 absolute h-10 w-10 
+        
+        ${hoverFunc} 
+        ${fav.filter((e)=> e.id == property.id).length >= 1 && " fill-red-500" }`} 
+
         viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} 
 
-        onClick={()=> setfav(p=> p? [...p,property] : property)}
+        onClick={()=> favHandle(property.id)}
 
         onMouseOver={()=>hoverin('fill-sky-400 ')}
         onMouseLeave={()=>hoverin('fill-transparent ')}>

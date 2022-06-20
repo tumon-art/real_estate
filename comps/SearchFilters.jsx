@@ -7,7 +7,8 @@ import { MdCancel } from 'react-icons/md'
 export const SearchFilters = () => {
   return (
    <div>
-    Seacrch Filters
+     Seacrch Filters
    </div>
+
   )
 }
