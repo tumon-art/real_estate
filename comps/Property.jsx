@@ -28,7 +28,6 @@ const Property = ({ property }) => {
   } = property 
 
   const favHandle = (id) => { 
-
     if(localStorage.fav){
 
       if(JSON.parse(localStorage.fav).filter((e)=> e.id == id).length >= 1) {
