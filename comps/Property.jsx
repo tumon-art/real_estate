@@ -27,14 +27,13 @@ const Property = ({ property }) => {
       externalID
   } = property 
 
-  const favHandle = (id) => { 
+  const favHandle = (id) => {
+
     if(localStorage.fav){
 
       if(JSON.parse(localStorage.fav).filter((e)=> e.id == id).length >= 1) {
-        alert(" Alrady exist in Fav!")
-
         const filterd = JSON.parse(localStorage.fav).filter((e)=> e.id !== id)
-        localStorage.setItem('a',fav)
+        localStorage.setItem('fav',JSON.stringify(filterd))
         return
       } else {
         dispatch({

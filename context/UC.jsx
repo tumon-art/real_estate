@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from "react";
 
 const initialState = {
   isLoggedIn: false,
+  sidebar:false,
 };
 
 const Reducer = (state, action) => {
@@ -14,6 +15,16 @@ const Reducer = (state, action) => {
     case "LOG_OUT":
         return {
             ...state,isLoggedIn: false,
+        }
+        break;
+      case "SIDEBAR_TOGGLE":
+        return {
+            ...state,sidebar: !state.sidebar
+        }
+        break;
+      case "SIDEBAR_OFF":
+        return {
+            ...state,sidebar: false
         }
         break;
     default:
@@ -41,7 +52,8 @@ const Provider = ({ children }) => {
       <UC.Provider
         value={{
           dispatch,addFav,
-          fav:state.fav
+          fav:state.fav,
+          sidebar:state.sidebar
         }}
       >
         {children} 

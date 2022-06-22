@@ -1,0 +1,20 @@
+@import "test";
+.after {
+    animation: anim 0.2s ease-in-out;
+    animation-fill-mode: forwards; 
+    opacity: 1;
+    transition: 1s;  
+    
+    @keyframes anim {
+        0% {
+            @include hash;
+        }
+    
+        100% {
+            transform: translateX(0px);
+            opacity: 100;
+    
+        }
+    }
+}
+

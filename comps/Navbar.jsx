@@ -1,15 +1,16 @@
 import Link from "next/link";
-import { FcMenu, FcHome, FcCollapse, FcAbout } from "react-icons/fc";
-import { BsSearch } from "react-icons/bs";
-import { FiKey } from "react-icons/fi";
-import { useState } from "react";
-import styles from "../styles/Menu.module.css";
+import { FcMenu } from "react-icons/fc";
+
 
 import { CgClose } from 'react-icons/cg'
+import Sidebar from "./Sidebar";
+import { useContext } from "react";
+import { UC } from '../context/UC'
 
 export const Navbar = () => {
-  const [showPopup, setshowPopup] = useState(false);
 
+  const {dispatch,sidebar} = useContext(UC)
+  console.log(dispatch,sidebar)
   return (
     <div className=" relative px-2 md:mx-10 flex justify-between my-2">
 
@@ -34,52 +35,14 @@ export const Navbar = () => {
 
      <div className={` transition hover:scale-125 cursor-pointer
       p-2 flex items-center justify-center z-30`}
-        onClick={() => setshowPopup((p) => !p)}
+        onClick={() => dispatch({type:"SIDEBAR_TOGGLE"})}
       >
-        {showPopup ? <CgClose /> : <FcMenu  />}
+        {sidebar ? <CgClose /> : <FcMenu  />}
       </div>
 
      </div>
       {/* === POP-UP MENU  */}
-      <div className={` ${styles.after} ${showPopup ? "block" : "hidden"}
-      right-0 top-0 absolute w-40 z-20 bg-white`}
-      >
-        <ul className="  ring-2 ring-zinc-200">
-
-          <Link href="/" passHref
-          >
-            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2"
-            onClick={() => setshowPopup((p) => !p)}>
-              <FcHome /> Home
-            </a>
-          </Link>
-
-          <Link href="/search" passHref
-          >
-            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2"
-            onClick={() => setshowPopup((p) => !p)}>
-              <BsSearch /> Search
-            </a>
-          </Link>
-
-          <Link href="/search?purpose=for-sale" passHref
-          >
-            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2"
-            onClick={() => setshowPopup((p) => !p)}>
-              <FcAbout /> Buy Property
-            </a>
-          </Link>
-
-          <Link href="/search?purpose=for-rent" passHref
-          >
-            <a className=" hover:bg-slate-100 flex items-center px-2 py-1 cursor-pointer gap-2"
-            onClick={() => setshowPopup((p) => !p)}>
-              <FiKey /> Rent Property
-            </a>
-          </Link>
-
-        </ul>
-      </div>
+      <Sidebar />
 
     </div>
   );
