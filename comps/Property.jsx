@@ -8,11 +8,11 @@ import millify from "millify";
 import DefaultImage from "../assets/images/house.webp";
 import { useContext, useState } from "react";
 import { UC } from "../context/UC";
-import { findDOMNode } from "react-dom";
+
 
 const Property = ({ property }) => {
   const [hoverFunc,sethoverFunc] = useState()
-  const {fav,dispatch} = useContext(UC)
+  const {fav,dispatch,addFav} = useContext(UC)
 
    const {
     coverPhoto,
@@ -28,14 +28,24 @@ const Property = ({ property }) => {
   } = property 
 
   const favHandle = (id) => { 
-    if(fav.filter((e)=> e.id == id).length >= 1) {
-      alert(" Alrady exist in Fav!")
-      return
+
+    if(localStorage.fav){
+
+      if(JSON.parse(localStorage.fav).filter((e)=> e.id == id).length >= 1) {
+        alert(" Alrady exist in Fav!")
+
+        const filterd = JSON.parse(localStorage.fav).filter((e)=> e.id !== id)
+        localStorage.setItem('a',fav)
+        return
+      } else {
+        dispatch({
+          type:"FAV_ADD",
+          payload: property
+        })
+        addFav(property)
+      }
     } else {
-      dispatch({
-        type:"FAV_ADD",
-        payload: property
-      })
+      addFav(property)
     }
   } 
   const hoverin = (c) =>  sethoverFunc(c)
@@ -66,7 +76,7 @@ const Property = ({ property }) => {
         text-gray-300 absolute h-10 w-10 
         
         ${hoverFunc} 
-        ${fav.filter((e)=> e.id == property.id).length >= 1 && " fill-red-500" }`} 
+        ${localStorage.fav && JSON.parse(localStorage.fav).filter((e)=> e.id == property.id).length >= 1 && " fill-red-500" }`} 
 
         viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} 
 

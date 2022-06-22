@@ -1,11 +1,8 @@
-import React, { useReducer } from "react";
-
+import React, { useEffect, useReducer } from "react";
 
 const initialState = {
   isLoggedIn: false,
-  fav:[],
 };
-
 
 const Reducer = (state, action) => {
   switch (action.type) {
@@ -19,11 +16,6 @@ const Reducer = (state, action) => {
             ...state,isLoggedIn: false,
         }
         break;
-        case "FAV_ADD":
-          return {
-              ...state,fav: [...state.fav,action.payload],
-          }
-          break;
     default:
       return state;
   }
@@ -32,12 +24,23 @@ const Reducer = (state, action) => {
 export const UC = React.createContext();
 const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
-  console.log(state)
+  
+
+  
+    const addFav = (property) => {
+    if(localStorage.fav) {
+      localStorage.setItem('fav',JSON.stringify([...JSON.parse(localStorage.fav),property]))
+    } else {
+      localStorage.setItem('fav',JSON.stringify([property]))
+    }
+    console.log(JSON.parse(localStorage.fav))
+    }
+
   return (
     <>
       <UC.Provider
         value={{
-          dispatch,
+          dispatch,addFav,
           fav:state.fav
         }}
       >
