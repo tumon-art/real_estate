@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import Banner from "../comps/Banner"
-import { IsLoggedIn } from "../comps/IsLoggedIn"
 import Property from "../comps/Property"
 
 
@@ -52,7 +51,6 @@ export default function Home() {
   if(data) {
     return (
     <div className=" flex flex-col items-center  md:mx-20">
-     <IsLoggedIn />
       <Banner purpose='RENT A HOME'
         title1='Rental Homes for'
         title2='Everyone'

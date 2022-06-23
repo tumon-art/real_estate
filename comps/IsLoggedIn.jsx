@@ -7,7 +7,7 @@ export const IsLoggedIn = () => {
 
     if(session) {
       return <>
-        Signed in as {session.user.email} <br/>
+        {/* Signed in as {session.user.email} <br/> */}
         <button className=" bg-zinc-400 border-b-2 
         hover:bg-sky-500 transition duration-400 
         border-gray-600 text-white px-2 pb-[3px]"
