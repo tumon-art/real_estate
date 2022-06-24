@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { FcMenu } from "react-icons/fc";
 import styles from './Navbar.module.scss'
-
-import { CgClose } from 'react-icons/cg'
 import Sidebar from "./Sidebar";
 import { useContext, useEffect } from "react";
 import { UC } from '../context/UC'
@@ -27,16 +25,43 @@ export const Navbar = () => {
       <IsLoggedIn />
       </div>
 
-      <div className="col-start-3 col-end-5  flex justify-center">
+      {/* == NAVBAR LINKS FOR DESKTOP AND TABLETS */}
+      <ul className={styles.navLinksUl}>
+        <li>
+          <Link href='#'>
+          <a> Home </a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href='#'>
+          <a> Search </a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href='#'>
+          <a> Buy </a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href='#'>
+          <a> Rent </a>
+          </Link>
+        </li>
+      </ul>
+
+      {/* === HEADER */}
+      <div className="flex justify-center">
       <Link href="/">
         <a className=" text-sky-600 text-xl col-start-3 col-end-5 font-extrabold">Real Estate</a>
       </Link>
       </div>
 
-     <div className=" col-start-5 col-end-7 flex justify-end">
-      {/* ======= */}
 
-
+    {/* ==== SIDEBAR/MENU ICON  */}
+     <div className="flex justify-end">
      <div className={` transition hover:scale-125 cursor-pointer
       p-2`}
         onClick={() => dispatch({type:"SIDEBAR_TOGGLE"})}

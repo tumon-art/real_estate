@@ -1,39 +1,21 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName, imageUrl }) => (
+import houseImg from '../assets/images/real3.webp'
+import { Navbar } from "./Navbar"
 
-    <div className=" block sm:flex items-center justify-center my-10 gap-5 relative">
+const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName }) => (
+    <div className=" w-full relative"> 
+        
 
-        <Image src={imageUrl} width={500} height={300} alt='img' />
-
-        <section className=" bottom-[10%] sm:static text-white absolute ml-2 sm:ml-0 ">
-
-            <h4 className="  bg-zinc-200 sm:bg-transparent text-zinc-800 bg-opacity-60 mb-5 sm:mb-0 sm:text-zinc-600 sm:text-base sm:font-normal font-extrabold text-2xl">
-                {purpose}
-            </h4>
-
-            <h1 className="  hidden sm:block sm:text-zinc-800 text-xl sm:text-2xl font-bold ">
-                {title1} <br /> {title2}
-            </h1>
-
-            <p className="  hidden sm:block text-zinc-800 my-3 sm:text-lg text-md md:w-2/3 ">
-                {desc1} {desc2}
-            </p>
-
-            <button className=" group text-cyan-50  relative text-md sm:text-xl font-bold bg-sky-600 cursor-pointer
-            transition-color py-1 px-2 ">
-                <Link href={linkName} >
-                    <a>
-                        {buttonText}
-                    </a>
-                </Link>
-
-                {/* === BEFORE */}
-                <div className=" transition-all duration-500 group-hover:bg-sky-800 bottom-[-2px] group-hover:w-full absolute h-1 w-0 left-0 " />
-
-            </button>
-        </section>
+    <div className="block w-full h-[400px] relative items-center justify-center gap-5">
+        <div className=" w-full absolute z-10">
+            <Navbar />
+        </div>
+        <Image src={houseImg} width={600} height={200} alt='img' 
+        layout='fill'
+         className=" object-cover w-full" />
+    </div>
 
     </div>
 

@@ -1,14 +1,47 @@
+@import '../styles/screen';
 .NavbarMain {
     display: grid;
-    grid-template-columns: repeat(6,1fr);
-
+    grid-template-columns: repeat(3,1fr);
+    align-content: center;
     
+    @include devices(desktop) {
+        height: 60px;
+    }
 }
 
 .gridIsLoggedIn{
     display: flex;
     justify-content: flex-start;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    
+    padding-left: 0.5em;
+    align-items: center;
+
+    @include devices(tablet) {
+        display: none;
+    }
+}
+
+.navLinksUl {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5em;
+
+    @include devices(tablet) {
+        display: flex;
+    }
+
+    li{
+        
+        @include devices(tablet) {
+            padding: 0 0.5em;
+        }
+
+        @include devices(desktop) {
+            padding: 0 1.5em;
+        }
+
+        &:hover {
+            color: rgb(6, 80, 109);
+        }
+    }
 }

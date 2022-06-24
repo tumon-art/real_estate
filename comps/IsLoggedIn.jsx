@@ -6,19 +6,18 @@ export const IsLoggedIn = () => {
 
 
     if(session) {
-      return <>
+      return <div>
         {/* Signed in as {session.user.email} <br/> */}
-        <button className=" bg-zinc-400 border-b-2 
+        <button className=" bg-zinc-400
         hover:bg-sky-500 transition duration-400 
-        border-gray-600 text-white px-2 pb-[3px]"
+        border-gray-600 text-white px-2 font-Yellowtail"
         onClick={() => signOut()}>Sign out</button>
-      </>
+      </div>
     }
-    return <>
-      Not signed in <br/>
-      <button className=" bg-zinc-400 border-b-2 
+    return <div>
+      <button className=" bg-zinc-400
       hover:bg-sky-500 transition duration-400 
-      border-gray-600 text-white px-2 pb-[3px]"
+      border-gray-600 text-white px-2 font-Yellowtail"
       onClick={() => signIn()}>Sign in</button>
-    </>
+    </div>
   }
