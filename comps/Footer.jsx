@@ -1,9 +1,8 @@
-import footerSvg from '../assets/images/footer-art.svg'
 
 export const Footer = () => (
   <>
   <div className=" text-zinc-700 text-center">
-    © 2021 Real Estate, Inc.
+    © 2022 Real Estate, Inc.
   </div>
 
  <svg className="footer-image" viewBox="0 0 1200 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

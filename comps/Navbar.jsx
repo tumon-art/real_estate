@@ -1,15 +1,17 @@
 import Link from "next/link";
+import Image from 'next/image'
 import { FcMenu } from "react-icons/fc";
 import styles from './Navbar.module.scss'
 import Sidebar from "./Sidebar";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UC } from '../context/UC'
 import { IsLoggedIn } from "./IsLoggedIn";
+import Fav from './Fav'
 
 export const Navbar = () => {
 
-  const {dispatch,sidebar} = useContext(UC)
-     
+  const {dispatch,sidebar,favClick} = useContext(UC)
+
   useEffect(()=>{
      // HIDE SCROLBAR
      if (sidebar === true) {
@@ -17,8 +19,38 @@ export const Navbar = () => {
     } else document.getElementsByTagName("BODY")[0].style.overflow = "auto";
   },[sidebar])
 
+
   return (
-    <div className={`${styles.NavbarMain} font-FiraMono  relative`}>
+    <div className={`${styles.NavbarMain} font-FiraMono relative`}>
+
+       {/* === show Fav item   */}
+      <div className={` hidden sm:block
+      ${styles.favPopup} ${favClick? styles.favPopup__show : styles.favPopup__hide}
+      `}>
+
+        <div className=" flex flex-col gap-2 pl-2 overflow-hidden">
+        { localStorage.fav && JSON.parse(localStorage.fav)?.map((e,i)=>(
+          <div className=" hover:scale-110 transition-transform bg-sky-400 shadow-md
+           border-b-4 border-sky-500 py-1 flex justify-around items-center " key={i}>
+
+            <svg className="h-6 w-6 text-sky-700 hover:text-zinc-100 cursor-pointer 
+            transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 
+            2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+
+            <div className=" h-10 w-10 ">
+            <Image className=" object-cover rounded-full" quality='15'
+            src={e.coverPhoto.url} layout='responsive' width='3' height='3'
+            alt='avater' loading="lazy" 
+            />
+            </div>
+
+            </div>
+        ))}
+
+        </div>
+      </div>
 
     {/* ==== SIDEBAR/MENU ICON  */}
     <div className="flex sm:hidden">
@@ -81,10 +113,13 @@ export const Navbar = () => {
         </div>
       </div>
 
-         <div className={styles.gridIsLoggedIn}>
-         <div className="justify-end">
+         <div className={styles.FanAndIsLoggedIn}>
+
+         <div className={styles.flex}>
+        <Fav />
          <IsLoggedIn />
          </div>
+
          </div>
 
       {/* === POP-UP MENU  */}

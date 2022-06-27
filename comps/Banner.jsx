@@ -12,7 +12,7 @@ const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName })
         <div className=" w-full absolute z-10">
             <Navbar />
         </div>
-        <Image src={houseImg} width={200} height={200} alt='img' 
+        <Image src={houseImg} alt='img' 
         layout='fill'
          className=" object-cover w-full" />
     </div>
