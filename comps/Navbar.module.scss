@@ -13,6 +13,10 @@
     align-items: center;
     justify-content: flex-end;
     float: right;
+    margin: 0 0em;
+    @include devices(desktop) {
+        margin: 0 1em;
+    }    
 
 }
 
@@ -23,7 +27,6 @@
     color: white;
     transition: 0.4s;
     gap: 2em;
-    padding: 0 1em;
 }
 .navLinksUl {
     display: none;

@@ -2,8 +2,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 export const IsLoggedIn = () => {
     const { data: session } = useSession()
-
-
+    
     if(session) {
       return <div>
         {/* Signed in as {session.user.email} <br/> */}

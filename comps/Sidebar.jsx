@@ -8,7 +8,7 @@ import Link from "next/link";
 import { CgClose } from 'react-icons/cg'
 
 const Sidebar = () => {
-
+ 
   const { dispatch, sidebar } = useContext(UC)
   return (
       <nav 

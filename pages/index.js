@@ -61,13 +61,13 @@ export default function Home() {
       />
 
       {/* === PROPERTY MAP */}
-      <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 my-10
+      <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-20 my-10
         ">
         {data[0].hits.slice(1, 7).map((property) => <Property property={property} key={property.id} />)}
       </div>
 
       {/* === PROPERTY MAP */}
-      <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 my-10
+      <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-20 my-10
          ">
         {data[1].hits.slice(0, 6).map((property) => <Property property={property} key={property.id} />)}
       </div>

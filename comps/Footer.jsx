@@ -1,14 +1,14 @@
 
 export const Footer = () => (
-  <>
+  <div className=" mt-10">
   <div className=" text-zinc-700 text-center">
     © 2022 Real Estate, Inc.
   </div>
 
- <svg className="footer-image" viewBox="0 0 1200 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <svg className="footer-image" viewBox="0 0 1200 160" xmlns aria-hidden="true">
 
 <path className="cls-1" d="M98 143c4-3 9 7 9 7s-7-15 0-16c2 0 5 6 6 13 0-6 2-11 4-11 6-1 2 15 2 15l-1 9h-10s-14-1
-4-10-17z"/><path d="M815 151h1a20 20 0 0 0 6-11c2-4 2-9-1-14-7-13-23-6-29 
+4-10-17z"/><path className="cls-3" d="M815 151h1a20 20 0 0 0 6-11c2-4 2-9-1-14-7-13-23-6-29 
 1a16 16 0 0 0-3 15 19 19 0 0 0 14 12 17 17 0 0 0 12-3z"/>
 <path className="cls-1" d="M806 131h1v29h-1z"/>
 <path className="cls-3" d="M508 149c-1-1-4-1-5 1a7 7 0 0 0-1 3c0-3-1-12-5-12-3 0-3
@@ -32,7 +32,7 @@ export const Footer = () => (
   19h13v26h-13zm26 0h14v26h-14zm-26 33h13v27h-13zm26 0h14v27h-14zm-26 33h13v26h-13zm26 0h14v2
   6h-14zm30-66h14v26h-14zm0 33h14v27h-14zm0 33h14v26h-14z"/><path className="cls-1" d="M883 
   144h32v16h-32z"/><path className="cls-6" d="M904 127c6 0 11 6 11 13v4h-30v-17z"/><path className="cls-7" d="M885 12
-  7a13 13 0 0 0-12 13v4h25v-4a13 13 0 0 0-13-13zM848 0h103v9H848z"/><path d="M951 0h23v
+  7a13 13 0 0 0-12 13v4h25v-4a13 13 0 0 0-13-13zM848 0h103v9H848z"/><path className="cls-5" d="M951 0h23v
   9h-23z"/><path className="cls-4" d="M1014 87h5
   9v73h-59z"/><path className="cls-1" d="M1073 87h2
   7v73h-27z"/><path className="cls-4" d="M1082 118h32v42h-3
@@ -84,5 +84,5 @@ export const Footer = () => (
      1-1-4-1-5 1a7 7 0 0 0-1 3c0-3-1-12-5-12-3 0-3 8-3 12-2-4-3-6-5-6-6 0 1 13 1 13h14l2-3a19 19 0 
      0 0 2-4 5 5 0 0 0 0-2 3 3 0 0 0 0-2zm-219-6c-2-3-5-2-7 0a13 13 0 0 0-2 6c0-6 0-20-6-20-5 0-5 14
      -5 20-1-7-4-10-7-10-8 1 2 21 2 21h20l3-5a34 34 0 0 0 2-6 10 10 0 0 0 0-4 6 6 0 0 0 0-2z"/></svg> 
-  </>
+  </div>
 );

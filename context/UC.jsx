@@ -59,17 +59,17 @@ const Provider = ({ children }) => {
     }
 
 
-useEffect(()=>{
+// useEffect(()=>{
 
-    if(localStorage.fav) {
-      dispatch({
-        type:"ADD_FAV",
-        paylod:JSON.parse(localStorage.fav)
-      })
-    }
+//     if(localStorage.fav) {
+//       dispatch({
+//         type:"ADD_FAV",
+//         paylod:JSON.parse(localStorage.fav)
+//       })
+//     }
 
 
-})
+// })
 
   return (
     <>
