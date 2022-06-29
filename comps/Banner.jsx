@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import styles from "./Banner.module.scss"
 
 import houseImg from '../assets/images/real3.webp'
 import { Navbar } from "./Navbar"
@@ -14,7 +15,7 @@ const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName })
         </div>
         <Image src={houseImg} alt='img' 
         layout='fill'
-         className=" object-cover w-full" />
+        className={styles.BannerImg} />
     </div>
 
     </div>

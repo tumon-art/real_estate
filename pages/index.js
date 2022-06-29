@@ -1,15 +1,13 @@
-import { data } from "autoprefixer"
-import Image from "next/image"
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import Banner from "../comps/Banner"
-import Property from "../comps/Property"
+import { data } from "autoprefixer";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import Banner from "../comps/Banner";
+import Property from "../comps/Property";
 
+import { baseUrl, fetchApi } from "../utils/fetchData";
 
-import { baseUrl, fetchApi } from "../utils/fetchData"
-
-
-// GET STATIC PROPS 
+// GET STATIC PROPS
 // export async function getStaticProps() {
 
 //   const propertyForSale = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`)
@@ -23,17 +21,15 @@ import { baseUrl, fetchApi } from "../utils/fetchData"
 //   }
 // }
 
-
 // { propertyForSale, propertyForRent }
 export default function Home() {
-  
-  const [data,setdata] = useState()
+  const [data, setdata] = useState();
 
   // === GET DATA FROM LOCAL STORAE
-  useEffect(()=>{
-    const getData = localStorage.getItem('data')
-    setdata(JSON.parse(getData))
-  },[])
+  useEffect(() => {
+    const getData = localStorage.getItem("data");
+    setdata(JSON.parse(getData));
+  }, []);
 
   // === FETCH DATA TO SAVE IN LOCAL STORAGE
   // useEffect(()=>{
@@ -42,38 +38,62 @@ export default function Home() {
   //     const propertyForRent = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=25&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`)
   //     localStorage.setItem('data', JSON.stringify([propertyForRent,propertyForSale]))
   //   })()
-    
+
   // },[])
-  
 
+  // FOR SALE OR RENT
+  const ForWhat = ({ text }) => (
+    <h2
+      className=" self-start mx-10 text-xl font-extrabold 
+  text-sky-500 border-b-4 border-sky-400 my-5 ring-1 px-4 rounded-sm"
+    >
+      {text}
+    </h2>
+  );
 
-
-  if(data) {
+  if (data) {
     return (
-    <div className=" flex flex-col items-center ">
-      <Banner purpose='RENT A HOME'
-        title1='Rental Homes for'
-        title2='Everyone'
-        desc1=' Explore from Apartments, builder floors, villas'
-        desc2='and more'
-        buttonText='Explore Renting'
-        linkName='/search?purpose=for-rent'
-      />
+      <div className=" flex flex-col items-center ">
+        <Banner
+          purpose="RENT A HOME"
+          title1="Rental Homes for"
+          title2="Everyone"
+          desc1=" Explore from Apartments, builder floors, villas"
+          desc2="and more"
+          buttonText="Explore Renting"
+          linkName="/search?purpose=for-rent"
+        />
 
-      {/* === PROPERTY MAP */}
-      <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-20 my-10
-        ">
-        {data[0].hits.slice(1, 7).map((property) => <Property property={property} key={property.id} />)}
+        <h1
+          className=" text-4xl my-10 font-extrabold animate-pulse font-FiraMono 
+        text-sky-800 border-l-8 border-sky-900 px-8"
+        >
+          Explore homes with us ...
+        </h1>
+
+        <ForWhat text="For Rent" />
+        {/* === PROPERTY MAP */}
+        <div
+          className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10
+        "
+        >
+          {data[0].hits.slice(1, 7).map((property) => (
+            <Property property={property} key={property.id} />
+          ))}
+        </div>
+
+        <ForWhat text="For Sell" />
+        {/* === PROPERTY MAP */}
+        <div
+          className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10
+         "
+        >
+          {data[1].hits.slice(0, 6).map((property) => (
+            <Property property={property} key={property.id} />
+          ))}
+        </div>
       </div>
-
-      {/* === PROPERTY MAP */}
-      <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-20 my-10
-         ">
-        {data[1].hits.slice(0, 6).map((property) => <Property property={property} key={property.id} />)}
-      </div>
-
-    </div>
-  )
+    );
   }
   // return (
   //   <div className=" flex flex-col items-center  md:mx-20">
