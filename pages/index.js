@@ -41,6 +41,7 @@ export default function Home() {
 
   // },[])
 
+
   // FOR SALE OR RENT
   const ForWhat = ({ text }) => (
     <h2

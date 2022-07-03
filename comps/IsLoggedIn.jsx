@@ -1,22 +1,32 @@
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signIn, signOut } from "next-auth/react";
+import styles from "./IsLoggedIn.module.scss";
 
 export const IsLoggedIn = () => {
-    const { data: session } = useSession()
-    
-    if(session) {
-      return <div>
+  const { data: session } = useSession();
+  if (session) {
+    return (
+      <div>
         {/* Signed in as {session.user.email} <br/> */}
-        <button className=" font-FiraMono
-        hover:bg-sky-700 transition duration-400 
-         text-white sm:text-black px-2 "
-        onClick={() => signOut()}>Sign out</button>
-      </div>
-    }
-    return <div>
-      <button className=" font-FiraMono 
 
-     hover:underline transition duration-400
-      text-white sm:text-sky-800 px-2"
-      onClick={() => signIn()}>Sign in</button>
-    </div>
+        <button className={styles.btnZ} onClick={() => signOut()}>
+          Sign Out
+          <span className={styles.top}></span>
+          <span className={styles.right}></span>
+          <span className={styles.left}></span>
+          <span className={styles.bottom}></span>
+        </button>
+      </div>
+    );
   }
+  return (
+    <div>
+      <button className={styles.btnZ} onClick={() => signIn()}>
+        Sign in
+        <span className={styles.top}></span>
+        <span className={styles.right}></span>
+        <span className={styles.left}></span>
+        <span className={styles.bottom}></span>
+      </button>
+    </div>
+  );
+};

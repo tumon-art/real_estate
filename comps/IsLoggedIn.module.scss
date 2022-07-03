@@ -1,0 +1,111 @@
+.btnZ {
+	border: 0 solid;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-appearance: button;
+	background-image: none;
+	color: rgb(44, 152, 214);
+	cursor: pointer;
+	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	font-size: 100%;
+	line-height: 1.5;
+	margin: 0;
+	-webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+	padding: 0;
+	--neon: #0ea5e9;
+	box-sizing: border-box;
+	display: block;
+	font-weight: 600;
+	-webkit-mask-image: none;
+	outline: 4px solid rgb(255, 255, 255);
+	outline-offset: -4px;
+	overflow: hidden;
+	padding: 0.2rem 1rem;
+	position: relative;
+	transition: 0.2s linear 0.1s;
+	* {
+		border: 0 solid;
+		box-sizing: border-box;
+	}
+	&:after {
+		border: 0 solid;
+		border: 0 solid;
+		box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	&:before {
+		border: 0 solid;
+		border: 0 solid;
+		box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	&:disabled {
+		cursor: default;
+	}
+	&:-moz-focusring {
+		outline: auto;
+	}
+	svg {
+		display: block;
+		vertical-align: middle;
+	}
+	[hidden] {
+		display: none;
+	}
+	&:hover {
+		background: var(--neon);
+		box-shadow: 0 0 5px var(--neon), 0 0 25px var(--neon), 0 0 50px var(--neon), 0 0 100px var(--neon);
+		color: #fff;
+		outline-color: rgb(62, 150, 221);
+		transition: 0.2s linear 0.5s;
+		.top {
+			--progress: 100%;
+			opacity: 1;
+			transition: transform 0.2s linear;
+		}
+		.right {
+			--progress: 100%;
+			opacity: 1;
+			transition: transform 0.2s linear 0.2s;
+		}
+		.bottom {
+			--progress: 100%;
+			opacity: 1;
+			transition: transform 0.2s linear 0.4s;
+		}
+		.left {
+			--progress: 100%;
+			opacity: 1;
+			transition: transform 0.2s linear 0.6s;
+		}
+	}
+	span {
+		display: block;
+		inset: 0;
+		position: absolute;
+	}
+	.top {
+		border-top: 4px solid var(--neon);
+		opacity: 0; 
+		transform: translateX(calc(-100% + var(--progress, 0%)));
+		transition: none;
+	}
+	.right {
+		border-right: 4px solid var(--neon);
+		opacity: 0;
+		transform: translateY(calc(-100% + var(--progress, 0%)));
+		transition: none;
+	}
+	.bottom {
+		border-bottom: 4px solid var(--neon);
+		opacity: 0;
+		transform: translateX(calc(100% - var(--progress, 0%)));
+		transition: none;
+	}
+	.left {
+		border-left: 4px solid var(--neon);
+		opacity: 0;
+		transform: translateY(calc(100% - var(--progress, 0%)));
+		transition: none;
+	}
+}
