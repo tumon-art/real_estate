@@ -1,9 +1,8 @@
 import Image from "next/image"
-import Link from "next/link"
 import styles from "./Banner.module.scss"
 
-import houseImg from '../assets/images/real3.webp'
-import { Navbar } from "./Navbar"
+import houseImg from '../../../assets/images/real3.webp'
+import { Navbar } from "../Navber/Navbar"
 
 const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName }) => (
     <div className=" w-full relative"> 

@@ -1,16 +1,15 @@
 import Link from "next/link";
-import Image from 'next/image'
-import { FcMenu } from "react-icons/fc";
 import styles from './Navbar.module.scss'
-import Sidebar from "./Sidebar";
-import { useContext, useEffect, useState } from "react";
-import { UC } from '../context/UC'
-import { IsLoggedIn } from "./IsLoggedIn";
-import Fav from './Fav'
+import Sidebar from "../../Sidebar";
+import { useContext, useEffect } from "react";
+import { UC } from '../../../context/UC'
+import { IsLoggedIn } from "../../IsLoggedIn";
+import Fav from '../../Fav'
+import Btn from "../Btn/Btn";
 
 export const Navbar = () => {
 
-  const {dispatch,sidebar,favClick} = useContext(UC)
+  const {dispatch,sidebar} = useContext(UC)
 
   useEffect(()=>{
      // HIDE SCROLBAR
@@ -19,7 +18,7 @@ export const Navbar = () => {
     } else document.getElementsByTagName("BODY")[0].style.overflow = "auto";
   },[sidebar])
 
-  
+  console.log('navbar')
 
   return (
     <div className={`${styles.NavbarMain} font-FiraMono relative`}>
@@ -47,25 +46,25 @@ export const Navbar = () => {
       <ul className={`${styles.navLinksUl} ` }>
         <li>
           <Link href='#'>
-          <a> Home </a>
+          <Btn text={"Home"} />
           </Link>
         </li>
 
         <li>
           <Link href='#'>
-          <a> Search </a>
+          <Btn text={"Search"} />
           </Link>
         </li>
 
         <li>
           <Link href='#'>
-          <a> Buy </a>
+          <Btn text={"Buy"} />
           </Link>
         </li>
 
         <li>
           <Link href='#'>
-          <a> Rent </a>
+          <Btn text={"Rent"} />
           </Link>
         </li>
       </ul>

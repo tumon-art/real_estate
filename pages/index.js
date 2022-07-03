@@ -2,7 +2,7 @@ import { data } from "autoprefixer";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Banner from "../comps/Banner";
+import Banner from "../comps/dls/Banner/Banner";
 import Property from "../comps/Property";
 
 import { baseUrl, fetchApi } from "../utils/fetchData";
@@ -45,8 +45,8 @@ export default function Home() {
   // FOR SALE OR RENT
   const ForWhat = ({ text }) => (
     <h2
-      className=" self-start mx-10 text-xl font-extrabold 
-  text-sky-500 border-b-4 border-sky-400 my-5 ring-1 px-4 rounded-sm"
+      className=" self-start mx-1 sm:mx-10 text-xl font-extrabold 
+  text-sky-500 border-b-4 border-sky-400 my-1 sm:my-5 ring-1 px-4 rounded-sm"
     >
       {text}
     </h2>
@@ -66,8 +66,8 @@ export default function Home() {
         />
 
         <h1
-          className=" text-4xl my-10 font-extrabold animate-pulse font-FiraMono 
-        text-sky-800 border-l-8 border-sky-900 px-8"
+          className=" text-lg sm:text-4xl my-5 sm:my-10 font-extrabold animate-pulse font-FiraMono 
+        text-sky-600 border-l-8 border-sky-200 px-8"
         >
           Explore homes with us ...
         </h1>

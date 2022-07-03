@@ -1,4 +1,4 @@
-@import '../styles/screen';
+@import '../../../styles/screen';
 .NavbarMain {
     display: flex;
     justify-content: space-between;
@@ -32,7 +32,6 @@
     display: none;
     justify-content: center;
     align-items: center;
-    margin: 0 0em 0 0.5em;
     grid-column: auto;
     
     @include devices(mobile) {
@@ -45,20 +44,19 @@
 
         &:hover {
             transition: 0.5s;
-            text-decoration: underline;
         }
 
-        @include devices(mobile) {
-            padding: 0 0.5rem;
-        }
+        // @include devices(mobile) {
+        //     padding: 0 0.5rem;
+        // }
 
-        @include devices(tablet) {
-            padding: 0 1rem;
-        }
+        // @include devices(tablet) {
+        //     padding: 0 1rem;
+        // }
         
-        @include devices(desktop) {
-            padding: 0 2rem;
-        }
+        // @include devices(desktop) {
+        //     padding: 0 2rem;
+        // }
 
     }
 
