@@ -6,8 +6,7 @@ import { Footer } from "./Footer"
 
 const Layout = ({children}) => {
   const router = useRouter()
-  console.log(router)
-  
+ 
   useEffect(()=>{
     const next =  document.getElementById("__next");
     const nav = document.getElementById('navbar');
@@ -15,7 +14,8 @@ const Layout = ({children}) => {
       next.style.position='reletive'
       nav.style.position='absolute'
     } else  nav.style.position='relative'
-  },[])
+  },[router.asPath])
+
   return (
    <>
     <Head>
