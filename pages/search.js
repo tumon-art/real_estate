@@ -12,7 +12,6 @@ import noresult from '../assets/images/noresult.svg'
 import { baseUrl, fetchApi } from "../utils/fetchData";
 
 export default function Search({ properties }) {
-
     const [searchFilters,setsearchFilters] = useState(false);
 
     // ROUTER

@@ -18,10 +18,9 @@ export const Navbar = () => {
     } else document.getElementsByTagName("BODY")[0].style.overflow = "auto";
   },[sidebar])
 
-  console.log('navbar')
 
   return (
-    <div className={`${styles.NavbarMain} font-FiraMono relative`}>
+    <div className={`${styles.NavbarMain} font-FiraMono`} id='navbar'>
 
 
     {/* ==== SIDEBAR/MENU ICON  */}

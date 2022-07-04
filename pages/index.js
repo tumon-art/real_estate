@@ -29,6 +29,7 @@ export default function Home() {
   useEffect(() => {
     const getData = localStorage.getItem("data");
     setdata(JSON.parse(getData));
+
   }, []);
 
   // === FETCH DATA TO SAVE IN LOCAL STORAGE

@@ -2,5 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+#__next {
+position: relative;
+}
 .cls-1{fill:#0471a3}.cls-3{fill:#f2af34}.cls-4{fill:#45b6f8}.cls-5{fill:#c1edfe}.cls-6{fill:#fff}
 .cls-7{fill:#bfecff}.cls-9{fill:#c1e8fa}.cls-10{fill:#6394e4}.cls-11{fill:#c0e7fa}

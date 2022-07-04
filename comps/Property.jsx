@@ -72,11 +72,12 @@ const Property = ({ property }) => {
         text-gray-300 absolute h-10 w-10 
         ${hoverFunc} 
         ${
-          localStorage.fav &&
+          global.localStorage &&
           JSON.parse(localStorage.fav).filter((e) => e.id == property.id)
             .length >= 1 &&
           " fill-red-600"
-        }`}
+        }`
+      }
           viewBox="0 0 24 24"
           stroke="currentColor"
           strokeWidth={2}
