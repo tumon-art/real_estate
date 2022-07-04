@@ -71,10 +71,7 @@ const Property = ({ property }) => {
           className={` transition duration-300 right-4 fill-transparent bottom-[100px]  
         text-gray-300 absolute h-10 w-10 
         ${hoverFunc} 
-        ${
-          global.localStorage &&
-          JSON.parse(localStorage.fav).filter((e) => e.id == property.id)
-            .length >= 1 &&
+        ${global.localStorage && JSON.parse(localStorage.fav).filter((e) => e.id == property.id).length >= 1 &&
           " fill-red-600"
         }`
       }
@@ -82,7 +79,7 @@ const Property = ({ property }) => {
           stroke="currentColor"
           strokeWidth={2}
           onClick={() => favHandle(property.id)}
-          onMouseOver={() => hoverin("fill-sky-400 ")}
+          onMouseOver={() => hoverin("fill-red-600")}
           onMouseLeave={() => hoverin("fill-transparent ")}
         >
           <path

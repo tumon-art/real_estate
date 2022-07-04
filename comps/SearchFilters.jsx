@@ -10,14 +10,19 @@ export const SearchFilters = () => {
   const searchProperties = (filterValues) => {
   };
   return (
-   <div className=" flex text-black">
+   <div className=" flex flex-wrap justify-center sm:px-10 py-2 text-zinc-500">
     {filters.map((filter)=>( 
-      <div key={filter.queryName}> {console.log(filter)}
-        <select className=" w-fit  p-1"
-                value={filter.placeholder}
-        onChange={( e => searchProperties({[filter.queryName] : e.target.value}))}
-        >
-        </select>
+      <div key={filter.queryName}>
+       <select className=" text-sm p-1 m-1 "
+      defaultValue=''>
+        <option disabled value=''> {filter.placeholder} </option>
+        {filter?.items?.map((item) => (
+              <option className=" text-gray-900" 
+              value={item.value} key={item.value}>
+                {item.name}
+              </option>
+            ))}
+      </select>
       </div>
     ))}
    </div>
