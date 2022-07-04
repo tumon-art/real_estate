@@ -27,7 +27,7 @@ export const Navbar = () => {
           onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
         >
           <svg
-            className=" h-5 w-5 text-white"
+            className=" h-5 w-5 text-sky-600"
             strokeWidth="1.5"
             stroke="currentColor"
           >
@@ -91,7 +91,7 @@ export const Navbar = () => {
             <path d="M13 21v-9a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v3" />
           </svg>
           <Link href="/">
-            <a className=" text-white sm:text-sky-600 text-xl col-start-3 col-end-5 font-extrabold">
+            <a className="text-sky-600 text-xl col-start-3 col-end-5 font-extrabold">
               Real Estate
             </a>
           </Link>

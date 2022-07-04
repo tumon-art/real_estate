@@ -33,13 +33,14 @@ export default function Search({ properties }) {
       {/* === SEARCH FILTER COMP */}
       {searchFilters && <SearchFilters />}
       <p className=" flex items-center text-xl text-sky-600 ml-4 mt-2 font-extrabold  ">
-        <span className=" flex gap-2 items-center border-b-4 py-2 px-4">
+        <span className=" flex gap-2 items-center border-b-8 border-t-2 sm:my-4
+        border-l-2 border-r-2 border-sky-500 rounded-md px-1 sm:py-2 sm:px-4">
           <MdSell /> Properties {router.query.purpose}
         </span>
       </p>
 
       {/* === SHOW PROPERTIES */}
-      <div className=" grid sm:grid-cols-2 sm:mx-20 my-10 md:grid-cols-3 justify-center gap-8 ">
+      <div className=" grid sm:grid-cols-2 sm:mx-20 my-2 sm:my-10 md:grid-cols-3 justify-center gap-8 ">
         {properties.slice(0, 9).map((property) => (
           <Property property={property} key={property.id} />
         ))}

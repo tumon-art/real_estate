@@ -10,11 +10,7 @@ const Layout = ({children}) => {
   useEffect(()=>{
     const next =  document.getElementById("__next");
     const nav = document.getElementById('navbar');
-    if(router.asPath === '/') {
-      next.style.position='reletive'
-      nav.style.position='absolute'
-    } else  nav.style.position='relative'
-  },[router.asPath])
+  },[])
 
   return (
    <>

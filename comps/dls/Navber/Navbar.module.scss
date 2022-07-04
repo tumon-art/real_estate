@@ -4,9 +4,10 @@
     z-index: 333;
     width: 100%;
     justify-content: space-between;
+    background-color: rgb(255, 255, 255);
     @include devices(mobile) {
         height: 60px;
-        background-color: rgb(255, 255, 255);
+
     }
 }
 
@@ -70,23 +71,4 @@
     top: 50%;
     z-index: 334;
     transform: translate(-50%,-50%);
-}
-
-.favPopup {
-    position: absolute;
-    width: 200px;
-    right: 0;
-    transition: 0.3s ease-out ;
-    background-color: rgba(233, 235, 236, 0.986);
-    z-index: -2;
-    overflow: auto;
-
-    &__show{
-        height: 340px;
-        margin-top: 60px;
-        
-    }
-    &__hide {
-        height: 0px;
-    }
 }
