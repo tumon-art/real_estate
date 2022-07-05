@@ -11,7 +11,7 @@ import noresult from "../assets/images/noresult.svg";
 
 import { baseUrl, fetchApi } from "../utils/fetchData";
 
-export default function Search({ properties }) {
+export default function Search({ properties }:any) {
   const [searchFilters, setsearchFilters] = useState(false);
   // ROUTER
   const router = useRouter();
@@ -41,7 +41,7 @@ export default function Search({ properties }) {
 
       {/* === SHOW PROPERTIES */}
       <div className=" grid sm:grid-cols-2 sm:mx-20 my-2 sm:my-10 md:grid-cols-3 justify-center gap-8 ">
-        {properties.slice(0, 9).map((property) => (
+        {properties.slice(0, 9).map((property:any) => (
           <Property property={property} key={property.id} />
         ))}
       </div>
@@ -62,7 +62,7 @@ export default function Search({ properties }) {
   );
 }
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ query }:any) {
   const purpose = query.purpose || "for-rent";
   const rentFrequency = query.rentFrequency || "yearly";
   const minPrice = query.minPrice || "0";

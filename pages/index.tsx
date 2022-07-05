@@ -1,6 +1,6 @@
-import { data } from "autoprefixer";
-import Image from "next/image";
-import Link from "next/link";
+// import { data } from "autoprefixer";
+// import Image from "next/image";
+// import Link from "next/link";
 import { useEffect, useState } from "react";
 import Banner from "../comps/dls/Banner/Banner";
 import Property from "../comps/Property";
@@ -23,11 +23,11 @@ import { baseUrl, fetchApi } from "../utils/fetchData";
 
 // { propertyForSale, propertyForRent }
 export default function Home() {
-  const [data, setdata] = useState();
+  const [data, setdata] = useState<any>();
 
   // === GET DATA FROM LOCAL STORAE
   useEffect(() => {
-    const getData = localStorage.getItem("data");
+    const getData : any = localStorage.getItem("data");
     setdata(JSON.parse(getData));
 
   }, []);
@@ -44,7 +44,7 @@ export default function Home() {
 
 
   // FOR SALE OR RENT
-  const ForWhat = ({ text }) => (
+  const ForWhat = ({ text }:{text :string}) => (
     <h2
       className=" self-start mx-1 sm:mx-10 text-xl font-extrabold 
   text-sky-500 border-b-4 border-sky-400 my-1 sm:my-5 ring-1 px-4 rounded-sm"
@@ -79,7 +79,7 @@ export default function Home() {
           className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10
         "
         >
-          {data[0].hits.slice(1, 7).map((property) => (
+          {data[0].hits.slice(1, 7).map((property:any) => (
             <Property property={property} key={property.id} />
           ))}
         </div>
@@ -90,7 +90,7 @@ export default function Home() {
           className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10
          "
         >
-          {data[1].hits.slice(0, 6).map((property) => (
+          {data[1].hits.slice(0, 6).map((property:any) => (
             <Property property={property} key={property.id} />
           ))}
         </div>

@@ -4,7 +4,7 @@ import styles from "./Banner.module.scss"
 
 import houseImg from '../../../assets/images/real3.webp'
 
-const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName }) => (
+const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName }:any) => (
     <div className=" w-full relative"> 
         
     <div className="block w-full h-[300px] sm:h-[400px] relative items-center justify-center gap-5">

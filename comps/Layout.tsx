@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { Navbar } from "./dls/Navber/Navbar"
 import { Footer } from "./Footer"
 
-const Layout = ({children}) => {
+const Layout = ({children}:any) => {
   const router = useRouter()
  
   useEffect(()=>{

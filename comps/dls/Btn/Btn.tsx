@@ -1,6 +1,6 @@
 import styles from './Btn.module.scss'
 
-const Btn = ({text}) => {
+const Btn = ({text}:{text:string}) => {
   return (
    <div className={styles.btnZ}>
           {text}

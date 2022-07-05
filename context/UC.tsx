@@ -7,7 +7,7 @@ const initialState = {
   favClick:false,
 };
 
-const Reducer = (state, action) => {
+const Reducer = (state:any, action:any) => {
   switch (action.type) {
     case "LOG_IN":
         return {
@@ -42,14 +42,14 @@ const Reducer = (state, action) => {
       return state;
   }
 };
+export const UC = React.createContext<any>(null);
 
-export const UC = React.createContext();
-const Provider = ({ children }) => {
+const Provider = ({ children }:any) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
 
 
   
-    const addFav = (property) => {
+    const addFav = (property:any) => {
     if(localStorage.fav) {
       localStorage.setItem('fav',JSON.stringify([...JSON.parse(localStorage.fav),property]))
     } else {

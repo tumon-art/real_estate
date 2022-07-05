@@ -9,8 +9,8 @@ import DefaultImage from "../assets/images/house.webp";
 import { useContext, useState } from "react";
 import { UC } from "../context/UC";
 
-const Property = ({ property }) => {
-  const [hoverFunc, sethoverFunc] = useState();
+const Property = ({ property }:any) => {
+  const [hoverFunc, sethoverFunc] = useState<string>();
   const { fav, dispatch, addFav } = useContext(UC);
 
   const {
@@ -26,10 +26,10 @@ const Property = ({ property }) => {
     externalID,
   } = property;
 
-  const favHandle = (id) => {
+  const favHandle = (id:string) => {
     if (localStorage.fav) {
-      if (JSON.parse(localStorage.fav).filter((e) => e.id == id).length >= 1) {
-        const filterd = JSON.parse(localStorage.fav).filter((e) => e.id !== id);
+      if (JSON.parse(localStorage.fav).filter((e:any) => e.id == id).length >= 1) {
+        const filterd = JSON.parse(localStorage.fav).filter((e:any) => e.id !== id);
         localStorage.setItem("fav", JSON.stringify(filterd));
         return;
       } else {
@@ -43,7 +43,7 @@ const Property = ({ property }) => {
       addFav(property);
     }
   };
-  const hoverin = (c) => sethoverFunc(c);
+  const hoverin = (c:string) => sethoverFunc(c);
   return (
     <div
       className=" group hover:shadow-xl shadow-zinc-200 transition-shadow
@@ -69,9 +69,9 @@ const Property = ({ property }) => {
         {/* === FAV */}
         <svg
           className={` transition duration-300 right-4 fill-transparent bottom-[100px]  
-        text-gray-300 absolute h-10 w-10 
+        text-gray-300 absolute h-10 w-10 cursor-pointer
         ${hoverFunc} 
-        ${global.localStorage && JSON.parse(localStorage.fav).filter((e) => e.id == property.id).length >= 1 &&
+        ${global.localStorage && JSON.parse(localStorage.fav).filter((e:any) => e.id == property.id).length >= 1 &&
           " fill-red-600"
         }`
       }
