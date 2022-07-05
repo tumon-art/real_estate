@@ -16,8 +16,11 @@ export const SearchFilters = () => {
 
     const values:any = getFilterValues(filterValues);
 
-    values.forEach()
+    values.forEach((item:any)=> {
+      query[item.name] = item.value
+    })
 
+    router.push({pathname: path, query})
   };
   return (
    <div className=" flex flex-wrap justify-center sm:px-10 py-2 text-zinc-500">
@@ -25,7 +28,8 @@ export const SearchFilters = () => {
     {filters.map((filter)=>( 
       <div key={filter.queryName}>
        <select className=" text-sm p-1 m-1 "
-      defaultValue=''>
+      defaultValue=''
+      onChange={(e) => searchProperties({ [filter.queryName]: e.target.value })}>
         <option disabled value=''> {filter.placeholder} </option>
 
         {filter?.items?.map((item) => (

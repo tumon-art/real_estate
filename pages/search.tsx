@@ -41,7 +41,7 @@ export default function Search({ properties }:any) {
 
       {/* === SHOW PROPERTIES */}
       <div className=" grid sm:grid-cols-2 sm:mx-20 my-2 sm:my-10 md:grid-cols-3 justify-center gap-8 ">
-        {properties.slice(0, 9).map((property:any) => (
+        {properties.map((property:any) => (
           <Property property={property} key={property.id} />
         ))}
       </div>
@@ -75,7 +75,7 @@ export async function getServerSideProps({ query }:any) {
   const categoryExternalID = query.categoryExternalID || "4";
 
   const data = await fetchApi(
-    `${baseUrl}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}&hitsPerPage=10&categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&priceMin=${minPrice}&priceMax=${maxPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}`
+    `${baseUrl}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}&hitsPerPage=18&categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&priceMin=${minPrice}&priceMax=${maxPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}`
   );
 
   return {

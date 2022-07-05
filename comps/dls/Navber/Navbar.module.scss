@@ -1,6 +1,7 @@
 @import '../../../styles/screen';
 .NavbarMain {
     display: flex;
+    position: relative;
     z-index: 333;
     width: 100%;
     justify-content: space-between;

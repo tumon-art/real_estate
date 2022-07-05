@@ -12,7 +12,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     // HIDE SCROLBAR
-    const body = document.getElementsByTagName("BODY") as HTMLCollectionOf<HTMLElement>
+    var body = document.getElementsByTagName("BODY") as HTMLCollectionOf<HTMLElement>
     if (sidebar === true) {
       body[0].style.overflow = "hidden";
     } else body[0].style.overflow = "auto";
