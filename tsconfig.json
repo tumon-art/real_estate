@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "comps/Property.tsx", "pages/_documents.js", "models/users.js"  ],
+, "comps/Property.tsx", "pages/_documents.js", "models/users.js", "utils/fetchData.ts"  ],
   "exclude": [
     "node_modules"
   ]

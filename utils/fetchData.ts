@@ -2,10 +2,10 @@
 export const baseUrl = 'https://bayut.p.rapidapi.com'
 
 
-export const fetchApi = async (url) => {
+export const fetchApi = async (url:string)=> {
     const res = await fetch((url),{ 
         method: 'GET',
-	headers: {
+	headers: <any>{
 		'X-RapidAPI-Host': 'bayut.p.rapidapi.com',
 		'X-RapidAPI-Key': process.env.NEXT_PUBLIC_X_RapidAPI_Key
 	}
