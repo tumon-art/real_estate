@@ -4,6 +4,7 @@ import Image from "next/image";
 import { BsFilter } from "react-icons/bs";
 
 import { baseUrl, fetchApi } from "../../utils/fetchData";
+import ImageScrollbar from "../../comps/dls/ImageScrollBar/ImageScrollbar";
 
 const Property = ({
   propertyDetails: {
@@ -24,7 +25,12 @@ const Property = ({
   },
 }: any) => {
 
-  return <div></div>;
+  return(
+    <div>
+      {/* {photos && <ImageScrollbar photos={photos} />} */}
+      <ImageScrollbar />
+    </div>
+  );
   
 };
 export default Property;
