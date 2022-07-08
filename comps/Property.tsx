@@ -12,7 +12,6 @@ import { UC } from "../context/UC";
 const Property = ({ property }:any) => {
   const [hoverFunc, sethoverFunc] = useState<string>();
   const { fav, dispatch, addFav } = useContext(UC);
-
   const {
     coverPhoto,
     price,

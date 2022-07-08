@@ -27,8 +27,8 @@ const Property = ({
 
   return(
     <div>
-      {/* {photos && <ImageScrollbar photos={photos} />} */}
-      <ImageScrollbar />
+      {photos && <ImageScrollbar photos={photos} />}
+
     </div>
   );
   

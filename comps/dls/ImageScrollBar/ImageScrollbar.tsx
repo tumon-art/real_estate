@@ -1,19 +1,53 @@
-import Image from "next/image"
-import { useState } from "react"
+import Image from "next/image";
+import { useState } from "react";
 
-const ImageScrollbar = ({photos}:any) => {
-  let img = ['https://bayut-production.s3.eu-central-1.amazonaws.com/image/170467622/a3e04659a90647ed8a0891011d82e24d','https://bayut-production.s3.eu-central-1.amazonaws.com/image/170467622/a3e04659a90647ed8a0891011d82e24d','https://bayut-production.s3.eu-central-1.amazonaws.com/image/170467622/a3e04659a90647ed8a0891011d82e24d','https://bayut-production.s3.eu-central-1.amazonaws.com/image/170467622/a3e04659a90647ed8a0891011d82e24d']
+const ImageScrollbar = ({ photos }: any) => {
+
+  const [index,setindex] = useState(0)
+  const rightArrow = () => {
+    const auto = document.getElementById('auto') as HTMLElement
+    // auto.scrollLeft= auto?.scrollLeft + (1400/4)
+    console.log(auto?.scrollBy)
+  };
+
+  const leftArrow = () => {
+    const auto = document.getElementById('auto') as HTMLElement
+    auto.scrollLeft= auto?.scrollLeft - (1400/4)
+    console.log(auto?.scrollBy)
+  };
 
   return (
-   <div className=" overflow-x-scroll h-[333px] flex">
-    {img.map((e:any,i:any)=>{
-     return (
 
-     <Image className=" ring-2 object-cover w-[733px]" key={i}
-     src={e} layout='fill' height={'200'} alt='img' />
-     )
-    })}
-   </div>
-  )
-}
-export default ImageScrollbar
+    <div className=" relative">
+      <span onClick={()=> leftArrow()}
+      className=" absolute text-2xl font-extrabold text-white bg-black
+       mt-auto mb-auto h-10 flex items-center left-10 top-0 bottom-0 ">
+      Left
+      </span>
+
+      <a onClick={()=>rightArrow()} href={'1'}
+       className=" absolute text-2xl font-extrabold text-white bg-black
+       mt-auto mb-auto h-10 flex items-center right-10 top-0 bottom-0 ">
+      Right
+      </a>
+    <div id='auto'
+    className="overflow-auto scroll-smooth h-[333px] ring-4 flex">
+      {photos.slice(0,4).map((e: any, i: any) => {
+        return (
+              <img id={i}
+              className=" cursor-grab object-cover ring-8 ring-white"
+              key={i}
+              width='1400'
+              height='200'
+              src={e.url}
+              quality={4}
+              alt="img"
+            />
+
+        );
+      })}
+    </div>
+    </div>
+  );
+};
+export default ImageScrollbar;
