@@ -19,14 +19,14 @@ const ImageScrollbar = ({ photos }: any) => {
 
     <div className=" relative">
       <span onClick={()=> leftArrow()}
-      className="  absolute text-2xl font-extrabold text-white bg-black
-       mt-auto mb-auto h-10 flex items-center left-10 top-0 bottom-0 hover:bg-red-200 cursor-pointer ">
-      Left
+      className=" absolute text-6xl animate-pulse font-bold hover:text-white cursor-pointer text-sky-100 shadow-2xl
+      mt-auto mb-auto flex items-center left-10 top-0 bottom-0 ">
+        ❰
       </span>
       <span onClick={()=>rightArrow()}
-       className=" absolute text-2xl font-extrabold hover:bg-red-400 text-white bg-black
-       mt-auto mb-auto h-10 flex items-center right-10 top-0 bottom-0 ">
-      Right
+       className=" absolute text-6xl animate-pulse font-bold hover:text-white cursor-pointer text-sky-100 shadow-2xl
+       mt-auto mb-auto flex items-center right-10 top-0 bottom-0 ">
+        ❱
       </span>
     <div id='auto'
     className=" overflow-auto scroll-smooth h-[333px] ring-4 flex">

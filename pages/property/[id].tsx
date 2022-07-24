@@ -30,6 +30,7 @@ const Property = ({
   return (
     <div>
       {photos && <ImageScrollbar photos={photos} />}
+
       <div className="font-bold">
         AED
         <span className="  ml-2 text-sky-800 ">{millify(price)}</span>{" "}
