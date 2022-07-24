@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useState } from "react";
 
 const ImageScrollbar = ({ photos }: any) => {
@@ -6,7 +5,7 @@ const ImageScrollbar = ({ photos }: any) => {
   const [index,setindex] = useState(0)
   const rightArrow = () => {
     const auto = document.getElementById('auto') as HTMLElement
-    // auto.scrollLeft= auto?.scrollLeft + (1400/4)
+    auto.scrollLeft= auto?.scrollLeft + (1400/4)
     console.log(auto?.scrollBy)
   };
 
@@ -20,18 +19,17 @@ const ImageScrollbar = ({ photos }: any) => {
 
     <div className=" relative">
       <span onClick={()=> leftArrow()}
-      className=" absolute text-2xl font-extrabold text-white bg-black
-       mt-auto mb-auto h-10 flex items-center left-10 top-0 bottom-0 ">
+      className="  absolute text-2xl font-extrabold text-white bg-black
+       mt-auto mb-auto h-10 flex items-center left-10 top-0 bottom-0 hover:bg-red-200 cursor-pointer ">
       Left
       </span>
-
-      <a onClick={()=>rightArrow()} href={'1'}
-       className=" absolute text-2xl font-extrabold text-white bg-black
+      <span onClick={()=>rightArrow()}
+       className=" absolute text-2xl font-extrabold hover:bg-red-400 text-white bg-black
        mt-auto mb-auto h-10 flex items-center right-10 top-0 bottom-0 ">
       Right
-      </a>
+      </span>
     <div id='auto'
-    className="overflow-auto scroll-smooth h-[333px] ring-4 flex">
+    className=" overflow-auto scroll-smooth h-[333px] ring-4 flex">
       {photos.slice(0,4).map((e: any, i: any) => {
         return (
               <img id={i}
@@ -40,7 +38,6 @@ const ImageScrollbar = ({ photos }: any) => {
               width='1400'
               height='200'
               src={e.url}
-              quality={4}
               alt="img"
             />
 
