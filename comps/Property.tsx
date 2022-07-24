@@ -62,7 +62,7 @@ const Property = ({ property }:any) => {
           width={400}
           height={260}
           alt="img"
-          className=" min-w-full group-hover:scale-125 transition-transform sm:rounded-sm duration-1000"
+          className=" cursor-text min-w-full group-hover:scale-125 transition-transform sm:rounded-sm duration-1000"
         />
 
         {/* === FAV */}
@@ -90,7 +90,7 @@ const Property = ({ property }:any) => {
       </div>
 
       <Link href={`/property/${externalID}`} passHref>
-            <div className="  px-2 py-1 text-sm bg-zinc-100">
+            <div className=" cursor-pointer  px-2 py-1 text-sm bg-zinc-100">
             <div className=" flex items-center justify-between">
             {/* === PRICE  */}
             <div className="flex items-center gap-2 text-zinc-700 ">
