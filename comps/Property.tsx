@@ -42,6 +42,7 @@ const Property = ({ property }:any) => {
       addFav(property);
     }
   };
+
   const hoverin = (c:string) => sethoverFunc(c);
   return (
     <div
@@ -70,7 +71,7 @@ const Property = ({ property }:any) => {
           className={` transition duration-300 right-4 fill-transparent bottom-[100px]  
         text-gray-300 absolute h-10 w-10 cursor-pointer
         ${hoverFunc} 
-        ${global.localStorage && JSON.parse(localStorage.fav).filter((e:any) => e.id == property.id).length >= 1 &&
+        ${global.localStorage.fav && JSON.parse(localStorage.fav).filter((e:any) => e.id == property.id).length >= 1 &&
           " fill-red-600"
         }`
       }
