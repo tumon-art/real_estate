@@ -24,7 +24,7 @@ const ImageScrollbar = ({ photos }: any) => {
       <span onClick={()=> leftArrow()}
       className={`${styles.text} absolute text-6xl font-bold
       hover:text-sky-200 cursor-pointer  text-white  shadow-2xl
-     mt-auto mb-auto flex items-center left-10 top-0 bottom-0 `}>
+     mt-auto mb-auto flex items-center left-2 md:left-10 top-0 bottom-0 `}>
         ❰
       </span>
 
@@ -32,12 +32,12 @@ const ImageScrollbar = ({ photos }: any) => {
       <span onClick={()=>rightArrow()}
        className={`${styles.text}  absolute text-6xl font-bold
        hover:text-sky-200 cursor-pointer  text-white shadow-2xl
-       mt-auto mb-auto flex items-center right-10 top-0 bottom-0 `}>
+       mt-auto mb-auto flex items-center right-2 md:right-10 top-0 bottom-0 `}>
         ❱
       </span>
 
     <div id='auto'
-    className=" ring-8 ring-sky-100 my-4 rounded-xl overflow-auto scroll-smooth h-[333px] flex">
+    className=" ring-8 ring-sky-100 my-4 md:rounded-xl overflow-auto scroll-smooth h-[333px] flex">
       {photos.slice(0,4).map((e: any, i: any) => {
         return (
               <img id={i}

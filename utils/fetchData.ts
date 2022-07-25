@@ -7,7 +7,7 @@ export const fetchApi = async (url:string)=> {
         method: 'GET',
 	headers: <any>{
 		'X-RapidAPI-Host': 'bayut.p.rapidapi.com',
-		'X-RapidAPI-Key': "cce26f3924msh9364ce126da2f60p1f22c7jsn75f2c3f3e701"
+		'X-RapidAPI-Key': process.env.NEXT_PUBLIC_X_RapidAPI_Key
 	}
     }) 
     console.log(res)
