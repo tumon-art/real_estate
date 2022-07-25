@@ -11,7 +11,8 @@ import { UC } from "../context/UC";
 
 const Property = ({ property }:any) => {
   const [hoverFunc, sethoverFunc] = useState<string>();
-  const { fav, dispatch, addFav } = useContext(UC);
+  const { dispatch, addFav } = useContext(UC);
+
   const {
     coverPhoto,
     price,
@@ -70,10 +71,11 @@ const Property = ({ property }:any) => {
         <svg
           className={` transition duration-300 right-4 fill-transparent bottom-[100px]  
         text-gray-300 absolute h-10 w-10 cursor-pointer
-        ${hoverFunc} 
+        ${hoverFunc}
         ${global.localStorage.fav && JSON.parse(localStorage.fav).filter((e:any) => e.id == property.id).length >= 1 &&
           " fill-red-600"
-        }`
+        }
+       `
       }
           viewBox="0 0 24 24"
           stroke="currentColor"

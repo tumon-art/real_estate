@@ -21,7 +21,14 @@ export async function getStaticProps() {
 // { propertyForSale, propertyForRent }
 export default function Home({ propertyForSale, propertyForRent }:any) {
   const [data, setdata] = useState<any>();
+  const [count,setcount] = useState(false)
 
+    useEffect(()=>{
+      if(!localStorage.fav) {
+        localStorage.setItem('fav','') 
+      }
+    setcount(true)
+    },[])
   // === GET DATA FROM LOCAL STORAE
   // useEffect(() => {
   //   const getData : any = localStorage.getItem("data");
@@ -75,7 +82,7 @@ export default function Home({ propertyForSale, propertyForRent }:any) {
           className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10
         "
         >
-          {propertyForSale.slice(1, 7).map((property:any) => (
+          {count && propertyForSale.slice(1, 7).map((property:any) => (
             <Property property={property} key={property.id} />
           ))}
         </div>
@@ -86,7 +93,7 @@ export default function Home({ propertyForSale, propertyForRent }:any) {
           className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10
          "
         >
-          {propertyForRent.slice(0, 6).map((property:any) => (
+          {count && propertyForRent.slice(0, 6).map((property:any) => (
             <Property property={property} key={property.id} />
           ))}
         </div>

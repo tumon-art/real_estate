@@ -3,7 +3,7 @@ import React, { useEffect, useReducer } from "react";
 const initialState = {
   isLoggedIn:false,
   sidebar:false,
-  fav:null ,
+  fav:[] ,
   favClick:false,
 };
 
@@ -31,7 +31,7 @@ const Reducer = (state:any, action:any) => {
         break;
       case "ADD_FAV":
         return {
-          ...state,fav:action.paylod
+          ...state,fav: [...state.fav,action.payload]
         }
         break;
       case "FAV_CLICK":
@@ -52,8 +52,17 @@ const Provider = ({ children }:any) => {
     const addFav = (property:any) => {
     if(localStorage.fav) {
       localStorage.setItem('fav',JSON.stringify([...JSON.parse(localStorage.fav),property]))
+
+      dispatch({
+        type:"ADD_FAV",
+        payload: property
+      })
     } else {
       localStorage.setItem('fav',JSON.stringify([property]))
+      dispatch({
+        type:"ADD_FAV",
+        payload: property
+      })
     }
     console.log(JSON.parse(localStorage.fav))
     }
