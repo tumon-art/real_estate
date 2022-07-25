@@ -42,7 +42,7 @@ const ImageScrollbar = ({ photos }: any) => {
         return (
               <img id={i}
               loading='lazy'
-              className=" mx-1 cursor-grab object-cover"
+              className="cursor-grab object-cover"
               key={i}
               width='1400'
               height='200'

@@ -28,14 +28,29 @@ const Property = ({
   },
 }: any) => {
   return (
-    <div className=" md:px-20">
+    <div className=" font-FiraMono md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}
 
-      <div className="font-bold">
+   <div className=" flex justify-between">
+   <div className=" font-bold">
         AED
         <span className="  ml-2 text-sky-800 ">{millify(price)}</span>{" "}
         {rentFrequency && ` /${rentFrequency}`}
+        
       </div>
+
+      <div className="ring-4 rounded-full flex justify-center items-center">
+              {/* === AVATAR */}
+              <img
+                className=" h-6 w-6 object-cover rounded-full"
+                src={agency?.logo?.url}
+                width="30"
+                height="30"
+                alt="avater"
+                loading="lazy"
+              />
+            </div>
+   </div>
 
       <div>
         <div className=" flex gap-3 items-center text-cyan-700">
@@ -44,8 +59,12 @@ const Property = ({
         </div>
 
         <h1 className=" text-xl font-bold"> {title}</h1>
+        <hr className=" mt-5"></hr>
+        <p className="  my-10 text-zinc-700 whitespace-pre-line"> {description} </p>
 
       </div>
+
+      
     </div>
   );
 };
