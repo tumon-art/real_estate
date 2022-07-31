@@ -1,53 +1,54 @@
 @import "test";
 .after {
-    opacity: 1;
-    transition: 0.2s linear;
-    transition-property: width;  
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: 20;
-    right: 0;
-    top: 0;
-    background-color: rgb(255, 254, 254);
-    // right-0 top-0 absolute w-40 z-20 bg-white
+  opacity: 1;
+  transition: 0.2s linear;
+  transition-property: width;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  right: 0;
+  top: 0;
+  background-color: rgb(255, 254, 254);
+  // right-0 top-0 absolute w-40 z-20 bg-white
 
-    &__hidden {
-        width: 0;
-    }
+  &__hidden {
+    width: 0;
+  }
 }
-
-
 
 .a {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    cursor: pointer;
-    gap: 5px;
-    &:hover{
-        background-color: rgb(201, 206, 211);
-    }
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  cursor: pointer;
+  gap: 5px;
+  &:hover {
+    background-color: rgb(201, 206, 211);
+  }
 }
-
 
 .sidebarHeader {
-    background-color: rgb(230, 230, 230);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;   
+  background-color: rgb(230, 230, 230);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    .logo {
-        height: 2em;
-        width: 2em;
-        color: gray;
+  .logo {
+    height: 2em;
+    width: 2em;
+    color: gray;
+
+    &:hover {
+      cursor: pointer;
+      background: silver;
+      transform: scale(1.2);
     }
+  }
 
-    .svg{
-        height: 2em;
-        width: 2em;
-        color: red;
-    }
-
+  .svg {
+    height: 2em;
+    width: 2em;
+    color: red;
+  }
 }
-
