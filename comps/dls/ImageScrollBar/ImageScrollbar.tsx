@@ -37,14 +37,15 @@ const ImageScrollbar = ({ photos }: any) => {
 
       <div
         id="auto"
-        className=" scroll sm:ring-8 ring-sky-100 my-4 md:rounded-xl overflow-auto scroll-smooth h-[333px] flex"
+        className=" scroll sm:border-x-8 sm:border-t-8  border-sky-100 mb-4
+        md:rounded-xl overflow-auto scroll-smooth h-[333px] flex"
       >
         {photos.slice(0, 4).map((e: any, i: any) => {
           return (
             <img
               id={i}
               loading="lazy"
-              className="cursor-grab object-cover"
+              className=" rounder-xl cursor-grab object-cover"
               key={i}
               width="1400"
               height="200"
