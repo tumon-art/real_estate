@@ -3,7 +3,54 @@
 @tailwind utilities;
 
 #__next {
-position: relative;
+  position: relative;
 }
-.cls-1{fill:#0471a3}.cls-3{fill:#f2af34}.cls-4{fill:#45b6f8}.cls-5{fill:#c1edfe}.cls-6{fill:#fff}
-.cls-7{fill:#bfecff}.cls-9{fill:#c1e8fa}.cls-10{fill:#6394e4}.cls-11{fill:#c0e7fa}
+.cls-1 {
+  fill: #0471a3;
+}
+.cls-3 {
+  fill: #f2af34;
+}
+.cls-4 {
+  fill: #45b6f8;
+}
+.cls-5 {
+  fill: #c1edfe;
+}
+.cls-6 {
+  fill: #fff;
+}
+.cls-7 {
+  fill: #bfecff;
+}
+.cls-9 {
+  fill: #c1e8fa;
+}
+.cls-10 {
+  fill: #6394e4;
+}
+.cls-11 {
+  fill: #c0e7fa;
+}
+
+.scroll {
+}
+/* width */
+.scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  background: rgb(14, 116, 214, 0.3);
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background: rgb(14, 116, 214);
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
