@@ -23,35 +23,30 @@ const Sidebar = () => {
         />
       </div>
 
-      <ul
-        className=" bg-sky-200 h-full flex flex-col items-center
-                     justify-center"
-      >
-        <div className="flex flex-col gap-y-20">
-          <Link href="/" passHref>
-            <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
-              <FcHome /> Home
-            </a>
-          </Link>
+      <ul className=" bg-sky-200 h-full">
+        <Link href="/" passHref>
+          <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
+            <FcHome /> Home
+          </a>
+        </Link>
 
-          <Link href="/search" passHref>
-            <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
-              <BsSearch /> Search
-            </a>
-          </Link>
+        <Link href="/search" passHref>
+          <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
+            <BsSearch /> Search
+          </a>
+        </Link>
 
-          <Link href="/search?purpose=for-sale" passHref>
-            <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
-              <FcAbout /> Buy Property
-            </a>
-          </Link>
+        <Link href="/search?purpose=for-sale" passHref>
+          <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
+            <FcAbout /> Buy Property
+          </a>
+        </Link>
 
-          <Link href="/search?purpose=for-rent" passHref>
-            <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
-              <FiKey /> Rent Property
-            </a>
-          </Link>
-        </div>
+        <Link href="/search?purpose=for-rent" passHref>
+          <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
+            <FiKey /> Rent Property
+          </a>
+        </Link>
       </ul>
     </nav>
   );

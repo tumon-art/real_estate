@@ -28,7 +28,7 @@ const Property = ({
           {rentFrequency && ` /${rentFrequency}`}
         </div>
 
-        <div className="ring-4  rounded-full flex justify-center items-center">
+        <div className="ring-4 ring-sky-200  rounded-full flex justify-center items-center">
           {/* === AVATAR */}
           <img
             className=" h-6 w-6 object-cover rounded-full"
