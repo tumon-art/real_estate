@@ -23,30 +23,34 @@ const Sidebar = () => {
         />
       </div>
 
-      <ul className=" bg-sky-200 h-full">
+      <ul className={` ${styles.ul} grid `}>
         <Link href="/" passHref>
-          <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
+          <a className={styles.a}>
             <FcHome /> Home
           </a>
         </Link>
 
         <Link href="/search" passHref>
-          <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
+          <a className={styles.a}>
             <BsSearch /> Search
           </a>
         </Link>
 
         <Link href="/search?purpose=for-sale" passHref>
-          <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
+          <a className={styles.a}>
             <FcAbout /> Buy Property
           </a>
         </Link>
 
         <Link href="/search?purpose=for-rent" passHref>
-          <a className={styles.a} onClick={() => setshowPopup((p) => !p)}>
+          <a className={styles.a}>
             <FiKey /> Rent Property
           </a>
         </Link>
+
+        <div className=" self-end text-black text-center">
+          © 2022 Real Estate, Inc.
+        </div>
       </ul>
     </nav>
   );

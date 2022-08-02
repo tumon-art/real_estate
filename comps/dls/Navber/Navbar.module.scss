@@ -1,75 +1,72 @@
-@import '../../../styles/screen';
+@import "../../../styles/screen";
 .NavbarMain {
-    display: flex;
-    position: relative;
-    z-index: 333;
-    width: 100%;
-    justify-content: space-between;
-    background-color: rgb(255, 255, 255);
-    @include devices(mobile) {
-        height: 60px;
-
-    }
+  display: flex;
+  position: relative;
+  z-index: 333;
+  margin: 0;
+  width: 100%;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  @include devices(mobile) {
+    height: 60px;
+  }
 }
 
-.FanAndIsLoggedIn{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    float: right;
-    margin: 0 0em;
-    @include devices(desktop) {
-        margin: 0 1em;
-    }    
-
+.FanAndIsLoggedIn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  float: right;
+  margin: 0 0em;
+  @include devices(desktop) {
+    margin: 0 1em;
+  }
 }
 
-.flex{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    transition: 0.4s;
-    gap: 2em;
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.4s;
+  gap: 2em;
 }
 .navLinksUl {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    grid-column: auto;
-    
-    @include devices(mobile) {
-        display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  grid-column: auto;
+
+  @include devices(mobile) {
+    display: flex;
+  }
+
+  li {
+    margin: 0;
+    color: rgb(2, 104, 145);
+
+    &:hover {
+      transition: 0.5s;
     }
 
-    li{
-        margin: 0;
-        color: rgb(2, 104, 145);
+    // @include devices(mobile) {
+    //     padding: 0 0.5rem;
+    // }
 
-        &:hover {
-            transition: 0.5s;
-        }
+    // @include devices(tablet) {
+    //     padding: 0 1rem;
+    // }
 
-        // @include devices(mobile) {
-        //     padding: 0 0.5rem;
-        // }
-
-        // @include devices(tablet) {
-        //     padding: 0 1rem;
-        // }
-        
-        // @include devices(desktop) {
-        //     padding: 0 2rem;
-        // }
-
-    }
-
+    // @include devices(desktop) {
+    //     padding: 0 2rem;
+    // }
+  }
 }
 
 .header {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 334;
-    transform: translate(-50%,-50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 334;
+  transform: translate(-50%, -50%);
 }
