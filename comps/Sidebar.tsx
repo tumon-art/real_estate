@@ -13,7 +13,7 @@ const Sidebar = () => {
     <nav
       className={`${styles.after} ${
         sidebar ? styles.after__block : styles.after__hidden
-      }`}
+      } grid`}
     >
       <div className={styles.sidebarHeader}>
         {/* === CLOSE BUTTON */}
@@ -23,7 +23,7 @@ const Sidebar = () => {
         />
       </div>
 
-      <ul className={` ${styles.ul} grid `}>
+      <ul className={` ${styles.ul} `}>
         <Link href="/" passHref>
           <a className={styles.a}>
             <FcHome /> Home
@@ -47,11 +47,11 @@ const Sidebar = () => {
             <FiKey /> Rent Property
           </a>
         </Link>
-
-        <div className=" self-end text-black text-center">
-          © 2022 Real Estate, Inc.
-        </div>
       </ul>
+
+      <div className="self-end text-black text-center">
+        © 2022 Real Estate, Inc.
+      </div>
     </nav>
   );
 };

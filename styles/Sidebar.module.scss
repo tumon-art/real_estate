@@ -4,11 +4,9 @@
   transition-property: width;
   position: fixed;
   z-index: 20;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   right: 0;
-  overflow: auto;
-  //  border: 1px solid red;
   top: 0;
   background-color: rgb(255, 254, 254);
 
@@ -58,6 +56,5 @@
 }
 
 .ul {
-  outline: 5px solid red;
-  height: 100%;
+  align-self: center;
 }
