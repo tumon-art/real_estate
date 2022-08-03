@@ -26,25 +26,37 @@ const Sidebar = () => {
       </div>
       <ul className={` ${styles.ul} `}>
         <Link href="/" passHref>
-          <a className={styles.a}>
+          <a
+            className={styles.a}
+            onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
+          >
             <FcHome /> Home
           </a>
         </Link>
 
         <Link href="/search" passHref>
-          <a className={styles.a}>
+          <a
+            className={styles.a}
+            onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
+          >
             <BsSearch /> Search
           </a>
         </Link>
 
         <Link href="/search?purpose=for-sale" passHref>
-          <a className={styles.a}>
+          <a
+            className={styles.a}
+            onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
+          >
             <FcAbout /> Buy Property
           </a>
         </Link>
 
         <Link href="/search?purpose=for-rent" passHref>
-          <a className={styles.a}>
+          <a
+            className={styles.a}
+            onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
+          >
             <FiKey /> Rent Property
           </a>
         </Link>
