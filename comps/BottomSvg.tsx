@@ -1,5 +1,5 @@
 interface Sidebar {
-  Sidebar: boolean;
+  Sidebar?: boolean;
 }
 
 const BottomSvg = ({ Sidebar }: Sidebar) => {
