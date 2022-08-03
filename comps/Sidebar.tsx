@@ -6,9 +6,11 @@ import { useContext } from "react";
 import { UC } from "../context/UC";
 import Link from "next/link";
 import { CgClose } from "react-icons/cg";
+import BottomSvg from "./BottomSvg";
 
 const Sidebar = () => {
   const { dispatch, sidebar } = useContext(UC);
+
   return (
     <nav
       className={`${styles.after} ${
@@ -22,7 +24,6 @@ const Sidebar = () => {
           onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
         />
       </div>
-
       <ul className={` ${styles.ul} `}>
         <Link href="/" passHref>
           <a className={styles.a}>
@@ -49,9 +50,10 @@ const Sidebar = () => {
         </Link>
       </ul>
 
-      <div className="self-end text-black text-center">
+      <div className=" self-end text-black text-center">
         © 2022 Real Estate, Inc.
       </div>
+      <BottomSvg Sidebar />
     </nav>
   );
 };
