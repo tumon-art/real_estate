@@ -18,7 +18,7 @@ const Property = ({
   },
 }: any) => {
   return (
-    <div className=" font-FiraMono md:px-20 text-sky-700">
+    <div className=" md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}
 
       <div className=" mx-2 sm:mx-0 flex justify-between">
