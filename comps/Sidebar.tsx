@@ -1,12 +1,15 @@
-import { FcHome, FcAbout } from "react-icons/fc";
-import { BsSearch } from "react-icons/bs";
-import { FiKey } from "react-icons/fi";
 import styles from "../styles/Sidebar.module.scss";
 import { useContext } from "react";
 import { UC } from "../context/UC";
 import Link from "next/link";
-import { CgClose } from "react-icons/cg";
 import BottomSvg from "./BottomSvg";
+import {
+  MdClose,
+  MdHome,
+  MdOutlineInfo,
+  MdSearch,
+  MdVpnKey,
+} from "react-icons/md";
 
 const Sidebar = () => {
   const { dispatch, sidebar } = useContext(UC);
@@ -19,7 +22,7 @@ const Sidebar = () => {
     >
       <div className={styles.sidebarHeader}>
         {/* === CLOSE BUTTON */}
-        <CgClose
+        <MdClose
           className={styles.logo}
           onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
         />
@@ -30,7 +33,7 @@ const Sidebar = () => {
             className={styles.a}
             onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
           >
-            <FcHome /> Home
+            <MdHome /> Home
           </a>
         </Link>
 
@@ -39,7 +42,7 @@ const Sidebar = () => {
             className={styles.a}
             onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
           >
-            <BsSearch /> Search
+            <MdSearch /> Search
           </a>
         </Link>
 
@@ -48,7 +51,7 @@ const Sidebar = () => {
             className={styles.a}
             onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
           >
-            <FcAbout /> Buy Property
+            <MdOutlineInfo /> Buy Property
           </a>
         </Link>
 
@@ -57,7 +60,7 @@ const Sidebar = () => {
             className={styles.a}
             onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
           >
-            <FiKey /> Rent Property
+            <MdVpnKey /> Rent Property
           </a>
         </Link>
       </ul>
