@@ -2,13 +2,11 @@ import Layout from "../comps/Layout";
 import { AppProps } from "next/app";
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
-// import { NextComponentType } from "next";
-// import { Session } from "next-auth";
 
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import Router from "next/router";
-import Provider from "../context/UC";
+import Provider, { UC } from "../context/UC";
 
 NProgress.configure({
   minimum: 0.3,
@@ -27,7 +25,7 @@ export default function MyApp({
 }: AppProps) {
   return (
     <Provider>
-      <SessionProvider session={session} refetchInterval={0}>
+      <SessionProvider session={session}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
