@@ -1,35 +1,41 @@
-import Layout from '../comps/Layout'
-import { AppProps } from 'next/app';
-import '../styles/globals.css'
-import { SessionProvider } from "next-auth/react"
+import Layout from "../comps/Layout";
+import { AppProps } from "next/app";
+import "../styles/globals.css";
+import { SessionProvider } from "next-auth/react";
+import { NextComponentType } from "next";
+import { Session } from "next-auth";
 
-import NProgress from 'nprogress';
+import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import Router from 'next/router';
-import Provider, { UC } from '../context/UC';
+import Router from "next/router";
+import Provider, { UC } from "../context/UC";
 
 NProgress.configure({
   minimum: 0.3,
-  easing: 'ease',
+  easing: "ease",
   speed: 800,
   showSpinner: false,
 });
 
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
-export default function MyApp({ 
-  Component, 
-  pageProps: { session, ...pageProps }
-}:AppProps) {
+export interface CustomAppProps extends AppProps {
+  Component: NextComponentType & { auth?: boolean; session?: Session };
+}
+
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: CustomAppProps) {
   return (
     <Provider>
-    <SessionProvider session={session}>
-      <Layout>
-      <Component {...pageProps} />
-      </Layout>
-    </SessionProvider>
+      <SessionProvider session={session}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SessionProvider>
     </Provider>
-  )
+  );
 }
