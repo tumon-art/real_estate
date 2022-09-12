@@ -1,5 +1,4 @@
-import { FaBed, FaBath } from "react-icons/fa";
-import { BsGridFill } from "react-icons/bs";
+import { MdGrid4X4, MdKingBed, MdOutlineBathtub } from "react-icons/md";
 import millify from "millify";
 import { baseUrl, fetchApi } from "../../utils/fetchData";
 import ImageScrollbar from "../../comps/dls/ImageScrollBar/ImageScrollbar";
@@ -43,8 +42,19 @@ const Property = ({
 
       <div className=" mx-2 sm:mx-0 my-2">
         <div className=" flex gap-3 items-center text-cyan-700">
-          <b>{rooms}</b> <FaBed /> | <b>{baths}</b> <FaBath /> |
-          <b>{millify(area)}</b> <BsGridFill />
+          <b>{rooms}</b>{" "}
+          <span title="Bed">
+            <MdKingBed />
+          </span>{" "}
+          | <b>{baths}</b>{" "}
+          <span title="Bathtub">
+            <MdOutlineBathtub />
+          </span>{" "}
+          |<b>{millify(area)}</b>
+          <span title="Area">
+            {" "}
+            <MdGrid4X4 />{" "}
+          </span>
         </div>
 
         <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
