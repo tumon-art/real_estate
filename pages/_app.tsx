@@ -8,7 +8,7 @@ import { SessionProvider } from "next-auth/react";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import Router from "next/router";
-import Provider, { UC } from "../context/UC";
+import Provider from "../context/UC";
 
 NProgress.configure({
   minimum: 0.3,
@@ -21,14 +21,13 @@ Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-// export interface CustomAppProps extends AppProps {
-//   Component: NextComponentType & { auth?: boolean; session?: Session };
-// }
-
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
     <Provider>
-      <SessionProvider session={pageProps.session} refetchInterval={0}>
+      <SessionProvider session={session} refetchInterval={0}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
