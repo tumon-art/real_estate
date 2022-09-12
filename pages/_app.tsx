@@ -28,7 +28,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider>
-      <SessionProvider session={pageProps.session}>
+      <SessionProvider session={pageProps.session} refetchInterval={0}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
