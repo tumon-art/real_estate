@@ -32,24 +32,7 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
     }
     setcount(true);
   }, []);
-  // === GET DATA FROM LOCAL STORAE
-  // useEffect(() => {
-  //   const getData : any = localStorage.getItem("data");
-  //   setdata(JSON.parse(getData));
 
-  // }, []);
-
-  // === FETCH DATA TO SAVE IN LOCAL STORAGE
-  // useEffect(()=>{
-  //   (async function(){
-  //     const propertyForSale = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=25&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`)
-  //     const propertyForRent = await fetchApi(`${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=25&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`)
-  //     localStorage.setItem('data', JSON.stringify([propertyForRent,propertyForSale]))
-  //   })()
-
-  // },[])
-
-  // FOR SALE OR RENT
   const ForWhat = ({ text }: { text: string }) => (
     <h2
       className=" self-start mx-1 sm:mx-10 text-xl font-extrabold 
@@ -107,32 +90,4 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
       </div>
     </div>
   );
-
-  //   return (
-  //     <div className=" flex flex-col items-center  md:mx-20">
-  //       <Banner purpose='RENT A HOME'
-  //         title1='Rental Homes for'
-  //         title2='Everyone'
-  //         desc1=' Explore from Apartments, builder floors, villas'
-  //         desc2='and more'
-  //         buttonText='Explore Renting'
-  //         linkName='/search?purpose=for-rent'
-  //         imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'
-  //       />
-
-  //       {/* === PROPERTY MAP */}
-  //       <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 my-10
-  //         ">
-  //         {propertyForRent.slice(1, 7).map((property:any) => <Property property={property} key={property.id} />)}
-  //       </div>
-
-  //       {/* === PROPERTY MAP */}
-  //       <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 my-10
-  //          ">
-  //         {propertyForSale.slice(0, 6).map((property:any) => <Property property={property} key={property.id} />)}
-  //       </div>
-
-  //     </div>
-  //   )
-  //
 }
