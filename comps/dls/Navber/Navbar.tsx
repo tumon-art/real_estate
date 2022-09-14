@@ -104,7 +104,7 @@ export const Navbar = () => {
       <div className={styles.FanAndIsLoggedIn}>
         <div className={styles.flex}>
           <Fav />
-          {/* <IsLoggedIn /> */}
+          <IsLoggedIn />
         </div>
       </div>
 
