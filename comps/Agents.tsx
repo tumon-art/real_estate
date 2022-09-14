@@ -103,16 +103,16 @@ const Agents = () => {
         <span className=" text-sky-600">San Francisco</span>
       </h2>
 
-      <div className=" md:flex justify-center overflow-auto py-4 px-4 w-full gap-5">
+      <div className="flex flex-wrap justify-center overflow-auto py-4 px-4 w-full gap-5">
         {agentsData.map((e: any, i) => {
           return (
             <div
-              className=" ring-1 flex-col flex justify-center
-               bg-zinc-100 min-w-[250px] h-44 rounded-xl"
+              className=" ring-1 ring-zinc-200 flex-col flex justify-center
+               bg-zinc-100 min-w-[260px] h-44 rounded-xl"
               key={e.id}
             >
               {/* === IMG AND TEXT HOLD */}
-              <div className="flex justify-around items-center">
+              <div className="flex justify-center gap-x-3 items-center">
                 <div>
                   <Image
                     src={e.img}
@@ -125,7 +125,7 @@ const Agents = () => {
 
                 {/* === TEXT,RATE CONTENT */}
                 <div className=" grid gap-1">
-                  <div className=" text-sky-600 flex items-center gap-2">
+                  <div className=" tracking-wide text-sky-600 flex items-center gap-2">
                     <MdHomeRepairService />
                     <p className=" text-[0.6rem] text-zinc-600">Pro. Broker</p>
                   </div>
