@@ -103,37 +103,55 @@ const Agents = () => {
         <span className=" text-sky-600">San Francisco</span>
       </h2>
 
-      <div className=" md:flex overflow-auto py-4 px-4 w-full gap-5">
+      <div className=" md:flex justify-center overflow-auto py-4 px-4 w-full gap-5">
         {agentsData.map((e: any, i) => {
           return (
             <div
-              className=" ring-1 flex justify-around items-center
+              className=" ring-1 flex-col flex justify-center
                bg-zinc-100 min-w-[250px] h-44 rounded-xl"
               key={e.id}
             >
-              <div>
-                <Image
-                  src={e.img}
-                  height="100"
-                  width="100"
-                  alt="img"
-                  className=" rounded-full"
-                />
-              </div>
-
-              <div className="">
-                <div className=" text-sky-600 flex items-center gap-2">
-                  <MdHomeRepairService />
-                  <p className=" text-[0.6rem] text-zinc-600">Pro. Broker</p>
+              {/* === IMG AND TEXT HOLD */}
+              <div className="flex justify-around items-center">
+                <div>
+                  <Image
+                    src={e.img}
+                    height="100"
+                    width="100"
+                    alt="img"
+                    className=" rounded-full"
+                  />
                 </div>
-                <h3
-                  className=" leading-5 font-OpenSans text-md
+
+                {/* === TEXT,RATE CONTENT */}
+                <div className=" grid gap-1">
+                  <div className=" text-sky-600 flex items-center gap-2">
+                    <MdHomeRepairService />
+                    <p className=" text-[0.6rem] text-zinc-600">Pro. Broker</p>
+                  </div>
+                  <h3
+                    className=" tracking-wider leading-5 font-OpenSans text-md
                  font-semibold break-words whitespace-pre-line"
+                  >
+                    {" "}
+                    {e.name}{" "}
+                  </h3>
+                  <div className="flex gap-x-1 items-center">
+                    <span className=" text-[0.7rem] text-sky-600">
+                      {e.rating}/5
+                    </span>
+                    <span className=" text-xs">{getStar(e)}</span>
+                  </div>
+                </div>
+              </div>
+              {/* === ASK q */}
+              <div className=" flex justify-center items-center mt-2">
+                <button
+                  className=" bg-sky-500  cursor-pointer hover:bg-blue-500 font-OpenSans font-semibold
+                 text-white rounded-2xl px-4 py-1 text-md"
                 >
-                  {" "}
-                  {e.name}{" "}
-                </h3>
-                <div>{getStar(e)}</div>
+                  Ask a Question
+                </button>
               </div>
             </div>
           );
