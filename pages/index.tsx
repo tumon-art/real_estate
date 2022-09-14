@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Agents from "../comps/Agents";
 import Banner from "../comps/dls/Banner/Banner";
+import FooterLinks from "../comps/FooterLinks";
 import HomeSearch from "../comps/HomeSearch";
 import Property from "../comps/Property";
 
@@ -92,6 +93,7 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
       </div>
       <Agents />
       <HomeSearch />
+      <FooterLinks />
     </div>
   );
 }
