@@ -44,7 +44,6 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
       {text}
     </h2>
   );
-
   return (
     <div className=" flex flex-col items-center ">
       <Banner

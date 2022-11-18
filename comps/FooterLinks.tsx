@@ -70,7 +70,7 @@ const FooterLinks = () => {
 
   return (
     <div
-      className=" border-t-2 gap-y-5 border-gray-100 pt-5 mt-10 w-full 
+      className=" border-t-2 gap-y-5 border-gray-100 pt-5 mt-10 w-full
      flex flex-col md:flex-row justify-evenly"
     >
       {footerLinks.map((e) => {

@@ -1,4 +1,6 @@
+import Image from 'next/future/image'
 import styles from "./ImageS.module.scss";
+
 
 const ImageScrollbar = ({ photos }: any) => {
   const rightArrow = () => {
@@ -42,7 +44,7 @@ const ImageScrollbar = ({ photos }: any) => {
       >
         {photos.slice(0, 4).map((e: any, i: any) => {
           return (
-            <img
+            <Image
               id={i}
               loading="lazy"
               className=" rounder-xl cursor-grab object-cover"

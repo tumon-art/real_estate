@@ -16,6 +16,7 @@ const Property = ({
     photos,
   },
 }: any) => {
+
   return (
     <div className=" md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}
@@ -42,27 +43,25 @@ const Property = ({
 
       <div className=" mx-2 sm:mx-0 my-2">
         <div className=" flex gap-3 items-center text-cyan-700">
-          <b>{rooms}</b>{" "}
+          <b>{rooms}</b>
           <span title="Bed">
             <MdKingBed />
-          </span>{" "}
-          | <b>{baths}</b>{" "}
+          </span>
+          | <b>{baths}</b>
           <span title="Bathtub">
             <MdOutlineBathtub />
-          </span>{" "}
+          </span>
           |<b>{millify(area)}</b>
           <span title="Area">
-            {" "}
-            <MdGrid4X4 />{" "}
+            <MdGrid4X4 />
           </span>
         </div>
 
         <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
         <hr className=" mt-5"></hr>
-        <p className="  my-10 text-zinc-900 whitespace-pre-line">
-          {" "}
-          {description}{" "}
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: description }}
+          className="  my-10 text-zinc-900 whitespace-pre-line">
+        </div>
       </div>
     </div>
   );
