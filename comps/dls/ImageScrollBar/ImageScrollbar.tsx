@@ -46,7 +46,6 @@ const ImageScrollbar = ({ photos }: any) => {
           return (
             <Image
               id={i}
-              loading="lazy"
               className=" rounder-xl cursor-grab object-cover"
               key={i}
               width="1400"

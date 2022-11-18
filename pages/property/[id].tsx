@@ -2,6 +2,7 @@ import { MdGrid4X4, MdKingBed, MdOutlineBathtub } from "react-icons/md";
 import millify from "millify";
 import { baseUrl, fetchApi } from "../../utils/fetchData";
 import ImageScrollbar from "../../comps/dls/ImageScrollBar/ImageScrollbar";
+import Map from "../../comps/Map";
 
 const Property = ({
   propertyDetails: {
@@ -14,6 +15,7 @@ const Property = ({
     agency,
     description,
     photos,
+    geography
   },
 }: any) => {
 
@@ -59,10 +61,16 @@ const Property = ({
 
         <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
         <hr className=" mt-5"></hr>
-        <div dangerouslySetInnerHTML={{ __html: description }}
-          className="  my-10 text-zinc-900 whitespace-pre-line">
+        <div className="flex gap-10">
+          <div dangerouslySetInnerHTML={{ __html: description }}
+            className=" w-2/4 h-96 overflow-auto my-10 text-zinc-900 whitespace-pre-line">
+          </div>
+          <Map geography={geography} />
+
         </div>
       </div>
+
+
     </div>
   );
 };
