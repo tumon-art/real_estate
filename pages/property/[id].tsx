@@ -1,8 +1,25 @@
 import { MdGrid4X4, MdKingBed, MdOutlineBathtub } from "react-icons/md";
 import millify from "millify";
+import moment from "moment";
 import { baseUrl, fetchApi } from "../../utils/fetchData";
 import ImageScrollbar from "../../comps/dls/ImageScrollBar/ImageScrollbar";
 import Map from "../../comps/Map";
+import Tour from "../../comps/Tour";
+
+interface DaysTypes {
+  day: string;
+  date: string;
+  month: string;
+}
+var days: DaysTypes[] = []
+
+for (let i = 1; i <= 7; i++) {
+  const str = moment().clone().add(i, 'days').format("dd D MMM").split(" ")
+  const obj = { day: str[0], date: str[1], month: str[2] }
+  days.push(obj)
+}
+
+console.log(days)
 
 const Property = ({
   propertyDetails: {
@@ -15,10 +32,9 @@ const Property = ({
     agency,
     description,
     photos,
-    geography
+    geography,
   },
 }: any) => {
-
   return (
     <div className=" md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}
@@ -26,7 +42,7 @@ const Property = ({
       <div className=" mx-2 sm:mx-0 flex justify-between">
         <div className="  font-bold">
           AED
-          <span className="   ml-2 text-sky-800 ">{millify(price)}</span>{" "}
+          <span className=" ml-2 text-sky-800 ">{millify(price)}</span>{" "}
           {rentFrequency && ` /${rentFrequency}`}
         </div>
 
@@ -61,18 +77,25 @@ const Property = ({
 
         <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
         <hr className=" mt-5"></hr>
-        <Map geography={geography} />
 
-        <div className="w-[60%]">
-          <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 "> Description </h4>
-          <div dangerouslySetInnerHTML={{ __html: description }}
-            className="  h-96 overflow-auto  text-zinc-900 whitespace-pre-line">
+
+        <section className="flex">
+          <div className="md:w-[60%]">
+            <Map geography={geography} />
+            <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 ">
+              Description
+            </h4>
+            <div
+              dangerouslySetInnerHTML={{ __html: description }}
+              className="  h-96 overflow-auto  text-zinc-900 whitespace-pre-line"
+            ></div>
           </div>
-        </div>
+
+          <Tour days={days} />
+        </section>
+
 
       </div>
-
-
     </div>
   );
 };

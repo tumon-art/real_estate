@@ -33,8 +33,6 @@
   fill: #c0e7fa;
 }
 
-.scroll {
-}
 /* width */
 .scroll::-webkit-scrollbar {
   height: 8px;
@@ -56,7 +54,7 @@
 }
 
 .map-container {
-  width: 60%;
+  width: 100%;
   height: 400px;
   position: relative;
   border: 10px solid #c0e7fa ;

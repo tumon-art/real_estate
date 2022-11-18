@@ -10,6 +10,7 @@ specifiers:
   eslint: 8.16.0
   eslint-config-next: 12.1.6
   millify: ^4.0.1
+  moment: ^2.29.4
   mongodb: ^4.9.1
   mongoose: ^6.6.0
   next: 12.3.0
@@ -27,6 +28,7 @@ dependencies:
   '@next-auth/mongodb-adapter': 1.0.4_hsg4ags762nlvvzvfyyp4nfcci
   '@react-google-maps/api': 2.17.0_ef5jwxihqo6n7gxfmzogljlgcm
   millify: 4.0.1
+  moment: 2.29.4
   mongodb: 4.9.1
   mongoose: 6.6.0
   next: 12.3.0_yxzhsdmkjnijyc6a6oha7uogfm
@@ -1591,6 +1593,10 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
+
+  /moment/2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: false
 
   /mongodb-connection-string-url/2.5.3:
     resolution: {integrity: sha512-f+/WsED+xF4B74l3k9V/XkTVj5/fxFH2o5ToKXd8Iyi5UhM+sO9u0Ape17Mvl/GkZaFtM0HQnzAG5OTmhKw+tQ==}
