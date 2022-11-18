@@ -61,13 +61,15 @@ const Property = ({
 
         <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
         <hr className=" mt-5"></hr>
-        <div className="flex gap-10">
-          <div dangerouslySetInnerHTML={{ __html: description }}
-            className=" w-2/4 h-96 overflow-auto my-10 text-zinc-900 whitespace-pre-line">
-          </div>
-          <Map geography={geography} />
+        <Map geography={geography} />
 
+        <div className="w-[60%]">
+          <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 "> Description </h4>
+          <div dangerouslySetInnerHTML={{ __html: description }}
+            className="  h-96 overflow-auto  text-zinc-900 whitespace-pre-line">
+          </div>
         </div>
+
       </div>
 
 

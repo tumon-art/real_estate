@@ -7,7 +7,10 @@ export default function Map({ geography }) {
 
   if (!isLoaded) return <div>Loading...</div>;
   return (
-    <GoogleMap zoom={17} center={geography} mapContainerClassName="map-container">
+    <GoogleMap
+      zoom={17}
+      center={geography}
+      mapContainerClassName="map-container">
       <Marker position={geography} />
     </GoogleMap>
   );

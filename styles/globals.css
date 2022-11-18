@@ -56,9 +56,9 @@
 }
 
 .map-container {
-  width: 100%;
+  width: 60%;
   height: 400px;
   position: relative;
-  border: 10px solid #1681c0;
+  border: 10px solid #c0e7fa ;
   border-radius: 5px;
 }
