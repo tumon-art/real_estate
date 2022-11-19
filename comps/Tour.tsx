@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { DaysTypes } from "../pages/property/[id]";
 import QuestionMark from "./svg/QuestionMark";
 
@@ -20,20 +20,27 @@ yours, select the video chat tour type and discuss
 available options with the agent you are connected with.`
 
 export default function Tour({ days }: { days: DaysTypes[] }) {
+  const [inPerson, setInPerson] = useState<boolean>(true)
+  const [inVideo, setInVideo] = useState<boolean>(false)
 
+  console.log(inPerson, inVideo)
   useEffect(() => {
     let marker = document.getElementById('marker');
     let list: HTMLLIElement[] | any = document.querySelectorAll('ol li');
     marker!.style.left = list[0].offsetLeft + 'px';
     marker!.style.width = list[0].offsetWidth + 'px';
 
-    console.log(list[0])
     function moveIndicator(e: HTMLLIElement) {
       marker!.style.left = e.offsetLeft + 'px';
       marker!.style.width = e.offsetWidth + 'px';
     }
     list.forEach((each: HTMLLIElement) => {
       each.addEventListener('click', (e: HTMLLIElement | any) => moveIndicator(e.target))
+    })
+
+    window.addEventListener('resize', () => {
+      marker!.style.left = list[0].offsetLeft + 'px';
+      marker!.style.width = list[0].offsetWidth + 'px';
     })
   }, [])
 
@@ -47,15 +54,31 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
         />
       </div>
       <ol className=" my-4 relative w-full text-zinc-600
-      bg-gray-200 py-2 font-bold isolate ">
-        <li className=" px-5 w-1/2 text-center inline-block cursor-pointer">
+      bg-gray-100 py-2 font-bold isolate ">
+        <li
+          onClick={() => {
+            setInPerson(true)
+            setInVideo(false)
+          }}
+          className=" px-5 w-1/2 text-center inline-block cursor-pointer">
           In-Person
         </li>
-        <li className=" px-5 w-1/2 text-center inline-block cursor-pointer">
+        <li
+
+          onClick={() => {
+            setInPerson(false)
+            setInVideo(true)
+          }}
+          className=" px-5 w-1/2 text-center inline-block cursor-pointer">
           Video Chat
         </li>
-        <div id='marker' className="left-0 transition-all duration-1000 z-[-1] absolute top-0 h-full w-72 bg-sky-200 "></div>
+        <div id='marker' className="left-0 transition-all duration-1000 
+        z-[-1] absolute top-0 h-full w-72 bg-sky-200 "></div>
       </ol>
+
+      <div className="flex overflow-x-auto">
+
+      </div>
     </div>
   )
 }
