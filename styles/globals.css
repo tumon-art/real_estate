@@ -60,3 +60,7 @@
   border: 10px solid #c0e7fa ;
   border-radius: 5px;
 }
+
+.popup-hold:hover .popup {
+display: block;
+}

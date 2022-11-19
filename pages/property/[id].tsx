@@ -6,7 +6,7 @@ import ImageScrollbar from "../../comps/dls/ImageScrollBar/ImageScrollbar";
 import Map from "../../comps/Map";
 import Tour from "../../comps/Tour";
 
-interface DaysTypes {
+export interface DaysTypes {
   day: string;
   date: string;
   month: string;
@@ -79,7 +79,7 @@ const Property = ({
         <hr className=" mt-5"></hr>
 
 
-        <section className="flex">
+        <section className="md:flex">
           <div className="md:w-[60%]">
             <Map geography={geography} />
             <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 ">
