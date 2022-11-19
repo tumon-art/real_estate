@@ -12,9 +12,9 @@ export default function QuestionMark({ styles, text }: { styles: string, text: s
       1.827v.75M21 12a9 9 0 11-18 0 9 9 0
       0118 0zm-9 5.25h.008v.008H12v-.008z" />
       </svg>
-      <div className=" popup hidden absolute bg-zinc-50 w-60 text-sm
+      <div className=" popup hidden absolute bg-zinc-50 w-60 text-xs
       rounded-md tracking-wide
-      bottom-[-200px] shadow-xl p-5 text-gray-500">
+      bottom-[-150px] z-50 shadow-xl p-5 text-gray-500">
         {text}
       </div>
     </div>

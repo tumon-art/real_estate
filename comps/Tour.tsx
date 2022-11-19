@@ -22,12 +22,20 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
 
   return (
     <div>
-      <h3 className=" font-bold text-center ">Schedule A Tour</h3>
-      <div className=" flex gap-2  items-center text-gray-400 text-lg">
+      <h3 className=" font-bold ">Schedule A Tour</h3>
+      <div className=" flex gap-2 items-center text-gray-400">
         <span> Tour Type</span>
         <QuestionMark styles="h-5 text-gray-600 cursor-pointer"
           text={textProp}
         />
+      </div>
+      <div className=" bg-gray-500">
+        <div>
+          In-Person
+        </div>
+        <div>
+          Video Chat
+        </div>
       </div>
     </div>
   )

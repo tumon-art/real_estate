@@ -79,7 +79,7 @@ const Property = ({
         <hr className=" mt-5"></hr>
 
 
-        <section className="md:flex">
+        <section className="md:flex gap-5">
           <div className="md:w-[60%]">
             <Map geography={geography} />
             <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 ">
