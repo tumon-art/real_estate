@@ -22,6 +22,7 @@ available options with the agent you are connected with.`;
 export default function Tour({ days }: { days: DaysTypes[] }) {
   const [inPerson, setInPerson] = useState<boolean>(true);
   const [inVideo, setInVideo] = useState<boolean>(false);
+  const [selectedDay, setSelectedDay] = useState<DaysTypes>();
 
   useEffect(() => {
     let marker = document.getElementById("marker");
@@ -34,12 +35,18 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
       marker!.style.width = e.offsetWidth + "px";
     }
     list.forEach((each: HTMLLIElement) => {
-      each.addEventListener("click", (e: HTMLLIElement | any) =>
+      each.addEventListener("click", (e: HTMLLIElement | any) => {
+        console.log('click')
         moveIndicator(e.target)
+      }
       );
+
+      // SOTRE date
+      setSelectedDay(days[1])
     });
 
     window.addEventListener("resize", () => {
+      console.log('window')
       marker!.style.left = list[0].offsetLeft + "px";
       marker!.style.width = list[0].offsetWidth + "px";
     });
@@ -84,7 +91,24 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
         ></div>
       </ol>
 
-      <div className="flex overflow-x-auto"></div>
+      <div className="text-zinc-600 flex gap-2 overflow-x-auto">
+        {days.map((each, i) => {
+          if (typeof selectedDay == 'undefined') return null
+          return (
+            <div
+              onClick={() => setSelectedDay(each)}
+              className={`px-5 py-2 flex flex-col items-center
+            justify-center border-2 cursor-pointer
+            ${each.date == selectedDay?.date && 'border-sky-300'}
+            hover:bg-zinc-200 transition`}>
+              <div> {each.day}  </div>
+              <div className="font-bold"> {each.date}  </div>
+              <div> {each.month}  </div>
+            </div>
+          )
+        }
+        )}
+      </div>
     </div>
   );
 }

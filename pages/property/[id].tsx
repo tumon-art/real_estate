@@ -19,8 +19,6 @@ for (let i = 1; i <= 7; i++) {
   days.push(obj)
 }
 
-console.log(days)
-
 const Property = ({
   propertyDetails: {
     price,
