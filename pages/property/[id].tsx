@@ -11,12 +11,12 @@ export interface DaysTypes {
   date: string;
   month: string;
 }
-var days: DaysTypes[] = []
+var days: DaysTypes[] = [];
 
 for (let i = 1; i <= 7; i++) {
-  const str = moment().clone().add(i, 'days').format("dd D MMM").split(" ")
-  const obj = { day: str[0], date: str[1], month: str[2] }
-  days.push(obj)
+  const str = moment().clone().add(i, "days").format("dd D MMM").split(" ");
+  const obj = { day: str[0], date: str[1], month: str[2] };
+  days.push(obj);
 }
 
 const Property = ({
@@ -76,9 +76,8 @@ const Property = ({
         <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
         <hr className=" mt-5"></hr>
 
-
-        <section className="md:flex gap-5">
-          <div className="md:w-[60%]">
+        <section className="lg:flex gap-5">
+          <div className="lg:w-[60%]">
             <Map geography={geography} />
             <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 ">
               Description
@@ -91,8 +90,6 @@ const Property = ({
 
           <Tour days={days} />
         </section>
-
-
       </div>
     </div>
   );
