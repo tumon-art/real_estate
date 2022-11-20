@@ -12,7 +12,13 @@ import DefaultImage from "../assets/images/house.webp";
 import { useContext, useState } from "react";
 import { UC } from "../context/UC";
 
-const Property = ({ property }: any) => {
+const Property = ({
+  property,
+  formSearch,
+}: {
+  property: any;
+  formSearch?: boolean;
+}) => {
   const [hoverFunc, sethoverFunc] = useState<string>();
   const { dispatch, addFav } = useContext(UC);
 
@@ -102,7 +108,10 @@ const Property = ({ property }: any) => {
         </svg>
       </div>
 
-      <Link href={`/property/${externalID}`} passHref>
+      <Link
+        href={`/${formSearch ? "searched" : "property"}/${externalID}`}
+        passHref
+      >
         <div className=" cursor-pointer  px-2 py-1 text-sm bg-zinc-100">
           <div className=" flex items-center justify-between">
             {/* === PRICE  */}

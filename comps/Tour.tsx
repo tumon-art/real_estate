@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { DaysTypes } from "../pages/property/[id]";
 import QuestionMark from "./svg/QuestionMark";
 
@@ -88,7 +88,7 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
         <div
           id="marker"
           className="left-0 transition-all duration-500
-        z-[-1] absolute top-0 h-full w-72 bg-sky-200 "
+        z-[-1] absolute top-0 h-full w-1/2 bg-sky-200 "
         ></div>
       </ol>
       {/* SELECT DATE */}

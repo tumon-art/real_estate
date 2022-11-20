@@ -98,12 +98,12 @@ const Property = ({
           </div>
           <nav
             className=" fixed md:relative bottom-0 left-0 h-12 md:w-1/2 w-[100vw]
-          bg-sky-200 flex justify-center items-center"
+            bg-sky-200 flex justify-center items-center"
           >
             <div
               onClick={() => setisModelOpen(true)}
               className=" cursor-pointer hover:text-cyan-900 
-           text-cyan-800 text-xl font-extrabold "
+             text-cyan-800 text-xl font-extrabold "
             >
               Schedule A Tour
             </div>
@@ -114,7 +114,7 @@ const Property = ({
             <MdClose
               onClick={() => setisModelOpen(false)}
               className=" absolute right-10 cursor-pointer 
-              hover:opacity-70 w-8 h-8 font-extrabold"
+                hover:opacity-70 w-8 h-8 font-extrabold"
             />
 
             <Tour days={days} />
@@ -126,32 +126,7 @@ const Property = ({
 };
 export default Property;
 
-export const getStaticPaths = async () => {
-  const propertyForSale = await fetchApi(
-    `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
-  );
-
-  const propertyForRent = await fetchApi(
-    `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
-  );
-
-  const all = [...propertyForSale.hits, ...propertyForRent.hits];
-
-  const paths: any = all.map((e: any) => {
-    return {
-      params: {
-        id: e.externalID,
-      },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export async function getStaticProps({ params }: any) {
+export async function getServerSideProps({ params }: any) {
   const propertyDetails = await fetchApi(
     `${baseUrl}/properties/detail?externalID=${params.id}`
   );
