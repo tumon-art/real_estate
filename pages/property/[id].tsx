@@ -99,11 +99,17 @@ const Property = ({
 export default Property;
 
 export const getStaticPaths = async () => {
-  const { hits } = await fetchApi(
+  const propertyForSale = await fetchApi(
     `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
   );
 
-  const paths: any = hits.map((e: any) => {
+  const propertyForRent = await fetchApi(
+    `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
+  );
+
+  const all = [...propertyForSale.hits, ...propertyForRent.hits];
+
+  const paths: any = all.map((e: any) => {
     return {
       params: {
         id: e.externalID,
@@ -117,15 +123,11 @@ export const getStaticPaths = async () => {
   };
 };
 
-export async function getStaticProps({ params: { id } }: any) {
+export async function getStaticProps({ params }: any) {
   const propertyDetails = await fetchApi(
-    `${baseUrl}/properties/detail?externalID=${id}`
+    `${baseUrl}/properties/detail?externalID=${params.id}`
   );
 
-  // const propertyForSale = await fetchApi(
-  //   `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
-  // );
-  // console.log(propertyForSale.hits);
   return {
     props: {
       propertyDetails,
