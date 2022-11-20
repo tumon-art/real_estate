@@ -88,7 +88,7 @@ const Property = ({
             ></div>
           </div>
 
-          <div className=" w-[40%] ">
+          <div className=" lg:w-[40%] ">
             <Tour days={days} />
           </div>
         </section>
