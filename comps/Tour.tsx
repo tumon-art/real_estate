@@ -114,7 +114,7 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
       </section>
       {/* SELECT TIME */}
       <div>
-        <fieldset className=" w-full rounded-sm border-4 h-12 border-sky-200  px-1 my-5">
+        <fieldset className=" w-full rounded-sm border-2 h-12 border-sky-200  px-1 my-5">
           <legend className=" px-1 text-xs font-bold">Time</legend>
           <select
             className=" outline-none w-full
@@ -129,17 +129,19 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
         </fieldset>
       </div>
       {/* PHONE, EMAIL */}
-      <fieldset className=" w-full rounded-sm border-4 h-12 border-sky-200  px-1 my-5">
+      <fieldset className=" w-full rounded-sm border-2 h-12 border-sky-200  px-1 my-5">
         <legend className=" px-1 text-xs font-bold">Phone</legend>
         <input
-          className=" text-gray-700 text-sm w-full placeholder:text-gray-500 placeholder:text-xs outline-none px-5"
+          className=" text-gray-700 text-sm w-full placeholder:text-gray-500
+           placeholder:text-xs outline-none px-5"
           placeholder="Phone"
         />
       </fieldset>
-      <fieldset className=" w-full rounded-sm border-4 h-12 border-sky-200  px-1 my-5">
+      <fieldset className=" w-full rounded-sm border-2 h-12 border-sky-200  px-1 my-5">
         <legend className=" px-1 text-xs font-bold">Email</legend>
         <input
-          className=" text-gray-700 text-sm w-full placeholder:text-gray-500 placeholder:text-xs outline-none px-5"
+          className=" text-gray-700 text-sm w-full placeholder:text-gray-500
+           placeholder:text-xs outline-none px-5"
           placeholder="Email"
         />
       </fieldset>

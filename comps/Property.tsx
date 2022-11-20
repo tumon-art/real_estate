@@ -61,7 +61,7 @@ const Property = ({ property }: any) => {
       {/* === AFTER */}
       <div
         className={` blur-[30px] group-hover:skew-x-[0deg] duration-1000 
-      absolute bg-sky-600 w-full md:block hidden skew-x-[40deg] z-[-1] h-full`}
+      absolute bg-sky-600 w-full  skew-x-[40deg] z-[-1] h-full`}
       ></div>
       {/* <div className=" absolute bg-cyan-100 w-full  skew-y-2 z-[-10] h-full"></div> */}
       <div className=" leading-[0] box-border mt-1 mr-1 ml-1 overflow-hidden">
@@ -71,7 +71,8 @@ const Property = ({ property }: any) => {
           width={400}
           height={260}
           alt="img"
-          className=" cursor-text min-w-full group-hover:scale-125 transition-transform sm:rounded-sm duration-1000"
+          className=" cursor-text min-w-full group-hover:scale-125 
+          transition-transform sm:rounded-sm duration-1000"
         />
 
         {/* === FAV */}
@@ -133,14 +134,14 @@ const Property = ({ property }: any) => {
           {/* === CARD FOOTER */}
           <div>
             <div className=" flex gap-3 items-center text-cyan-700">
-              <b>{rooms}</b>{" "}
+              <b>{rooms}</b>
               <span title="Bed">
                 <MdKingBed />
-              </span>{" "}
+              </span>
               | <b>{baths}</b>
               <span title="Bathtub">
                 <MdOutlineBathtub />
-              </span>{" "}
+              </span>
               |<b>{millify(area)}</b>
               <span title="Area">
                 <MdGrid4X4 />
