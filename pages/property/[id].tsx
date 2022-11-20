@@ -98,11 +98,34 @@ const Property = ({
 };
 export default Property;
 
-export async function getServerSideProps({ params: { id } }: any) {
+export const getStaticPaths = async () => {
+  const { hits } = await fetchApi(
+    `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
+  );
+
+  const paths: any = hits.map((e: any) => {
+    return {
+      params: {
+        id: e.externalID,
+      },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export async function getStaticProps({ params: { id } }: any) {
   const propertyDetails = await fetchApi(
     `${baseUrl}/properties/detail?externalID=${id}`
   );
 
+  // const propertyForSale = await fetchApi(
+  //   `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
+  // );
+  // console.log(propertyForSale.hits);
   return {
     props: {
       propertyDetails,
