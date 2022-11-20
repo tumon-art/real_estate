@@ -54,7 +54,7 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
   };
 
   return (
-    <div className="md:w-2/4 w-full">
+    <form className=" w-full">
       <h3 className=" font-bold ">Schedule A Tour</h3>
       <div className=" flex gap-2 items-center text-gray-400">
         <span> Tour Type</span>
@@ -94,7 +94,7 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
       {/* SELECT DATE */}
       {/* HYDRATION PROBLEM */}
       <section className=" flex justify-center">
-        <div className="text-zinc-600 flex gap-2 overflow-auto">
+        <div className="text-zinc-600 pb-2 flex gap-2 overflow-auto">
           {days.map((each: DaysTypes) => {
             return (
               <div
@@ -113,19 +113,52 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
         </div>
       </section>
       {/* SELECT TIME */}
-      <div className=" w-full rounded-sm ring-2 ring-sky-200 py-2 px-1 my-5">
-        <h3 className="font-medium">Time</h3>
-        <select
-          className=" outline-none focus:ring-1 w-full
+      <div>
+        <fieldset className=" w-full rounded-sm border-4 h-12 border-sky-200  px-1 my-5">
+          <legend className=" px-1 text-xs font-bold">Time</legend>
+          <select
+            className=" outline-none w-full
            font-bold text-zinc-600 bg-transparent"
-          defaultValue=""
-          onChange={(e) => selectHandle(e)}
-        >
-          {times.map((each: string) => {
-            return <option value={each}> {each} </option>;
-          })}
-        </select>
+            defaultValue=""
+            onChange={(e) => selectHandle(e)}
+          >
+            {times.map((each: string) => {
+              return <option value={each}> {each} </option>;
+            })}
+          </select>
+        </fieldset>
       </div>
-    </div>
+      {/* PHONE, EMAIL */}
+      <fieldset className=" w-full rounded-sm border-4 h-12 border-sky-200  px-1 my-5">
+        <legend className=" px-1 text-xs font-bold">Phone</legend>
+        <input
+          className=" text-gray-700 text-sm w-full placeholder:text-gray-500 placeholder:text-xs outline-none px-5"
+          placeholder="Phone"
+        />
+      </fieldset>
+      <fieldset className=" w-full rounded-sm border-4 h-12 border-sky-200  px-1 my-5">
+        <legend className=" px-1 text-xs font-bold">Email</legend>
+        <input
+          className=" text-gray-700 text-sm w-full placeholder:text-gray-500 placeholder:text-xs outline-none px-5"
+          placeholder="Email"
+        />
+      </fieldset>
+
+      {/* CHECKBOX */}
+      <label>
+        <input type="checkbox" />
+        <span className=" ml-2 text-xs text-gray-500">
+          I want to talk about financing
+        </span>
+      </label>
+
+      {/* CHECKBOX */}
+      <div
+        className=" text-white font-extrabold cursor-pointer
+       rounded-md hover:bg-sky-500 h-10 my-5 bg-sky-600 flex justify-center items-center "
+      >
+        Schedule A Tour
+      </div>
+    </form>
   );
 }

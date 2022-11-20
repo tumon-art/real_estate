@@ -76,7 +76,7 @@ const Property = ({
         <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
         <hr className=" mt-5"></hr>
 
-        <section className="lg:flex gap-5">
+        <section className="lg:flex my-5 gap-8">
           <div className="lg:w-[60%]">
             <Map geography={geography} />
             <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 ">
@@ -88,7 +88,9 @@ const Property = ({
             ></div>
           </div>
 
-          <Tour days={days} />
+          <div className=" w-[40%] ">
+            <Tour days={days} />
+          </div>
         </section>
       </div>
     </div>
