@@ -122,7 +122,7 @@ const Property = ({
               <div className="font-bold">
                 AED
                 <span className="  ml-2 text-sky-800 ">
-                  {millify(price)}
+                  {millify(Number(price))}
                 </span>{" "}
                 {rentFrequency && ` /${rentFrequency}`}
               </div>
@@ -151,7 +151,7 @@ const Property = ({
               <span title="Bathtub">
                 <MdOutlineBathtub />
               </span>
-              |<b>{millify(area)}</b>
+              |<b>{millify(Number(area))}</b>
               <span title="Area">
                 <MdGrid4X4 />
               </span>
