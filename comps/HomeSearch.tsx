@@ -21,8 +21,7 @@ const HomeSearch = () => {
             className=" sm:placeholder:text-xl pl-4 w-full bg-transparent"
           />
           <button className=" bg-sky-600 cursor-pointer hover:bg-blue-600 text-white text-3xl px-4">
-            {" "}
-            <MdSearch />{" "}
+            <MdSearch />
           </button>
         </div>
       </div>
