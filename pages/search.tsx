@@ -43,7 +43,7 @@ export default function Search({ properties }: any) {
       {/* === SHOW PROPERTIES */}
       <div className=" grid sm:grid-cols-2 sm:mx-20 my-2 sm:my-10 md:grid-cols-3 justify-center gap-8 ">
         {properties.map((property: any) => (
-          <Property property={property} formSearch key={property.id} />
+          <Property property={property} formSearch={true} key={property.id} />
         ))}
       </div>
 
