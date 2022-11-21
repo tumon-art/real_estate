@@ -26,7 +26,6 @@ export async function getStaticProps() {
 
 // { propertyForSale, propertyForRent }
 export default function Home({ propertyForSale, propertyForRent }: any) {
-  const [data, setdata] = useState<any>();
   const [count, setcount] = useState(false);
 
   useEffect(() => {
@@ -47,15 +46,7 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
 
   return (
     <div className=" flex flex-col items-center ">
-      <Banner
-        purpose="RENT A HOME"
-        title1="Rental Homes for"
-        title2="Everyone"
-        desc1=" Explore from Apartments, builder floors, villas"
-        desc2="and more"
-        buttonText="Explore Renting"
-        linkName="/search?purpose=for-rent"
-      />
+      <Banner />
 
       <h1
         className=" text-lg sm:text-4xl my-5 sm:my-10 font-extrabold animate-pulse font-FiraMono

@@ -41,7 +41,6 @@ const Property = ({
   },
 }: any) => {
   const [isModelOpen, setisModelOpen] = useState<boolean>(false);
-
   return (
     <div className=" md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}

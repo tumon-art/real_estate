@@ -1,5 +1,3 @@
-import { MdClose } from "react-icons/md";
-
 interface ModalProps {
   tailwindClasses?: string;
   children: React.ReactNode;

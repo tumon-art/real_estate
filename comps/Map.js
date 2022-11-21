@@ -1,6 +1,8 @@
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { memo } from "react";
 
-export default function Map({ geography }) {
+const Map = memo(({ geography }) => {
+  console.log("map");
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GAPI || "",
   });
@@ -10,8 +12,11 @@ export default function Map({ geography }) {
     <GoogleMap
       zoom={17}
       center={geography}
-      mapContainerClassName="map-container">
+      mapContainerClassName="map-container"
+    >
       <Marker position={geography} />
     </GoogleMap>
   );
-}
+});
+
+export default Map;

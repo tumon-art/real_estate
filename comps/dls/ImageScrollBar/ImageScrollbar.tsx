@@ -1,8 +1,8 @@
-import Image from 'next/future/image'
+import Image from "next/future/image";
+import { memo } from "react";
 import styles from "./ImageS.module.scss";
 
-
-const ImageScrollbar = ({ photos }: any) => {
+const ImageScrollbar = memo(({ photos }: any) => {
   const rightArrow = () => {
     const auto = document.getElementById("auto") as HTMLElement;
     auto.scrollLeft = auto?.scrollLeft + 1400 / 4;
@@ -22,7 +22,7 @@ const ImageScrollbar = ({ photos }: any) => {
         onClick={() => leftArrow()}
         className={`${styles.text}  hidden sm:flex absolute text-6xl font-bold
       hover:text-sky-200 cursor-pointer  text-white  shadow-2xl
-     mt-auto mb-auto flex items-center left-2 md:left-10 top-0 bottom-0 `}
+     mt-auto mb-auto  items-center left-2 md:left-10 top-0 bottom-0 `}
       >
         ❰
       </span>
@@ -32,7 +32,7 @@ const ImageScrollbar = ({ photos }: any) => {
         onClick={() => rightArrow()}
         className={`${styles.text} hidden sm:flex  absolute text-6xl font-bold
        hover:text-sky-200 cursor-pointer  text-white shadow-2xl
-       mt-auto mb-auto flex items-center right-2 md:right-10 top-0 bottom-0 `}
+       mt-auto mb-auto  items-center right-2 md:right-10 top-0 bottom-0 `}
       >
         ❱
       </span>
@@ -58,5 +58,5 @@ const ImageScrollbar = ({ photos }: any) => {
       </div>
     </div>
   );
-};
+});
 export default ImageScrollbar;
