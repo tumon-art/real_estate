@@ -83,7 +83,7 @@ export const Navbar = () => {
       <div className={styles.header}>
         <div className=" flex gap-2">
           <svg
-            className=" h-6 w-6 text-sky-600"
+            className=" h-6 w-6 hidden sm:inline-block text-sky-600"
             strokeWidth="2"
             stroke="skyblue"
             fill="currentColor"

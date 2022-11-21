@@ -12,6 +12,8 @@ import Map from "../../comps/Map";
 import Tour from "../../comps/Tour";
 import Modal from "../../comps/dls/modal/Modal";
 import { useState } from "react";
+import Image from "next/future/image";
+import Req from "../../comps/Req";
 
 export interface DaysTypes {
   day: string;
@@ -41,6 +43,7 @@ const Property = ({
   },
 }: any) => {
   const [isModelOpen, setisModelOpen] = useState<boolean>(false);
+  const [isReqOpen, setisReqOpen] = useState<boolean>(false);
   return (
     <div className=" md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}
@@ -48,19 +51,20 @@ const Property = ({
       <div className=" mx-2 sm:mx-0 flex justify-between">
         <div className="  font-bold">
           AED
-          <span className=" ml-2 text-sky-800 ">{millify(Number(price))}</span>{" "}
+          <span className=" ml-2 text-sky-800 ">
+            {millify(Number(price))}
+          </span>{" "}
           {rentFrequency && ` /${rentFrequency}`}
         </div>
 
         <div className="ring-4 ring-sky-200  rounded-full flex justify-center items-center">
           {/* === AVATAR */}
-          <img
+          <Image
             className=" h-6 w-6 object-cover rounded-full"
             src={agency?.logo?.url}
             width="30"
             height="30"
             alt="avater"
-            loading="lazy"
           />
         </div>
       </div>
@@ -85,7 +89,7 @@ const Property = ({
         <hr className=" mt-5"></hr>
 
         <section className="lg:flex my-5 gap-8">
-          <div className="lg:w-[60%]">
+          <div className="lg:w-4/6">
             <Map geography={geography} />
             <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 ">
               Description
@@ -96,18 +100,37 @@ const Property = ({
             ></div>
           </div>
           <nav
-            className=" fixed md:relative bottom-0 left-0 h-12 md:w-1/2 w-[100vw]
-          bg-sky-200 flex justify-center items-center"
+            className=" pt-2 gap-3 md:pt-0 fixed md:relative bottom-0 left-0 h-auto md:h-52  md:w-2/6 w-[100vw]
+           flex flex-col  md:gap-5 md:my-5 justify-center bg-white items-center"
           >
-            <div
-              onClick={() => setisModelOpen(true)}
-              className=" cursor-pointer hover:text-cyan-900 
-           text-cyan-800 text-xl font-extrabold "
-            >
-              Schedule A Tour
+            <p className=" pb-2 md:pb-0 order-3 md:order-0 text-xs text-zinc-600 text-center font-medium">
+              Request a tour as early as
+              <span className=" md:block font-bold text-center">
+                {" "}
+                Today at 11:00AM{" "}
+              </span>
+            </p>
+            <div className=" flex justify-evenly w-full gap-5 px-3 md:flex-col">
+              <button
+                onClick={() => setisModelOpen(true)}
+                className=" bg-sky-200 cursor-pointer ring-4 ring-sky-200 hover:text-sky-900 
+           text-sky-700 text-lg font-extrabold w-full rounded-sm py-2 "
+              >
+                Schedule A Tour
+              </button>
+
+              <button
+                onClick={() => setisReqOpen(true)}
+                className=" ring-4 ring-sky-200 rounded-sm py-2 w-full 
+              cursor-pointer hover:text-sky-900 bg-white
+           text-sky-700 text-lg font-extrabold"
+              >
+                Request Info
+              </button>
             </div>
           </nav>
         </section>
+        {/* === Tour */}
         <div className=" block w-full">
           <Modal isOpen={isModelOpen} setModel={setisModelOpen}>
             <MdClose
@@ -117,6 +140,18 @@ const Property = ({
             />
 
             <Tour days={days} />
+          </Modal>
+        </div>
+        {/* === Req */}
+        <div className=" block w-full">
+          <Modal isOpen={isReqOpen} setModel={setisReqOpen}>
+            <MdClose
+              onClick={() => setisReqOpen(false)}
+              className=" absolute right-10 cursor-pointer 
+              hover:opacity-70 w-8 h-8 font-extrabold"
+            />
+
+            <Req title={title} />
           </Modal>
         </div>
       </div>

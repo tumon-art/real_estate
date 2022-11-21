@@ -87,7 +87,7 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
         </li>
         <div
           id="marker"
-          className="left-0 transition-all duration-500
+          className="left-0 transition-all
         z-[-1] absolute top-0 h-full w-1/2 bg-sky-200 "
         ></div>
       </ol>
@@ -154,7 +154,6 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
         </span>
       </label>
 
-      {/* CHECKBOX */}
       <div
         className=" text-white font-extrabold cursor-pointer
        rounded-md hover:bg-sky-500 h-10 my-5 bg-sky-600 flex justify-center items-center "

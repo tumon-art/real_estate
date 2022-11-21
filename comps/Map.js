@@ -2,7 +2,6 @@ import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { memo } from "react";
 
 const Map = ({ geography }) => {
-  console.log("map");
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GAPI || "",
   });
