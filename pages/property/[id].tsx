@@ -2,6 +2,7 @@ import {
   MdClose,
   MdGrid4X4,
   MdKingBed,
+  MdLocationCity,
   MdOutlineBathtub,
 } from "react-icons/md";
 import millify from "millify";
@@ -40,6 +41,7 @@ const Property = ({
     description,
     photos,
     geography,
+    location,
   },
 }: any) => {
   const [isModelOpen, setisModelOpen] = useState<boolean>(false);
@@ -48,27 +50,20 @@ const Property = ({
     <div className=" md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}
 
-      <div className=" mx-2 sm:mx-0 flex justify-between">
-        <div className="  font-bold">
-          AED
-          <span className=" ml-2 text-sky-800 ">
-            {millify(Number(price))}
-          </span>{" "}
-          {rentFrequency && ` /${rentFrequency}`}
+      <div className=" md:flex justify-between ">
+        <div className="  md:order-2 sm:mx-0 gap-3">
+          <div className="  font-bold">
+            AED
+            <span className=" ml-2 text-xl text-sky-800 ">
+              {millify(Number(price))}
+            </span>{" "}
+            {rentFrequency && ` /${rentFrequency}`}
+          </div>
         </div>
-
-        <div className="ring-4 ring-sky-200  rounded-full flex justify-center items-center">
-          {/* === AVATAR */}
-          <Image
-            className=" h-6 w-6 object-cover rounded-full"
-            src={agency?.logo?.url}
-            width="30"
-            height="30"
-            alt="avater"
-          />
-        </div>
+        <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
       </div>
 
+      {/* === ROOMS AND DETAILS */}
       <div className=" mx-2 sm:mx-0 my-2">
         <div className=" flex gap-3 items-center text-cyan-700">
           <b>{rooms}</b>
@@ -85,7 +80,13 @@ const Property = ({
           </span>
         </div>
 
-        <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
+        <div className=" flex gap-2 my-2 items-center">
+          <MdLocationCity className=" h-5 text-zinc-400" />
+          <span className=" text-zinc-600 text-xs">
+            {location[2].name}, {location[1].name}
+          </span>
+        </div>
+
         <hr className=" mt-5"></hr>
 
         <section className="lg:flex my-5 gap-8">

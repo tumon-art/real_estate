@@ -56,9 +56,11 @@ export const Navbar = () => {
           placeholder="City, Zip..."
           className=" sm:placeholder:text-xs pl-4 w-full bg-transparent"
         />
-        <button className=" bg-sky-400 cursor-pointer hover:bg-blue-600 text-white text-xl px-4">
-          <MdSearch />
-        </button>
+        <Link href="/search">
+          <button className=" bg-sky-400 cursor-pointer hover:bg-blue-600 text-white text-xl px-4">
+            <MdSearch />
+          </button>
+        </Link>
       </div>
 
       {/* == NAVBAR LINKS FOR DESKTOP AND TABLETS */}
