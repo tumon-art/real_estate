@@ -29,39 +29,39 @@ const Sidebar = () => {
       </div>
       <ul className={` ${styles.ul} `}>
         <Link href="/" passHref>
-          <a
+          <div
             className={styles.a}
             onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
           >
             <MdHome /> Home
-          </a>
+          </div>
         </Link>
 
         <Link href="/search" passHref>
-          <a
+          <div
             className={styles.a}
             onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
           >
             <MdSearch /> Search
-          </a>
+          </div>
         </Link>
 
         <Link href="/search?purpose=for-sale" passHref>
-          <a
+          <div
             className={styles.a}
             onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
           >
             <MdOutlineInfo /> Buy Property
-          </a>
+          </div>
         </Link>
 
         <Link href="/search?purpose=for-rent" passHref>
-          <a
+          <div
             className={styles.a}
             onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
           >
             <MdVpnKey /> Rent Property
-          </a>
+          </div>
         </Link>
       </ul>
 

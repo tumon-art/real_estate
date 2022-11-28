@@ -9,7 +9,8 @@ const Banner = () => (
       <Image
         src={houseImg}
         alt="img"
-        layout="fill"
+        height="300"
+        width="300"
         className={styles.BannerImg}
       />
     </div>

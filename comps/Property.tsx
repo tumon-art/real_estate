@@ -70,14 +70,13 @@ const Property = ({
       absolute bg-sky-600 w-full  skew-x-[40deg] z-[-1] h-full`}
       ></div>
       {/* <div className=" absolute bg-cyan-100 w-full  skew-y-2 z-[-10] h-full"></div> */}
-      <div className=" leading-[0] box-border mt-1 mr-1 ml-1 overflow-hidden">
+      <div className=" box-border mt-1 mr-1 ml-1 overflow-hidden">
         <Image
-          loading="lazy"
           src={coverPhoto ? coverPhoto.url : DefaultImage}
           width={400}
           height={260}
           alt="img"
-          className=" cursor-text min-w-full group-hover:scale-125 
+          className=" h-[260px] cursor-text min-w-full group-hover:scale-125 
           transition-transform sm:rounded-sm duration-1000"
         />
 

@@ -40,10 +40,11 @@ export const Navbar = () => {
           <path d="M13 13h4v8h-10v-6h6" />
           <path d="M13 21v-9a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v3" />
         </svg>
-        <Link href="/">
-          <a className="text-sky-600 text-xl col-start-3 col-end-5 font-extrabold">
-            Real Estate
-          </a>
+        <Link
+          href="/"
+          className="text-sky-600 text-xl col-start-3 col-end-5 font-extrabold"
+        >
+          Real Estate
         </Link>
       </div>
 
@@ -56,10 +57,11 @@ export const Navbar = () => {
           placeholder="City, Zip..."
           className=" sm:placeholder:text-xs pl-4 w-full bg-transparent"
         />
-        <Link href="/search">
-          <button className=" bg-sky-400 cursor-pointer hover:bg-blue-600 text-white text-xl px-4">
-            <MdSearch />
-          </button>
+        <Link
+          href="/search"
+          className=" flex items-center bg-sky-400 cursor-pointer hover:bg-blue-600 text-white text-xl px-4"
+        >
+          <MdSearch />
         </Link>
       </div>
 
@@ -67,42 +69,34 @@ export const Navbar = () => {
       <ul className={`${styles.navLinksUl} `}>
         <li>
           <Link href="/">
-            <a>
-              <Btn text={"Home"} />
-            </a>
+            <Btn text={"Home"} />
           </Link>
         </li>
 
         <li>
           <Link href="/search">
-            <a>
-              <Btn text={"Search"} />
-            </a>
+            <Btn text={"Search"} />
           </Link>
         </li>
 
         <li>
           <Link href="/search?purpose=for-sale">
-            <a>
-              <Btn text={"Buy"} />
-            </a>
+            <Btn text={"Buy"} />
           </Link>
         </li>
 
         <li>
           <Link href="/search?purpose=for-rent">
-            <a>
-              <Btn text={"Rent"} />
-            </a>
+            <Btn text={"Rent"} />
           </Link>
         </li>
       </ul>
 
-      <div className={`$ sm:flex justify-center items-center hidden`}>
-        <div className={styles.flex}>
-          <Fav />
-          <IsLoggedIn />
-        </div>
+      <div
+        className={`${styles.flex} sm:flex justify-center items-center hidden`}
+      >
+        <Fav />
+        <IsLoggedIn />
       </div>
 
       {/* ==== SIDEBAR/MENU ICON  */}
