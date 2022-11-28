@@ -13,7 +13,6 @@ import Map from "../../comps/Map";
 import Tour from "../../comps/Tour";
 import Modal from "../../comps/dls/modal/Modal";
 import { useState } from "react";
-import Image from "next/future/image";
 import Req from "../../comps/Req";
 
 export interface DaysTypes {
@@ -37,7 +36,6 @@ const Property = ({
     title,
     baths,
     area,
-    agency,
     description,
     photos,
     geography,
@@ -46,6 +44,7 @@ const Property = ({
 }: any) => {
   const [isModelOpen, setisModelOpen] = useState<boolean>(false);
   const [isReqOpen, setisReqOpen] = useState<boolean>(false);
+  const [divHeight, setDivHeight] = useState<string>("300px");
   return (
     <div className=" md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}
@@ -65,26 +64,35 @@ const Property = ({
 
       {/* === ROOMS AND DETAILS */}
       <div className=" mx-2 sm:mx-0 my-2">
-        <div className=" flex gap-3 items-center text-cyan-700">
-          <b>{rooms}</b>
-          <span title="Bed">
-            <MdKingBed />
-          </span>
-          | <b>{baths}</b>
-          <span title="Bathtub">
-            <MdOutlineBathtub />
-          </span>
-          |<b>{millify(Number(area))}</b>
-          <span title="Area">
-            <MdGrid4X4 />
-          </span>
-        </div>
+        <div className=" grid grid-cols-2 gap-y-2 grid-rows-2 justify-between ">
+          <div className=" flex gap-3 items-center text-cyan-700">
+            <b>{rooms}</b>
+            <span title="Bed">
+              <MdKingBed />
+            </span>
+            | <b>{baths}</b>
+            <span title="Bathtub">
+              <MdOutlineBathtub />
+            </span>
+            |<b>{millify(Number(area))}</b>
+            <span title="Area">
+              <MdGrid4X4 />
+            </span>
+          </div>
 
-        <div className=" flex gap-2 my-2 items-center">
-          <MdLocationCity className=" h-5 text-zinc-400" />
-          <span className=" text-zinc-600 text-xs">
-            {location[2].name}, {location[1].name}
-          </span>
+          {/* --- SHARE/CLIP AND OTHERS  */}
+          <div className=" flex justify-end gap-4 ">
+            <button className=" ring-2 px-3 p-[2px] rounded-sm">Share</button>
+            <button className=" ring-2 px-3 p-[2px] rounded-sm">Save</button>
+          </div>
+
+          {/* ==== LOACATION */}
+          <div className="row-start-2 flex gap-2 items-center">
+            <MdLocationCity className=" h-5 text-zinc-400" />
+            <span className=" text-zinc-600 text-xs">
+              {location[2].name}, {location[1].name}
+            </span>
+          </div>
         </div>
 
         <hr className=" mt-5"></hr>
@@ -95,10 +103,24 @@ const Property = ({
             <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 ">
               Description
             </h4>
-            <div
-              dangerouslySetInnerHTML={{ __html: description }}
-              className=" block text-zinc-900 whitespace-pre-line"
-            ></div>
+
+            <div className=" flex flex-col items-center overflow-hidden">
+              <div
+                dangerouslySetInnerHTML={{ __html: description }}
+                className={` divText h-[${divHeight}] pb-8 overflow-hidden relative leading-6 text-zinc-900 whitespace-pre-line`}
+              ></div>
+
+              <button
+                className=" inline h-14 border-4 rounded-sm text-zinc-700 font-semibold px-4 "
+                onClick={() =>
+                  setDivHeight((p) =>
+                    divHeight === "300px" ? "100%" : "300px"
+                  )
+                }
+              >
+                {divHeight === "300px" ? "Expand" : "Collapse"}
+              </button>
+            </div>
           </div>
           <nav
             className=" pt-2 gap-3 md:pt-0 fixed md:relative bottom-0 left-0 h-auto md:h-52  md:w-2/6 w-[100vw]
