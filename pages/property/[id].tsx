@@ -97,7 +97,7 @@ const Property = ({
             </h4>
             <div
               dangerouslySetInnerHTML={{ __html: description }}
-              className="  h-96 overflow-auto  text-zinc-900 whitespace-pre-line"
+              className=" block text-zinc-900 whitespace-pre-line"
             ></div>
           </div>
           <nav
@@ -107,8 +107,7 @@ const Property = ({
             <p className=" pb-2 md:pb-0 order-3 md:order-0 text-xs text-zinc-600 text-center font-medium">
               Request a tour as early as
               <span className=" md:block font-bold text-center">
-                {" "}
-                Today at 11:00AM{" "}
+                Today at 11:00AM
               </span>
             </p>
             <div className=" flex justify-evenly w-full gap-5 px-3 md:flex-col">

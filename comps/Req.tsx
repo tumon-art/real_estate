@@ -11,7 +11,7 @@ export default function Req({ title }: { title: string }) {
           placeholder="Phone"
         />
       </fieldset>
-      <fieldset className=" w-full rounded-sm border-2 h-14 border-sky-200  px-1 my-5">
+      <fieldset className=" w-full overflow-hidden rounded-sm border-2 h-14 border-sky-200  px-1 my-5">
         <legend className=" px-1 text-xs font-bold">Email</legend>
         <input
           className=" text-gray-700 text-sm w-full placeholder:text-gray-500
@@ -21,12 +21,12 @@ export default function Req({ title }: { title: string }) {
       </fieldset>
       <fieldset className=" w-full rounded-sm border-2 h-16 border-sky-200  px-1 my-5">
         <legend className=" px-1 text-xs font-bold">Message</legend>
-        <input
-          value={`I'm interested in ${title}`}
-          className=" text-gray-700 text-sm w-full placeholder:text-gray-500
-           placeholder:text-xs outline-none px-5"
+        <textarea
+          defaultValue={`I'm interested in ${title}`}
+          className=" overflow-hidden text-gray-700 text-sm h-full w-full placeholder:text-gray-500
+          resize-none placeholder:text-xs outline-none px-5"
           placeholder="Message"
-        />
+        ></textarea>
       </fieldset>
 
       {/* BUTTON */}

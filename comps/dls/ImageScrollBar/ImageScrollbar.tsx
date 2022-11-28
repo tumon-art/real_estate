@@ -6,13 +6,11 @@ const ImageScrollbar = memo(({ photos }: any) => {
   const rightArrow = () => {
     const auto = document.getElementById("auto") as HTMLElement;
     auto.scrollLeft = auto?.scrollLeft + 1400 / 4;
-    console.log(auto?.scrollBy);
   };
 
   const leftArrow = () => {
     const auto = document.getElementById("auto") as HTMLElement;
     auto.scrollLeft = auto?.scrollLeft - 1400 / 4;
-    console.log(auto?.scrollBy);
   };
 
   return (
