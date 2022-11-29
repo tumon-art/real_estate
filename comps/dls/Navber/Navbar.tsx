@@ -1,14 +1,14 @@
 import Link from "next/link";
 import styles from "./Navbar.module.scss";
 import Sidebar from "../../Sidebar";
-import { useContext, useEffect } from "react";
+import { memo, useContext, useEffect } from "react";
 import { UC } from "../../../context/UC";
 import { IsLoggedIn } from "../../IsLoggedIn";
 import Fav from "../../Fav";
 import Btn from "../Btn/Btn";
 import { MdSearch } from "react-icons/md";
 
-export const Navbar = () => {
+const Navbar = () => {
   const { dispatch, sidebar } = useContext(UC);
 
   useEffect(() => {
@@ -124,3 +124,5 @@ export const Navbar = () => {
     </div>
   );
 };
+
+export default memo(Navbar);

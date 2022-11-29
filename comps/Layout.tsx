@@ -1,20 +1,18 @@
-import Head from "next/head"
-import { Navbar } from "./dls/Navber/Navbar"
-import { Footer } from "./Footer"
+import Head from "next/head";
+import Navbar from "./dls/Navber/Navbar";
+import { Footer } from "./Footer";
 
-const Layout = ({children}:any) => {
-
-
+const Layout = ({ children }: any) => {
   return (
-   <>
-    <Head>
+    <>
+      <Head>
         <title>Real Estate</title>
-    </Head>
-    <Navbar />
-    <main>{children}</main>
-    <Footer />
-   </>
-  )
-}
+      </Head>
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
+};
 
-export default Layout
+export default Layout;

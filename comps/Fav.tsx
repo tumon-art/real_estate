@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UC } from "../context/UC";
 
-const Fav = ({ noBorder, small }: { noBorder?: boolean; small?: boolean }) => {
+const Fav = ({ noBorder }: { noBorder?: boolean }) => {
   const { dispatch } = useContext(UC);
 
   const toogelFav = () => {

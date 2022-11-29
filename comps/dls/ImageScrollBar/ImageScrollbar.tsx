@@ -50,6 +50,7 @@ const ImageScrollbar = memo(({ photos }: any) => {
               height="200"
               src={e.url}
               alt="img"
+              quality={20}
             />
           );
         })}

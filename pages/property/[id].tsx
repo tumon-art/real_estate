@@ -83,13 +83,18 @@ const Property = ({
 
           {/* --- SHARE/CLIP AND OTHERS  */}
           <div className=" flex justify-end gap-4 ">
-            <button className=" bg-sky-500 text-white items-center flex gap-1 ring-2 px-3 p-[2px] rounded-sm">
+            <div
+              className=" cursor-pointer hover:bg-sky-700 bg-sky-500 text-white 
+            items-center flex gap-1 ring-2 px-2 p-[2px] rounded-sm"
+            >
               <span className=" text-white">
                 <Fav noBorder />
               </span>
+              Save
+            </div>
+            <button className=" hover:bg-sky-500 hover:text-white ring-2 px-3 p-[2px] rounded-sm">
               Share
             </button>
-            <button className=" ring-2 px-3 p-[2px] rounded-sm">Save</button>
           </div>
 
           {/* ==== LOACATION */}
