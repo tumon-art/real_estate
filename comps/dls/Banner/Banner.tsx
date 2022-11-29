@@ -12,6 +12,8 @@ const Banner = () => (
         height="300"
         width="300"
         className={styles.BannerImg}
+        unoptimized
+        priority
       />
     </div>
   </div>

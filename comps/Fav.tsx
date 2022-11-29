@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UC } from "../context/UC";
 
-const Sidebar = () => {
+const Fav = ({ noBorder, small }: { noBorder?: boolean; small?: boolean }) => {
   const { dispatch } = useContext(UC);
 
   const toogelFav = () => {
@@ -14,8 +14,12 @@ const Sidebar = () => {
     <div>
       <button className="hidden sm:block" onClick={toogelFav}>
         <svg
-          className=" cursor-pointer hover:opacity-90 hover:scale-110 transition-opacity
-        bg-sky-500 outline-3 outline outline-sky-200 p-1 rounded-full h-6 w-6"
+          className={`cursor-pointer hover:opacity-90 hover:scale-110 transition-opacity
+        ${
+          noBorder !== true
+            ? "bg-sky-500 outline-3 outline outline-sky-200 p-1 rounded-full h-6"
+            : "h-4"
+        } `}
           viewBox="0 0 24 24"
           stroke="currentColor"
           fill="currentColor"
@@ -32,4 +36,4 @@ const Sidebar = () => {
     </div>
   );
 };
-export default Sidebar;
+export default Fav;

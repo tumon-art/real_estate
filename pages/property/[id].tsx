@@ -14,6 +14,7 @@ import Tour from "../../comps/Tour";
 import Modal from "../../comps/dls/modal/Modal";
 import { useState } from "react";
 import Req from "../../comps/Req";
+import Fav from "../../comps/Fav";
 
 export interface DaysTypes {
   day: string;
@@ -82,7 +83,12 @@ const Property = ({
 
           {/* --- SHARE/CLIP AND OTHERS  */}
           <div className=" flex justify-end gap-4 ">
-            <button className=" ring-2 px-3 p-[2px] rounded-sm">Share</button>
+            <button className=" bg-sky-500 text-white items-center flex gap-1 ring-2 px-3 p-[2px] rounded-sm">
+              <span className=" text-white">
+                <Fav noBorder />
+              </span>
+              Share
+            </button>
             <button className=" ring-2 px-3 p-[2px] rounded-sm">Save</button>
           </div>
 

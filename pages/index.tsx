@@ -50,7 +50,7 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
 
       <h1
         className=" text-lg sm:text-4xl my-5 sm:my-10 font-extrabold animate-pulse font-FiraMono
-        text-sky-600 border-l-8 border-sky-200 px-8"
+        text-sky-400 border-l-8 border-sky-200 px-8 drop-shadow-2xl"
       >
         Explore homes with us ...
       </h1>
