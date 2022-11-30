@@ -142,7 +142,7 @@ const Property = ({ property }: any) => {
               ></div>
 
               <button
-                className=" inline h-14 border-4 rounded-sm text-zinc-700 font-semibold px-4 "
+                className=" inline h-10 rounded-md text-sky-700 font-semibold px-3 bg-zinc-200 "
                 onClick={() =>
                   setDivHeight((p) =>
                     divHeight === "300px" ? "100%" : "300px"
