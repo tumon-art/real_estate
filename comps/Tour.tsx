@@ -95,9 +95,10 @@ export default function Tour({ days }: { days: DaysTypes[] }) {
       {/* HYDRATION PROBLEM */}
       <section className=" flex justify-center">
         <div className="text-zinc-600 pb-2 flex gap-2 overflow-auto">
-          {days.map((each: DaysTypes) => {
+          {days.map((each: DaysTypes, i) => {
             return (
               <div
+                key={i}
                 onClick={() => setSelectedDay(each)}
                 className={` rounded-sm px-5 py-2 flex flex-col items-center
             justify-center border-2 cursor-pointer

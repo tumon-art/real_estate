@@ -38,7 +38,7 @@ const ImageScrollbar = memo(({ photos }: any) => {
       <div
         id="auto"
         className=" scroll sm:border-x-8 sm:border-t-8  border-sky-100 mb-4
-        md:rounded-xl overflow-auto scroll-smooth h-[333px] flex"
+        md:rounded-xl overflow-auto scroll-smooth h-[300px] sm:h-[333px] flex"
       >
         {photos.slice(0, 4).map((e: any, i: any) => {
           return (

@@ -19,8 +19,8 @@ const Property = ({
   property: any;
   formSearch?: boolean;
 }) => {
-  const [hoverFunc, sethoverFunc] = useState<string>();
-  const { dispatch, addFav } = useContext(UC);
+  const { addFav } = useContext(UC);
+  const [update, setupdate] = useState<number>(0);
 
   const {
     coverPhoto,
@@ -35,29 +35,6 @@ const Property = ({
     externalID,
   } = property;
 
-  const favHandle = (id: string) => {
-    if (localStorage.fav) {
-      if (
-        JSON.parse(localStorage.fav).filter((e: any) => e.id == id).length >= 1
-      ) {
-        const filterd = JSON.parse(localStorage.fav).filter(
-          (e: any) => e.id !== id
-        );
-        localStorage.setItem("fav", JSON.stringify(filterd));
-        return;
-      } else {
-        dispatch({
-          type: "FAV_ADD",
-          payload: property,
-        });
-        addFav(property);
-      }
-    } else {
-      addFav(property);
-    }
-  };
-
-  const hoverin = (c: string) => sethoverFunc(c);
   return (
     <div
       className=" group hover:shadow-xl shadow-zinc-200 transition-shadow
@@ -82,22 +59,23 @@ const Property = ({
 
         {/* === FAV */}
         <svg
-          className={` transition duration-300 right-4 fill-transparent bottom-[100px]  
+          className={` transition duration-300 right-4  bottom-[100px]  
         text-gray-300 absolute h-10 w-10 cursor-pointer
-        ${hoverFunc}
         ${
           global.localStorage.fav &&
           JSON.parse(localStorage.fav).filter((e: any) => e.id == property.id)
-            .length >= 1 &&
-          " fill-red-600"
+            .length >= 1
+            ? " fill-red-600"
+            : "fill-transparent"
         }
        `}
           viewBox="0 0 24 24"
           stroke="currentColor"
           strokeWidth={2}
-          onClick={() => favHandle(property.id)}
-          onMouseOver={() => hoverin("fill-red-600")}
-          onMouseLeave={() => hoverin("fill-transparent ")}
+          onClick={() => {
+            addFav(property);
+            setupdate((p) => ++p);
+          }}
         >
           <path
             d="M4.318 6.318a4.5 

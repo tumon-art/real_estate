@@ -12,9 +12,10 @@ import ImageScrollbar from "../../comps/dls/ImageScrollBar/ImageScrollbar";
 import Map from "../../comps/Map";
 import Tour from "../../comps/Tour";
 import Modal from "../../comps/dls/modal/Modal";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Req from "../../comps/Req";
 import Fav from "../../comps/Fav";
+import { UC } from "../../context/UC";
 
 export interface DaysTypes {
   day: string;
@@ -29,8 +30,8 @@ for (let i = 1; i <= 7; i++) {
   days.push(obj);
 }
 
-const Property = ({
-  propertyDetails: {
+const Property = ({ property }: any) => {
+  const {
     price,
     rentFrequency,
     rooms,
@@ -41,11 +42,12 @@ const Property = ({
     photos,
     geography,
     location,
-  },
-}: any) => {
+  } = property;
   const [isModelOpen, setisModelOpen] = useState<boolean>(false);
   const [isReqOpen, setisReqOpen] = useState<boolean>(false);
   const [divHeight, setDivHeight] = useState<string>("300px");
+  const { addFav } = useContext(UC);
+  const [update, setupdate] = useState<number>(0);
   return (
     <div className=" md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}
@@ -60,12 +62,12 @@ const Property = ({
             {rentFrequency && ` /${rentFrequency}`}
           </div>
         </div>
-        <h1 className=" my-2 text-lg sm:text-xl font-bold"> {title}</h1>
+        <h1 className=" my-2 text-md sm:text-xl font-bold"> {title}</h1>
       </div>
 
       {/* === ROOMS AND DETAILS */}
       <div className=" mx-2 sm:mx-0 my-2">
-        <div className=" grid grid-cols-2 gap-y-2 grid-rows-2 justify-between ">
+        <div className=" grid sm:grid-cols-2 gap-y-2 grid-rows-2 justify-between ">
           <div className=" flex gap-3 items-center text-cyan-700">
             <b>{rooms}</b>
             <span title="Bed">
@@ -82,15 +84,33 @@ const Property = ({
           </div>
 
           {/* --- SHARE/CLIP AND OTHERS  */}
-          <div className=" flex justify-end gap-4 ">
+          <div className=" flex sm:justify-end gap-4 ">
             <div
-              className=" cursor-pointer hover:bg-sky-700 bg-sky-500 text-white 
-            items-center flex gap-1 ring-2 px-2 p-[2px] rounded-sm"
+              onClick={() => {
+                addFav(property);
+                setupdate((p) => ++p);
+              }}
+              className={` cursor-pointer  text-white 
+            items-center flex gap-1 ring-2 px-2 p-[2px] rounded-sm
+              ${
+                global.localStorage.fav &&
+                JSON.parse(localStorage.fav).filter(
+                  (e: any) => e.id == property.id
+                ).length >= 1
+                  ? " bg-red-500 hover:bg-red-600"
+                  : " bg-sky-500 hover:bg-sky-700"
+              }
+            `}
             >
-              <span className=" text-white">
+              <span className="text-white">
                 <Fav noBorder />
               </span>
-              Save
+              {global.localStorage.fav &&
+              JSON.parse(localStorage.fav).filter(
+                (e: any) => e.id == property.id
+              ).length >= 1
+                ? "Saved"
+                : "Save"}
             </div>
             <button className=" hover:bg-sky-500 hover:text-white ring-2 px-3 p-[2px] rounded-sm">
               Share
@@ -219,13 +239,13 @@ export const getStaticPaths = async () => {
 };
 
 export async function getStaticProps({ params }: any) {
-  const propertyDetails = await fetchApi(
+  const property = await fetchApi(
     `${baseUrl}/properties/detail?externalID=${params.id}`
   );
 
   return {
     props: {
-      propertyDetails,
+      property,
     },
   };
 }
