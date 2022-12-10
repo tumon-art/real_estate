@@ -93,7 +93,7 @@ const Property = ({ property }: any) => {
               className={` cursor-pointer  text-white 
             items-center flex gap-1 ring-2 px-2 p-[2px] rounded-sm
               ${
-                global.localStorage.fav &&
+                global.localStorage?.fav &&
                 JSON.parse(localStorage.fav).filter(
                   (e: any) => e.id == property.id
                 ).length >= 1
@@ -105,7 +105,7 @@ const Property = ({ property }: any) => {
               <span className="text-white">
                 <Fav noBorder />
               </span>
-              {global.localStorage.fav &&
+              {global.localStorage?.fav &&
               JSON.parse(localStorage.fav).filter(
                 (e: any) => e.id == property.id
               ).length >= 1
