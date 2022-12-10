@@ -29,14 +29,6 @@ export async function getStaticProps() {
 export default function Home({ propertyForSale, propertyForRent }: any) {
   const [count, setcount] = useState(false);
 
-  // const user = await prisma.user.create({
-  //   data: {
-  //     email: "john@prisma.io",
-  //     name: "John",
-  //   },
-  // });
-  // console.log(user);
-
   useEffect(() => {
     if (!localStorage.fav) {
       localStorage.setItem("fav", "");
