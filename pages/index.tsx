@@ -26,7 +26,7 @@ export async function getStaticProps() {
 }
 
 // { propertyForSale, propertyForRent }
-export default async function Home({ propertyForSale, propertyForRent }: any) {
+export default function Home({ propertyForSale, propertyForRent }: any) {
   const [count, setcount] = useState(false);
 
   // const user = await prisma.user.create({

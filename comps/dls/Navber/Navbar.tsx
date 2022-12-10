@@ -96,7 +96,7 @@ const Navbar = () => {
         className={`${styles.flex} sm:flex justify-center items-center hidden`}
       >
         <Fav />
-        {/* <IsLoggedIn /> */}
+        <IsLoggedIn />
       </div>
 
       {/* ==== SIDEBAR/MENU ICON  */}
