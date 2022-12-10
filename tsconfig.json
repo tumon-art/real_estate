@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,9 +18,12 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "comps/Property.tsx", "pages/_documents.js", "models/users.js", "utils/fetchData.ts"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "**/*.tsx",
+    "comps/Property.tsx",
+    "pages/_documents.js",
+    "models/users.js",
+    "utils/fetchData.ts",
+    "lib/mongodb.js"
+  ],
+  "exclude": ["node_modules"]
 }

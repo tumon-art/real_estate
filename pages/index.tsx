@@ -4,6 +4,7 @@ import Banner from "../comps/dls/Banner/Banner";
 import FooterLinks from "../comps/FooterLinks";
 import HomeSearch from "../comps/HomeSearch";
 import Property from "../comps/Property";
+import prisma from "../lib/prisma";
 
 import { baseUrl, fetchApi } from "../utils/fetchData";
 
@@ -25,8 +26,16 @@ export async function getStaticProps() {
 }
 
 // { propertyForSale, propertyForRent }
-export default function Home({ propertyForSale, propertyForRent }: any) {
+export default async function Home({ propertyForSale, propertyForRent }: any) {
   const [count, setcount] = useState(false);
+
+  // const user = await prisma.user.create({
+  //   data: {
+  //     email: "john@prisma.io",
+  //     name: "John",
+  //   },
+  // });
+  // console.log(user);
 
   useEffect(() => {
     if (!localStorage.fav) {

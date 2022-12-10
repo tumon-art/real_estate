@@ -1,8 +1,10 @@
 import { MdFavorite, MdHomeWork, MdLocationOn, MdSearch } from "react-icons/md";
+import { IsLoggedIn } from "./IsLoggedIn";
 
 const HomeSearch = () => {
   return (
     <section>
+      {/* <IsLoggedIn /> */}
       <div className=" mt-5 flex flex-col items-center">
         <h2
           className=" text-xl font-OpenSans tracking-wider 
