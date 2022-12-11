@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UC } from "../context/UC";
 
-const Fav = ({ noBorder, get }: { noBorder?: boolean; get: () => void }) => {
+const Fav = ({ noBorder, get }: { noBorder?: boolean; get?: () => void }) => {
   const { dispatch } = useContext(UC);
 
   const toogelFav = () => {
@@ -17,7 +17,7 @@ const Fav = ({ noBorder, get }: { noBorder?: boolean; get: () => void }) => {
         onClick={() => {
           console.log("click");
           toogelFav();
-          get();
+          get !== undefined && get();
         }}
       >
         <svg
