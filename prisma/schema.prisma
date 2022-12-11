@@ -39,5 +39,5 @@ model users {
 model fav {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   userMail String
-  favId    String
+  favId    Json
 }

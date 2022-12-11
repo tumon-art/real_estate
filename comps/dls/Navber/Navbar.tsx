@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const get = async () => {
     console.log("get");
-    const res = await fetch("http://localhost:3000/api/updatefav", {
+    const res = await fetch("http://localhost:3000/api/fav", {
       method: "POST",
     });
     const json = await res.json();

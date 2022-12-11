@@ -35,9 +35,20 @@ const Property = ({
     externalID,
   } = property;
 
+  // ------- ON FAV CLICK
   const onFavClck = async (id: any) => {
     addFav(property);
     setupdate((p) => ++p);
+
+    const res = await fetch("http://localhost:3000/api/fav", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id, userMail: userMail }),
+    });
+
+    console.log(res);
   };
   return (
     <div
