@@ -19,7 +19,7 @@ const Property = ({
   property: any;
   formSearch?: boolean;
 }) => {
-  const { addFav, userMail } = useContext(UC);
+  const { addFav, userMail, allFav } = useContext(UC);
   const [update, setupdate] = useState<number>(0);
 
   const {
