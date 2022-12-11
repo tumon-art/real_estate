@@ -3,6 +3,7 @@ import React, { useReducer } from "react";
 const initialState = {
   isLoggedIn: false,
   sidebar: false,
+  userMail: "",
 };
 
 const Reducer = (state: any, action: any) => {
@@ -29,6 +30,13 @@ const Reducer = (state: any, action: any) => {
       return {
         ...state,
         sidebar: false,
+      };
+      break;
+
+    case "SET_MAIL":
+      return {
+        ...state,
+        userMail: action.payload,
       };
       break;
     default:
@@ -69,6 +77,7 @@ const Provider = ({ children }: any) => {
           dispatch,
           addFav,
           sidebar: state.sidebar,
+          userMail: state.userMail,
         }}
       >
         {children}

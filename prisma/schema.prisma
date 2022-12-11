@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = env("MONGODB_URI")
+  url      = env("DATABASE_URL")
 }
 
 model accounts {
@@ -34,4 +34,10 @@ model users {
   emailVerified Json?
   image         String
   name          String
+}
+
+model fav {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  userMail String
+  favId    String
 }

@@ -19,7 +19,7 @@ const Property = ({
   property: any;
   formSearch?: boolean;
 }) => {
-  const { addFav } = useContext(UC);
+  const { addFav, userMail } = useContext(UC);
   const [update, setupdate] = useState<number>(0);
 
   const {
@@ -35,6 +35,10 @@ const Property = ({
     externalID,
   } = property;
 
+  const onFavClck = async (id: any) => {
+    addFav(property);
+    setupdate((p) => ++p);
+  };
   return (
     <div
       className=" group hover:shadow-xl shadow-zinc-200 transition-shadow
@@ -72,10 +76,7 @@ const Property = ({
           viewBox="0 0 24 24"
           stroke="currentColor"
           strokeWidth={2}
-          onClick={() => {
-            addFav(property);
-            setupdate((p) => ++p);
-          }}
+          onClick={() => onFavClck(externalID)}
         >
           <path
             d="M4.318 6.318a4.5 

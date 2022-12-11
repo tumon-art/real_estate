@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UC } from "../context/UC";
 
-const Fav = ({ noBorder }: { noBorder?: boolean }) => {
+const Fav = ({ noBorder, get }: { noBorder?: boolean; get: () => void }) => {
   const { dispatch } = useContext(UC);
 
   const toogelFav = () => {
@@ -12,7 +12,14 @@ const Fav = ({ noBorder }: { noBorder?: boolean }) => {
 
   return (
     <div>
-      <button className="hidden sm:block" onClick={toogelFav}>
+      <button
+        className="hidden sm:block"
+        onClick={() => {
+          console.log("click");
+          toogelFav();
+          get();
+        }}
+      >
         <svg
           className={`cursor-pointer hover:opacity-90 hover:scale-110 transition-opacity
         ${

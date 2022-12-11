@@ -1,9 +1,23 @@
 import styles from "./IsLoggedIn.module.scss";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useContext, useEffect } from "react";
+import { UC } from "../context/UC";
 export const IsLoggedIn = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
+  const { dispatch, userMail } = useContext(UC);
 
   console.log(session);
+
+  useEffect(() => {
+    console.log("effect");
+    if (session) {
+      dispatch({
+        type: "SET_MAIL",
+        payload: session.user?.email,
+      });
+    }
+  }, [session]);
+
   if (session) {
     return (
       <div>
