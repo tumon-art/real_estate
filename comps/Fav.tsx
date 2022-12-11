@@ -17,7 +17,7 @@ const Fav = ({ noBorder, get }: { noBorder?: boolean; get?: () => void }) => {
         onClick={() => {
           console.log("click");
           toogelFav();
-          get !== undefined && get();
+          typeof get !== "undefined" && get();
         }}
       >
         <svg
