@@ -4,29 +4,28 @@ type Types = {
   isLoggedIn: boolean;
   sidebar: boolean;
   userMail: string;
-  allFav: string[];
 };
 // UPDATE FAV & CHECK IF DUPLICATE
 const initialState: Types = {
   isLoggedIn: false,
   sidebar: false,
   userMail: "",
-  allFav: [],
-};
-
-const UpdateFav = (payload: any) => {
-  const isExist = initialState.allFav.find((each: any) => each == payload);
-
-  if (isExist) {
-    const filterd = initialState.allFav.filter((each: any) => each !== payload);
-    console.log("filterd", filterd);
-    return (initialState.allFav = filterd);
-  } else {
-    return initialState.allFav.push(payload);
-  }
 };
 
 const Reducer = (state: any, action: any) => {
+  // -- UPDATE FAV
+  // const UpdateFav = (payload: any) => {
+  //   const isExist = initialState.allFav.find((each: any) => each == payload);
+  //   if (isExist) {
+  //     const filterd = initialState.allFav.filter(
+  //       (each: any) => each !== payload
+  //     );
+  //     return (initialState.allFav = filterd);
+  //   } else {
+  //     return initialState.allFav.push(payload);
+  //   }
+  // };
+
   switch (action.type) {
     case "LOG_IN":
       return {
@@ -69,11 +68,8 @@ const Provider = ({ children }: any) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
 
   const addFav = (property: any) => {
-    UpdateFav(property.id);
+    // UpdateFav(property.id);
 
-    setTimeout(() => {
-      console.log(state.allFav);
-    }, 1000);
     if (localStorage.fav) {
       if (
         JSON.parse(localStorage.fav).filter((e: any) => e.id == property.id)

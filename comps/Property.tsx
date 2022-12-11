@@ -7,10 +7,9 @@ import {
   MdVerified,
 } from "react-icons/md";
 import millify from "millify";
-
 import DefaultImage from "../assets/images/house.webp";
-import { useContext, useState } from "react";
-import { UC } from "../context/UC";
+import { useState } from "react";
+import useMainStore from "../context/mainStore";
 
 const Property = ({
   property,
@@ -19,9 +18,10 @@ const Property = ({
   property: any;
   formSearch?: boolean;
 }) => {
-  const { addFav, userMail, allFav } = useContext(UC);
+  const { setFav, userMail, allFav } = useMainStore();
   const [update, setupdate] = useState<number>(0);
 
+  console.log(allFav);
   const {
     coverPhoto,
     price,
@@ -37,7 +37,7 @@ const Property = ({
 
   // ------- ON FAV CLICK
   const onFavClck = async (id: any) => {
-    addFav(property);
+    setFav(id);
     setupdate((p) => ++p);
 
     const res = await fetch("http://localhost:3000/api/fav", {
