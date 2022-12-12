@@ -10,6 +10,7 @@ import millify from "millify";
 import DefaultImage from "../assets/images/house.webp";
 import { useState } from "react";
 import useMainStore from "../context/mainStore";
+import { useSession } from "next-auth/react";
 
 const Property = ({
   property,
@@ -18,10 +19,10 @@ const Property = ({
   property: any;
   formSearch?: boolean;
 }) => {
-  const { setFav, userMail, allFav } = useMainStore();
+  const { setFav, allFav } = useMainStore();
   const [update, setupdate] = useState<number>(0);
+  const { data: session } = useSession();
 
-  console.log(allFav);
   const {
     coverPhoto,
     price,
@@ -40,15 +41,17 @@ const Property = ({
     setFav(id);
     setupdate((p) => ++p);
 
-    const res = await fetch("http://localhost:3000/api/fav", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ allFav: allFav, userMail: userMail }),
-    });
-
-    console.log(res);
+    if (session) {
+      const res = await fetch("http://localhost:3000/api/fav", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ allFav: allFav, userMail: session.user?.email }),
+      });
+      console.log(allFav);
+      console.log(res);
+    }
   };
   return (
     <div

@@ -9,11 +9,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           email: req.body.userMail,
         },
         update: {
-          allFav: req.body.allFav,
+          allFav: JSON.stringify(req.body.allFav),
         },
         create: {
           email: req.body.userMail,
-          allFav: req.body.allFav,
+          allFav: JSON.stringify(req.body.allFav),
         },
       });
 
