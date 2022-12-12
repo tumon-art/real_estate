@@ -29,7 +29,7 @@ model sessions {
 
 model users {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
-  email         String
+  email         String @unique
   /// Could not determine type: the field only had null or empty values in the sample set.
   emailVerified Json?
   image         String
@@ -37,7 +37,7 @@ model users {
 }
 
 model fav {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  userMail String
-  favId    Json
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  email  String @unique
+  allFav Json
 }

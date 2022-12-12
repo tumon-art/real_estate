@@ -45,7 +45,7 @@ const Property = ({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id: id, userMail: userMail }),
+      body: JSON.stringify({ allFav: allFav, userMail: userMail }),
     });
 
     console.log(res);
