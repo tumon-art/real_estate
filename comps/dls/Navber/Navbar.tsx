@@ -40,7 +40,7 @@ const Navbar = () => {
 
       <div className=" flex gap-2 ml-2">
         <svg
-          className=" h-6 w-6 hidden sm:inline-block text-sky-600"
+          className=" h-6 w-6 hidden md:inline-block text-sky-600"
           strokeWidth="2"
           stroke="skyblue"
           fill="currentColor"
@@ -58,8 +58,9 @@ const Navbar = () => {
         </Link>
       </div>
 
+      {/* -- SEARCH */}
       <div
-        className=" hidden sm:flex bg-gray-100 overflow-hidden
+        className=" hidden md:flex bg-gray-100 overflow-hidden
       w-[230px] md:w-[290px] rounded-md h-8 sm:h-8"
       >
         <input

@@ -1,10 +1,10 @@
 import { useSession } from "next-auth/react";
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function useDB() {
   const { data: session } = useSession();
   const [update, setupdate] = useState<number>(0);
-
+  console.log("useDB");
   useEffect(() => {
     async function call() {
       if (session) {
@@ -15,7 +15,8 @@ function useDB() {
   }, [session]);
 
   // -- GET ALL FAV and store it to Local-Sto
-  async function getAllFav() {
+  const getAllFav = async () => {
+    console.log("getAllFav");
     if (session) {
       const res = await fetch("http://localhost:3000/api/getfav", {
         method: "POST",
@@ -32,7 +33,7 @@ function useDB() {
         setupdate((p) => ++p);
       }
     }
-  }
+  };
 
   // -- push data
   async function pushData() {

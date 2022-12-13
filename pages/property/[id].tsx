@@ -12,10 +12,11 @@ import ImageScrollbar from "../../comps/dls/ImageScrollBar/ImageScrollbar";
 import Map from "../../comps/Map";
 import Tour from "../../comps/Tour";
 import Modal from "../../comps/dls/modal/Modal";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Req from "../../comps/Req";
 import Fav from "../../comps/Fav";
 import { UC } from "../../context/UC";
+import useDB from "../../comps/dls/useDB";
 
 export interface DaysTypes {
   day: string;
@@ -46,7 +47,8 @@ const Property = ({ property }: any) => {
   const [isModelOpen, setisModelOpen] = useState<boolean>(false);
   const [isReqOpen, setisReqOpen] = useState<boolean>(false);
   const [divHeight, setDivHeight] = useState<string>("300px");
-  const { addFav } = useContext(UC);
+  const { addFav } = useDB();
+
   const [update, setupdate] = useState<number>(0);
   return (
     <div className=" md:px-20 text-sky-700">
@@ -87,7 +89,7 @@ const Property = ({ property }: any) => {
           <div className=" flex sm:justify-end gap-4 ">
             <div
               onClick={() => {
-                addFav(property);
+                addFav(property.externalID);
                 setupdate((p) => ++p);
               }}
               className={` cursor-pointer  text-white 
@@ -95,7 +97,7 @@ const Property = ({ property }: any) => {
               ${
                 global.localStorage?.fav &&
                 JSON.parse(localStorage.fav).filter(
-                  (e: any) => e.id == property.id
+                  (e: any) => e == property.externalID
                 ).length >= 1
                   ? " bg-red-500 hover:bg-red-600"
                   : " bg-sky-500 hover:bg-sky-700"
@@ -107,7 +109,7 @@ const Property = ({ property }: any) => {
               </span>
               {global.localStorage?.fav &&
               JSON.parse(localStorage.fav).filter(
-                (e: any) => e.id == property.id
+                (e: any) => e == property.externalID
               ).length >= 1
                 ? "Saved"
                 : "Save"}
@@ -126,19 +128,19 @@ const Property = ({ property }: any) => {
           </div>
         </div>
 
-        <hr className=" mt-5"></hr>
+        <hr className="mt-5"></hr>
 
         <section className="lg:flex my-5 gap-8">
           <div className="lg:w-4/6">
             <Map geography={geography} />
-            <h4 className=" border-b-2 text-xl font-bold font-FiraMono my-5 ">
+            <h4 className="border-b-2 text-xl font-bold font-FiraMono my-5 ">
               Description
             </h4>
 
-            <div className=" flex flex-col items-center overflow-hidden">
+            <div className="flex flex-col items-center overflow-hidden">
               <div
                 dangerouslySetInnerHTML={{ __html: description }}
-                className={` divText h-[${divHeight}] pb-8 overflow-hidden relative leading-6 text-zinc-900 whitespace-pre-line`}
+                className={`divText h-[${divHeight}] pb-8 overflow-hidden relative leading-6 text-zinc-900 whitespace-pre-line`}
               ></div>
 
               <button

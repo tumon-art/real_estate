@@ -1,22 +1,9 @@
-import { useContext } from "react";
-import { UC } from "../context/UC";
-
 const Fav = ({ noBorder, get }: { noBorder?: boolean; get?: () => void }) => {
-  const { dispatch } = useContext(UC);
-
-  const toogelFav = () => {
-    dispatch({
-      type: "FAV_CLICK",
-    });
-  };
-
   return (
     <div>
       <button
         className="hidden sm:block"
         onClick={() => {
-          console.log("click");
-          toogelFav();
           typeof get !== "undefined" && get();
         }}
       >
