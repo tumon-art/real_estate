@@ -8,8 +8,9 @@ import {
 } from "react-icons/md";
 import millify from "millify";
 import DefaultImage from "../assets/images/house.webp";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useMainStore from "../context/mainStore";
+import useDB from "./dls/useDB";
 import { useSession } from "next-auth/react";
 
 const Property = ({
@@ -19,9 +20,10 @@ const Property = ({
   property: any;
   formSearch?: boolean;
 }) => {
-  const { setFav, allFav } = useMainStore();
   const [update, setupdate] = useState<number>(0);
-  const { data: session } = useSession();
+  const { pushData, addFav, getAllFav } = useDB();
+  const setFav = useMainStore((state) => state.setFav);
+  const allFav = useMainStore((state) => state.allFav);
 
   const {
     coverPhoto,
@@ -36,23 +38,16 @@ const Property = ({
     externalID,
   } = property;
 
+  console.log("property");
+
   // ------- ON FAV CLICK
   const onFavClck = async (id: any) => {
-    setFav(id);
+    addFav(id);
     setupdate((p) => ++p);
-
-    if (session) {
-      const res = await fetch("http://localhost:3000/api/fav", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ allFav: allFav, userMail: session.user?.email }),
-      });
-      console.log(allFav);
-      console.log(res);
-    }
+    pushData();
+    // call(id);
   };
+
   return (
     <div
       className=" group hover:shadow-xl shadow-zinc-200 transition-shadow
@@ -81,8 +76,9 @@ const Property = ({
         text-gray-300 absolute h-10 w-10 cursor-pointer
         ${
           global.localStorage.fav &&
-          JSON.parse(localStorage.fav).filter((e: any) => e.id == property.id)
-            .length >= 1
+          JSON.parse(localStorage.fav).filter(
+            (id: any) => id == property.externalID
+          ).length >= 1
             ? " fill-red-600"
             : "fill-transparent"
         }

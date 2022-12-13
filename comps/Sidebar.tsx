@@ -1,6 +1,4 @@
 import styles from "../styles/Sidebar.module.scss";
-import { useContext } from "react";
-import { UC } from "../context/UC";
 import Link from "next/link";
 import BottomSvg from "./BottomSvg";
 import {
@@ -10,10 +8,13 @@ import {
   MdSearch,
   MdVpnKey,
 } from "react-icons/md";
+import useMainStore from "../context/mainStore";
 
 const Sidebar = () => {
-  const { dispatch, sidebar } = useContext(UC);
+  const sidebar = useMainStore((state) => state.sidebar);
+  const setSideBar = useMainStore((state) => state.setSideBar);
 
+  console.log("sidebar");
   return (
     <nav
       className={`${styles.after} ${
@@ -22,44 +23,29 @@ const Sidebar = () => {
     >
       <div className={styles.sidebarHeader}>
         {/* === CLOSE BUTTON */}
-        <MdClose
-          className={styles.logo}
-          onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
-        />
+        <MdClose className={styles.logo} onClick={setSideBar} />
       </div>
       <ul className={` ${styles.ul} `}>
         <Link href="/" passHref>
-          <div
-            className={styles.a}
-            onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
-          >
+          <div className={styles.a} onClick={setSideBar}>
             <MdHome /> Home
           </div>
         </Link>
 
         <Link href="/search" passHref>
-          <div
-            className={styles.a}
-            onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
-          >
+          <div className={styles.a} onClick={setSideBar}>
             <MdSearch /> Search
           </div>
         </Link>
 
         <Link href="/search?purpose=for-sale" passHref>
-          <div
-            className={styles.a}
-            onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
-          >
+          <div className={styles.a} onClick={setSideBar}>
             <MdOutlineInfo /> Buy Property
           </div>
         </Link>
 
         <Link href="/search?purpose=for-rent" passHref>
-          <div
-            className={styles.a}
-            onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
-          >
+          <div className={styles.a} onClick={setSideBar}>
             <MdVpnKey /> Rent Property
           </div>
         </Link>

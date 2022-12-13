@@ -1,15 +1,16 @@
 import Link from "next/link";
 import styles from "./Navbar.module.scss";
 import Sidebar from "../../Sidebar";
-import { memo, useContext, useEffect } from "react";
-import { UC } from "../../../context/UC";
+import { memo, useEffect } from "react";
 import { IsLoggedIn } from "../../IsLoggedIn";
 import Fav from "../../Fav";
 import Btn from "../Btn/Btn";
 import { MdSearch } from "react-icons/md";
+import useMainStore from "../../../context/mainStore";
 
 const Navbar = () => {
-  const { dispatch, sidebar } = useContext(UC);
+  const sidebar = useMainStore((state) => state.sidebar);
+  const setSideBar = useMainStore((state) => state.setSideBar);
 
   useEffect(() => {
     // HIDE SCROLBAR
@@ -113,7 +114,7 @@ const Navbar = () => {
         <div
           className={` transition hover:scale-125 cursor-pointer
       p-2`}
-          onClick={() => dispatch({ type: "SIDEBAR_TOGGLE" })}
+          onClick={setSideBar}
         >
           <svg
             className=" h-5 w-5 text-sky-600"

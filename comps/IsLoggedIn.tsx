@@ -1,6 +1,5 @@
 import styles from "./IsLoggedIn.module.scss";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { useEffect } from "react";
 export const IsLoggedIn = () => {
   const { data: session } = useSession();
 

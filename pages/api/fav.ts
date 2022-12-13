@@ -25,4 +25,13 @@ export default async function handler(
       res.status(400).send({ error: err });
     }
   }
+
+  if (req.method === "GET") {
+    try {
+      const allfav = await prisma.fav.findMany();
+      res.send({ allfav });
+    } catch (err) {
+      res.status(400).send({ error: err });
+    }
+  }
 }
