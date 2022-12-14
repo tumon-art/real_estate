@@ -6,7 +6,6 @@ import {
   MdOutlineBathtub,
 } from "react-icons/md";
 import millify from "millify";
-import moment from "moment";
 import { baseUrl, fetchApi } from "../../utils/fetchData";
 import ImageScrollbar from "../../comps/dls/ImageScrollBar/ImageScrollbar";
 import Map from "../../comps/Map";
@@ -21,13 +20,6 @@ export interface DaysTypes {
   day: string;
   date: string;
   month: string;
-}
-var days: DaysTypes[] = [];
-
-for (let i = 1; i <= 7; i++) {
-  const str = moment().clone().add(i, "days").format("dd D MMM").split(" ");
-  const obj = { day: str[0], date: str[1], month: str[2] };
-  days.push(obj);
 }
 
 const Searched = ({ property }: any) => {
@@ -60,7 +52,7 @@ const Searched = ({ property }: any) => {
             <span className=" ml-2 text-xl text-sky-800 ">
               {millify(Number(price))}
             </span>{" "}
-            {rentFrequency && ` /${rentFrequency}`}
+            {rentFrequency && `/${rentFrequency}`}
           </div>
         </div>
         <h1 className=" my-2 text-md sm:text-xl font-bold"> {title}</h1>
@@ -193,7 +185,7 @@ const Searched = ({ property }: any) => {
               hover:opacity-70 w-8 h-8 font-extrabold"
             />
 
-            <Tour days={days} />
+            <Tour />
           </Modal>
         </div>
         {/* === Req */}

@@ -1,3 +1,4 @@
+import moment from "moment";
 import { ChangeEvent, useEffect, useState } from "react";
 import { DaysTypes } from "../pages/property/[id]";
 import QuestionMark from "./svg/QuestionMark";
@@ -19,11 +20,18 @@ const textProp = `If you'd like to tour this home without leaving
 your room, select the video chat tour type and discuss
 available options with the agent you are connected with.`;
 
-export default function Tour({ days }: { days: DaysTypes[] }) {
+export default function Tour() {
+  let days: DaysTypes[] = [];
   const [inPerson, setInPerson] = useState<boolean>(true);
   const [inVideo, setInVideo] = useState<boolean>(false);
   const [selectedDay, setSelectedDay] = useState<DaysTypes>(days[1]);
   const [selectedTime, setSelectedTime] = useState<string>(times[0]);
+
+  for (let i = 1; i <= 7; i++) {
+    const str = moment().clone().add(i, "days").format("dd D MMM").split(" ");
+    const obj = { day: str[0], date: str[1], month: str[2] };
+    days.push(obj);
+  }
 
   useEffect(() => {
     let marker = document.getElementById("marker");

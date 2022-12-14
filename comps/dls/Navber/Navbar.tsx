@@ -22,15 +22,6 @@ const Navbar = () => {
     } else body[0].style.overflow = "auto";
   }, [sidebar]);
 
-  const get = async () => {
-    console.log("get");
-    const res = await fetch("http://localhost:3000/api/fav", {
-      method: "POST",
-    });
-    const json = await res.json();
-    console.log(json);
-  };
-
   return (
     <div
       className={`${styles.NavbarMain} font-FiraMono items-center`}
@@ -106,7 +97,7 @@ const Navbar = () => {
       <div
         className={`${styles.flex} sm:flex justify-center items-center hidden`}
       >
-        <Fav get={get} />
+        <Fav />
         <IsLoggedIn />
       </div>
 

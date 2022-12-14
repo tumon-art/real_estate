@@ -1,12 +1,7 @@
-const Fav = ({ noBorder, get }: { noBorder?: boolean; get?: () => void }) => {
+const Fav = ({ noBorder }: { noBorder?: boolean }) => {
   return (
     <div>
-      <button
-        className="hidden sm:block"
-        onClick={() => {
-          typeof get !== "undefined" && get();
-        }}
-      >
+      <button className="hidden sm:block">
         <svg
           className={`cursor-pointer hover:opacity-90 hover:scale-110 transition-opacity
         ${
