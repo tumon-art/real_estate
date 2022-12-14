@@ -214,32 +214,44 @@ const Property = ({ property }: any) => {
 };
 export default Property;
 
-export const getStaticPaths = async () => {
-  const propertyForSale = await fetchApi(
-    `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
-  );
+// export const getStaticPaths = async () => {
+//   const propertyForSale = await fetchApi(
+//     `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-sale&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
+//   );
 
-  const propertyForRent = await fetchApi(
-    `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
-  );
+//   const propertyForRent = await fetchApi(
+//     `${baseUrl}/properties/list?locationExternalIDs=5002%2C6020&purpose=for-rent&hitsPerPage=10&page=0&lang=en&sort=city-level-score&rentFrequency=monthly&categoryExternalID=4`
+//   );
 
-  const all = [...propertyForSale.hits, ...propertyForRent.hits];
+//   const all = [...propertyForSale.hits, ...propertyForRent.hits];
 
-  const paths: any = all.map((e: any) => {
-    return {
-      params: {
-        id: e.externalID,
-      },
-    };
-  });
+//   const paths: any = all.map((e: any) => {
+//     return {
+//       params: {
+//         id: e.externalID,
+//       },
+//     };
+//   });
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
-export async function getStaticProps({ params }: any) {
+// export async function getStaticProps({ params }: any) {
+//   const property = await fetchApi(
+//     `${baseUrl}/properties/detail?externalID=${params.id}`
+//   );
+
+//   return {
+//     props: {
+//       property,
+//     },
+//   };
+// }
+
+export async function getServerSideProps({ params }: any) {
   const property = await fetchApi(
     `${baseUrl}/properties/detail?externalID=${params.id}`
   );
