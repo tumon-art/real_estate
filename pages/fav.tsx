@@ -23,10 +23,6 @@ export default function Fav() {
   }, []);
 
   console.log(propeties);
-  // console.log(saveFavs);
-  // if (saveFavs) {
-  //   console.log(JSON.parse(localStorage.fav));
-  // }
 
   return <div> Nothing</div>;
 }

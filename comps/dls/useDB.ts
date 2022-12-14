@@ -8,8 +8,6 @@ function useDB() {
   const setFav = useMainStore((state) => state.setFav);
   const allFav = useMainStore((state) => state.allFav);
 
-  console.log(allFav, "allfav");
-
   useEffect(() => {
     async function call() {
       if (session) {
@@ -18,6 +16,8 @@ function useDB() {
     }
     call();
   }, [session]);
+
+  console.log(allFav);
 
   // -- GET ALL FAV and store it to Local-Sto
   const getAllFav = async () => {
@@ -32,9 +32,8 @@ function useDB() {
         }),
       });
       const data = await res.json();
-      setFav(JSON.parse(data.allfav.allFav));
-      if (data.allFav) {
-        console.log("if");
+      if (data.allfav !== null) {
+        setFav(JSON.parse(data.allfav.allFav));
         localStorage.setItem("fav", data.allfav.allFav);
         setupdate((p) => ++p);
       }

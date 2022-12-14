@@ -14,7 +14,6 @@ const Sidebar = () => {
   const sidebar = useMainStore((state) => state.sidebar);
   const setSideBar = useMainStore((state) => state.setSideBar);
 
-  console.log("sidebar");
   return (
     <nav
       className={`${styles.after} ${

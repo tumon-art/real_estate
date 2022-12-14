@@ -38,8 +38,6 @@ const Property = ({
     externalID,
   } = property;
 
-  console.log("property");
-
   // ------- ON FAV CLICK
   const onFavClck = async (id: any) => {
     addFav(id);
