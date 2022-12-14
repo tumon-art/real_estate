@@ -1,10 +1,15 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import useMainStore from "../../context/mainStore";
 
 function useDB() {
   const { data: session } = useSession();
   const [update, setupdate] = useState<number>(0);
-  console.log("useDB");
+  const setFav = useMainStore((state) => state.setFav);
+  const allFav = useMainStore((state) => state.allFav);
+
+  console.log(allFav, "allfav");
+
   useEffect(() => {
     async function call() {
       if (session) {
@@ -16,7 +21,28 @@ function useDB() {
 
   // -- GET ALL FAV and store it to Local-Sto
   const getAllFav = async () => {
-    console.log("getAllFav");
+    if (session) {
+      const res = await fetch("http://localhost:3000/api/getfav", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userMail: session.user?.email,
+        }),
+      });
+      const data = await res.json();
+      setFav(JSON.parse(data.allfav.allFav));
+      if (data.allFav) {
+        console.log("if");
+        localStorage.setItem("fav", data.allfav.allFav);
+        setupdate((p) => ++p);
+      }
+    }
+  };
+
+  // -- Fetch all Favs
+  const fetchAllFavs = async () => {
     if (session) {
       const res = await fetch("http://localhost:3000/api/getfav", {
         method: "POST",
@@ -29,8 +55,8 @@ function useDB() {
       });
       const data = await res.json();
       if (data.allFav) {
-        localStorage.setItem("fav", data.allfav.allFav);
-        setupdate((p) => ++p);
+        return null;
+        // setupdate((p) => ++p);
       }
     }
   };
@@ -49,6 +75,7 @@ function useDB() {
         }),
       });
 
+      getAllFav();
       console.log(res);
     }
   }
@@ -74,13 +101,13 @@ function useDB() {
     } else {
       localStorage.setItem("fav", JSON.stringify([property]));
     }
-    console.log(JSON.parse(localStorage.fav));
   };
 
   return {
     pushData,
     addFav,
     getAllFav,
+    fetchAllFavs,
   };
 }
 

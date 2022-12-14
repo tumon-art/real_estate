@@ -15,7 +15,6 @@ import Modal from "../../comps/dls/modal/Modal";
 import { useState } from "react";
 import Req from "../../comps/Req";
 import Fav from "../../comps/Fav";
-import { UC } from "../../context/UC";
 import useDB from "../../comps/dls/useDB";
 
 export interface DaysTypes {

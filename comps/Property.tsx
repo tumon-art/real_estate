@@ -73,7 +73,7 @@ const Property = ({
         {/* === FAV */}
         <svg
           className={` transition duration-300 right-4  bottom-[100px]  
-        text-gray-300 absolute h-10 w-10 cursor-pointer
+        text-gray-300 absolute h-10 w-10 cursor-pointer hover:stroke-red-600
         ${
           global.localStorage.fav &&
           JSON.parse(localStorage.fav).filter(

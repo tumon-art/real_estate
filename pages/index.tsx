@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Agents from "../comps/Agents";
 import Banner from "../comps/dls/Banner/Banner";
@@ -47,6 +48,7 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
 
   return (
     <div className=" flex flex-col items-center ">
+      <Link href="/fav">Fav</Link>
       <Banner />
 
       <h1
