@@ -103,7 +103,7 @@ const Searched = ({ property }: any) => {
               }
             `}
             >
-              <span className="text-white">
+              <span className=" hidden sm:block text-white">
                 <Fav noBorder />
               </span>
               {global.localStorage?.fav &&

@@ -51,10 +51,7 @@ export default function Search({ properties }: any) {
       {properties.length == 0 && (
         <div className=" flex justify-center relative">
           <Image alt="no result" height={400} width="400" src={noresult} />
-          <p className=" absolute top-40 text-white font-bold ">
-            {" "}
-            NO RESULT !{" "}
-          </p>
+          <p className=" absolute top-40 text-white font-bold ">NO RESULT !</p>
         </div>
       )}
     </div>

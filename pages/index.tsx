@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { MdSell } from "react-icons/md";
 import Agents from "../comps/Agents";
 import Banner from "../comps/dls/Banner/Banner";
 import FooterLinks from "../comps/FooterLinks";
@@ -40,9 +41,12 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
   const ForWhat = ({ text }: { text: string }) => (
     <h2
       className=" self-start mx-1 sm:mx-10 text-xl font-extrabold
-  text-sky-500 border-b-4 border-sky-400 my-1 sm:my-5 ring-1 px-4 rounded-sm"
+  text-sky-500 border-b-4 ring-sky-400 border-sky-400 my-1 sm:my-5 ring-2 px-4 rounded-sm"
     >
-      {text}
+      <span className="flex items-center gap-2">
+        {" "}
+        <MdSell /> {text}
+      </span>
     </h2>
   );
 
