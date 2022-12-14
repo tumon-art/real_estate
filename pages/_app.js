@@ -4,7 +4,6 @@ import { SessionProvider } from "next-auth/react";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import Router from "next/router";
-import Provider from "../context/UC";
 
 NProgress.configure({
   minimum: 0.3,
@@ -19,12 +18,10 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <Provider>
-      <SessionProvider session={pageProps.session}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </SessionProvider>
-    </Provider>
+    <SessionProvider session={pageProps.session}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SessionProvider>
   );
 }

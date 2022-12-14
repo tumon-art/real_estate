@@ -15,7 +15,6 @@ import Modal from "../../comps/dls/modal/Modal";
 import { useState } from "react";
 import Req from "../../comps/Req";
 import Fav from "../../comps/Fav";
-import { UC } from "../../context/UC";
 import useDB from "../../comps/dls/useDB";
 
 export interface DaysTypes {
@@ -156,7 +155,7 @@ const Searched = ({ property }: any) => {
             </div>
           </div>
           <nav
-            className=" pt-2 gap-3 md:pt-0 fixed md:relative bottom-0 left-0 h-auto md:h-52  md:w-2/6 w-[100vw]
+            className=" mt-20 pt-2 gap-3 md:pt-0 relative bottom-0 left-0 h-auto md:h-52  md:w-2/6 w-[100vw]
            flex flex-col  md:gap-5 md:my-5 justify-center bg-white items-center"
           >
             <p className=" pb-2 md:pb-0 order-3 md:order-0 text-xs text-zinc-600 text-center font-medium">
@@ -165,11 +164,11 @@ const Searched = ({ property }: any) => {
                 Today at 11:00AM
               </span>
             </p>
-            <div className=" flex justify-evenly w-full gap-5 px-3 md:flex-col">
+            <div className=" flex justify-evenly w-2/3 md:w-full gap-5 pb-2 sm:pb-0 flex-col">
               <button
                 onClick={() => setisModelOpen(true)}
                 className=" bg-sky-200 cursor-pointer ring-4 ring-sky-200 hover:text-sky-900 
-           text-sky-700 text-lg font-extrabold w-full rounded-sm py-2 "
+           text-sky-700  text-sm sm:text-lg font-extrabold w-full rounded-sm py-2 "
               >
                 Schedule A Tour
               </button>
@@ -178,7 +177,7 @@ const Searched = ({ property }: any) => {
                 onClick={() => setisReqOpen(true)}
                 className=" ring-4 ring-sky-200 rounded-sm py-2 w-full 
               cursor-pointer hover:text-sky-900 bg-white
-           text-sky-700 text-lg font-extrabold"
+           text-sky-700 text-sm sm:text-lg font-extrabold"
               >
                 Request Info
               </button>

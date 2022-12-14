@@ -8,10 +8,8 @@ import {
 } from "react-icons/md";
 import millify from "millify";
 import DefaultImage from "../assets/images/house.webp";
-import { useContext, useEffect, useState } from "react";
-import useMainStore from "../context/mainStore";
+import { useState } from "react";
 import useDB from "./dls/useDB";
-import { useSession } from "next-auth/react";
 
 const Property = ({
   property,
@@ -21,9 +19,7 @@ const Property = ({
   formSearch?: boolean;
 }) => {
   const [update, setupdate] = useState<number>(0);
-  const { pushData, addFav, getAllFav } = useDB();
-  const setFav = useMainStore((state) => state.setFav);
-  const allFav = useMainStore((state) => state.allFav);
+  const { addFav } = useDB();
 
   const {
     coverPhoto,
@@ -42,8 +38,6 @@ const Property = ({
   const onFavClck = async (id: any) => {
     addFav(id);
     setupdate((p) => ++p);
-    pushData();
-    // call(id);
   };
 
   return (

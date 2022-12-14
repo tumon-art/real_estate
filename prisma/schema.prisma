@@ -35,9 +35,3 @@ model users {
   image         String
   name          String
 }
-
-model fav {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
-  email  String @unique
-  allFav Json? @unique
-}

@@ -48,7 +48,6 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
 
   return (
     <div className=" flex flex-col items-center ">
-      <Link href="/fav">Fav</Link>
       <Banner />
 
       <h1
