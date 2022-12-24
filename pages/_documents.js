@@ -11,7 +11,7 @@ class MyDocument extends Document {
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet"/>
 
 <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet"/> 
+<link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet"/>
         </Head>
         <body>
           <Main />

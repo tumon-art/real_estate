@@ -59,7 +59,7 @@ const Property = ({ property }: any) => {
             AED
             <span className=" ml-2 text-xl text-sky-800 ">
               {millify(Number(price))}
-            </span>{" "}
+            </span>
             {rentFrequency && ` /${rentFrequency}`}
           </div>
         </div>
@@ -93,26 +93,27 @@ const Property = ({ property }: any) => {
               }}
               className={` cursor-pointer  text-white 
             items-center flex gap-1 ring-2 px-2 p-[2px] rounded-sm
-              ${
-                global.localStorage?.fav &&
-                JSON.parse(localStorage.fav).filter(
-                  (e: any) => e == property.externalID
-                ).length >= 1
+              ${global.localStorage?.fav &&
+                  JSON.parse(localStorage.fav).filter(
+                    (e: any) => e == property.externalID
+                  ).length >= 1
                   ? " bg-red-500 hover:bg-red-600"
                   : " bg-sky-500 hover:bg-sky-700"
-              }
+                }
             `}
             >
               <span className=" hidden sm:block text-white">
                 <Fav noBorder />
               </span>
               {global.localStorage?.fav &&
-              JSON.parse(localStorage.fav).filter(
-                (e: any) => e == property.externalID
-              ).length >= 1
+                JSON.parse(localStorage.fav).filter(
+                  (e: any) => e == property.externalID
+                ).length >= 1
                 ? "Saved"
                 : "Save"}
             </div>
+
+            {/* ==== SHARE COMP */}
             <button className=" hover:bg-sky-500 hover:text-white ring-2 px-3 p-[2px] rounded-sm">
               Share
             </button>
@@ -145,9 +146,7 @@ const Property = ({ property }: any) => {
               <button
                 className=" inline h-10 rounded-md text-sky-700 font-semibold px-3 bg-zinc-200 "
                 onClick={() =>
-                  setDivHeight((p) =>
-                    divHeight === "300px" ? "100%" : "300px"
-                  )
+                  setDivHeight(divHeight === "300px" ? "100%" : "300px")
                 }
               >
                 {divHeight === "300px" ? "Expand" : "Collapse"}
@@ -184,6 +183,8 @@ const Property = ({ property }: any) => {
             </div>
           </nav>
         </section>
+
+
         {/* === Tour */}
         <div className=" block w-full">
           <Modal isOpen={isModelOpen} setModel={setisModelOpen}>
@@ -250,15 +251,3 @@ export async function getStaticProps({ params }: any) {
     },
   };
 }
-
-// export async function getServerSideProps({ params }: any) {
-//   const property = await fetchApi(
-//     `${baseUrl}/properties/detail?externalID=${params.id}`
-//   );
-
-//   return {
-//     props: {
-//       property,
-//     },
-//   };
-// }
