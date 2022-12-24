@@ -16,6 +16,7 @@ import { useState } from "react";
 import Req from "../../comps/Req";
 import Fav from "../../comps/Fav";
 import useDB from "../../comps/dls/useDB";
+import Share from "../../comps/Share";
 
 export interface DaysTypes {
   day: string;
@@ -45,6 +46,7 @@ const Property = ({ property }: any) => {
   } = property;
   const [isModelOpen, setisModelOpen] = useState<boolean>(false);
   const [isReqOpen, setisReqOpen] = useState<boolean>(false);
+  const [isShareOpen, setisShareOpen] = useState<boolean>(false);
   const [divHeight, setDivHeight] = useState<string>("300px");
   const { addFav } = useDB();
 
@@ -114,7 +116,10 @@ const Property = ({ property }: any) => {
             </div>
 
             {/* ==== SHARE COMP */}
-            <button className=" hover:bg-sky-500 hover:text-white ring-2 px-3 p-[2px] rounded-sm">
+            <button
+              onClick={() => setisShareOpen(true)}
+              className=" hover:bg-sky-500 hover:text-white
+            ring-2 px-3 p-[2px] rounded-sm">
               Share
             </button>
           </div>
@@ -197,6 +202,7 @@ const Property = ({ property }: any) => {
             <Tour />
           </Modal>
         </div>
+
         {/* === Req */}
         <div className=" block w-full">
           <Modal isOpen={isReqOpen} setModel={setisReqOpen}>
@@ -207,6 +213,17 @@ const Property = ({ property }: any) => {
             />
 
             <Req title={title} />
+          </Modal>
+
+          {/* === Share Modal */}
+          <Modal isOpen={isShareOpen} setModel={setisShareOpen}>
+            <MdClose
+              onClick={() => setisShareOpen(false)}
+              className=" absolute right-10 cursor-pointer 
+              hover:opacity-70 w-8 h-8 font-extrabold"
+            />
+
+            <Share />
           </Modal>
         </div>
       </div>
