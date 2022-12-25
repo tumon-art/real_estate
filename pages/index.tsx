@@ -25,7 +25,6 @@ export async function getStaticProps() {
   };
 }
 
-// { propertyForSale, propertyForRent }
 export default function Home({ propertyForSale, propertyForRent }: any) {
   const [count, setcount] = useState(false);
 
@@ -42,7 +41,6 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
   text-sky-500 border-b-4 ring-sky-400 border-sky-400 my-1 sm:my-5 ring-2 px-4 rounded-sm"
     >
       <span className="flex items-center gap-2">
-        {" "}
         <MdSell /> {text}
       </span>
     </h2>
@@ -75,10 +73,7 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
 
       <ForWhat text="For Sell" />
       {/* === PROPERTY MAP */}
-      <div
-        className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10
-         "
-      >
+      <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10">
         {count &&
           propertyForRent
             .slice(0, 6)
