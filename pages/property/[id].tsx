@@ -51,6 +51,7 @@ const Property = ({ property }: any) => {
   const { addFav } = useDB();
 
   const [update, setupdate] = useState<number>(0);
+
   return (
     <div className=" md:px-20 text-sky-700">
       {photos && <ImageScrollbar photos={photos} />}
@@ -95,22 +96,23 @@ const Property = ({ property }: any) => {
               }}
               className={` cursor-pointer  text-white 
             items-center flex gap-1 ring-2 px-2 p-[2px] rounded-sm
-              ${global.localStorage?.fav &&
-                  JSON.parse(localStorage.fav).filter(
-                    (e: any) => e == property.externalID
-                  ).length >= 1
+              ${
+                global.localStorage?.fav &&
+                JSON.parse(localStorage.fav).filter(
+                  (e: any) => e == property.externalID
+                ).length >= 1
                   ? " bg-red-500 hover:bg-red-600"
                   : " bg-sky-500 hover:bg-sky-700"
-                }
+              }
             `}
             >
               <span className=" hidden sm:block text-white">
                 <Fav noBorder />
               </span>
               {global.localStorage?.fav &&
-                JSON.parse(localStorage.fav).filter(
-                  (e: any) => e == property.externalID
-                ).length >= 1
+              JSON.parse(localStorage.fav).filter(
+                (e: any) => e == property.externalID
+              ).length >= 1
                 ? "Saved"
                 : "Save"}
             </div>
@@ -119,7 +121,8 @@ const Property = ({ property }: any) => {
             <button
               onClick={() => setisShareOpen(true)}
               className=" hover:bg-sky-500 hover:text-white
-            ring-2 px-3 p-[2px] rounded-sm">
+            ring-2 px-3 p-[2px] rounded-sm"
+            >
               Share
             </button>
           </div>
@@ -188,7 +191,6 @@ const Property = ({ property }: any) => {
             </div>
           </nav>
         </section>
-
 
         {/* === Tour */}
         <div className=" block w-full">
