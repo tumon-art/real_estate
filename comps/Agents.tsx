@@ -1,43 +1,55 @@
 import Image from "next/image";
+import { useState } from "react";
 import {
-  MdStarBorder,
   MdStar,
   MdStarHalf,
   MdStarOutline,
   MdHomeRepairService,
+  MdClose,
 } from "react-icons/md";
+import AgentAsk from "./AgentAsk";
+import Modal from "./dls/modal/Modal";
 
-const Agents = () => {
-  const agentsData = [
-    {
-      id: 1,
-      img: "/courtney.jpeg",
-      name: `Courtney 
+export interface AgenstData {
+  id: number;
+  img: string;
+  name: string;
+  rating: number;
+}
+
+let agentsData: AgenstData[] = [
+  {
+    id: 1,
+    img: "/courtney.jpeg",
+    name: `Courtney 
       Geissinger`,
-      rating: 4.8,
-    },
-    {
-      id: 2,
-      img: "/michael.jpeg",
-      name: `Micheal 
+    rating: 4.8,
+  },
+  {
+    id: 2,
+    img: "/michael.jpeg",
+    name: `Micheal 
       Fadeeff`,
-      rating: 4.3,
-    },
-    {
-      id: 3,
-      img: "/raul.jpeg",
-      name: `Roul 
+    rating: 4.3,
+  },
+  {
+    id: 3,
+    img: "/raul.jpeg",
+    name: `Roul 
       Alcaraz`,
-      rating: 3.3,
-    },
-    {
-      id: 4,
-      img: "/francisco.jpeg",
-      name: `Francisco 
+    rating: 3.3,
+  },
+  {
+    id: 4,
+    img: "/francisco.jpeg",
+    name: `Francisco 
       Gonzalez`,
-      rating: 3.8,
-    },
-  ];
+    rating: 3.8,
+  },
+];
+const Agents = () => {
+  const [isModelOpen, setisModelOpen] = useState<boolean>(false);
+  const [agentData, setAgentData] = useState<AgenstData>();
 
   const getStar = (e: any): any => {
     if (e.rating > 4.4) {
@@ -55,7 +67,7 @@ const Agents = () => {
     if (e.rating > 4) {
       if (e.rating < 4.4) {
         return (
-          <div className=" flex  text-sky-600">
+          <div className="flex text-sky-600">
             <MdStar />
             <MdStar />
             <MdStar />
@@ -69,7 +81,7 @@ const Agents = () => {
     if (e.rating > 3.5) {
       if (e.rating < 3.9) {
         return (
-          <div className=" flex text-sky-600">
+          <div className="flex text-sky-600">
             <MdStar />
             <MdStar />
             <MdStar />
@@ -83,7 +95,7 @@ const Agents = () => {
     if (e.rating > 3.1) {
       if (e.rating < 3.5) {
         return (
-          <div className=" flex text-sky-600">
+          <div className="flex text-sky-600">
             <MdStar />
             <MdStar />
             <MdStar />
@@ -99,12 +111,12 @@ const Agents = () => {
     <section className=" flex flex-col min-w-full items-center">
       <h3 className=" text-center text-md font-OpenSans">OJO NETWORK AGENTS</h3>
       <h2 className=" text-center text-2xl font-semibold">
-        Agents in {` `}
+        Agents in
         <span className=" text-sky-600">San Francisco</span>
       </h2>
 
       <div className="flex flex-wrap justify-center overflow-auto py-4 px-4 w-full gap-5">
-        {agentsData.map((e: any, i) => {
+        {agentsData.map((e: AgenstData) => {
           return (
             <div
               className=" ring-1 ring-zinc-200 flex-col flex justify-center
@@ -133,8 +145,7 @@ const Agents = () => {
                     className=" tracking-wider leading-5 font-OpenSans text-md
                  font-semibold break-words whitespace-pre-line"
                   >
-                    {" "}
-                    {e.name}{" "}
+                    {e.name}
                   </h3>
                   <div className="flex gap-x-1 items-center">
                     <span className=" text-[0.7rem] text-sky-600">
@@ -144,10 +155,14 @@ const Agents = () => {
                   </div>
                 </div>
               </div>
-              {/* === ASK q */}
+              {/* === ASK */}
               <div className=" flex justify-center items-center mt-2">
                 <button
-                  className=" bg-sky-500  cursor-pointer hover:bg-blue-500 font-OpenSans font-semibold
+                  onClick={() => {
+                    setisModelOpen(true);
+                    setAgentData(e);
+                  }}
+                  className=" bg-sky-500  cursor-pointer hover:bg-sky-900 font-OpenSans font-semibold
                  text-white rounded-2xl px-4 py-1 text-md"
                 >
                   Ask a Question
@@ -156,6 +171,17 @@ const Agents = () => {
             </div>
           );
         })}
+        {/* === Modal  */}
+        <div className=" relative block w-full text-sky-600">
+          <Modal isOpen={isModelOpen} setModel={setisModelOpen}>
+            {agentData && <AgentAsk agent={agentData} />}
+            <MdClose
+              onClick={() => setisModelOpen(false)}
+              className=" absolute top-10 right-10 cursor-pointer 
+              hover:opacity-70 w-8 h-8 font-extrabold"
+            />
+          </Modal>
+        </div>
       </div>
     </section>
   );

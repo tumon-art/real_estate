@@ -66,14 +66,13 @@ const Property = ({
         <svg
           className={` transition duration-300 right-4  bottom-[100px]  
         text-gray-300 absolute h-10 w-10 cursor-pointer hover:stroke-red-600
-        ${
-          global.localStorage.fav &&
-          JSON.parse(localStorage.fav).filter(
-            (id: any) => id == property.externalID
-          ).length >= 1
-            ? " fill-red-600"
-            : "fill-transparent"
-        }
+        ${global.localStorage.fav &&
+              JSON.parse(localStorage.fav).filter(
+                (id: any) => id == property.externalID
+              ).length >= 1
+              ? " fill-red-600"
+              : "fill-transparent"
+            }
        `}
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -113,8 +112,8 @@ const Property = ({
               <Image
                 className=" h-6 w-6 object-cover rounded-full"
                 src={agency?.logo?.url}
-                width="30"
-                height="30"
+                width="100"
+                height="100"
                 alt="avater"
                 loading="lazy"
               />

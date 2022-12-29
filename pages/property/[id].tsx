@@ -96,23 +96,22 @@ const Property = ({ property }: any) => {
               }}
               className={` cursor-pointer  text-white 
             items-center flex gap-1 ring-2 px-2 p-[2px] rounded-sm
-              ${
-                global.localStorage?.fav &&
-                JSON.parse(localStorage.fav).filter(
-                  (e: any) => e == property.externalID
-                ).length >= 1
+              ${global.localStorage?.fav &&
+                  JSON.parse(localStorage.fav).filter(
+                    (e: any) => e == property.externalID
+                  ).length >= 1
                   ? " bg-red-500 hover:bg-red-600"
                   : " bg-sky-500 hover:bg-sky-700"
-              }
+                }
             `}
             >
               <span className=" hidden sm:block text-white">
                 <Fav noBorder />
               </span>
               {global.localStorage?.fav &&
-              JSON.parse(localStorage.fav).filter(
-                (e: any) => e == property.externalID
-              ).length >= 1
+                JSON.parse(localStorage.fav).filter(
+                  (e: any) => e == property.externalID
+                ).length >= 1
                 ? "Saved"
                 : "Save"}
             </div>
@@ -200,20 +199,18 @@ const Property = ({ property }: any) => {
               className=" absolute right-10 cursor-pointer 
               hover:opacity-70 w-8 h-8 font-extrabold"
             />
-
             <Tour />
           </Modal>
         </div>
 
         {/* === Req */}
-        <div className=" block w-full">
+        <div className="block w-full">
           <Modal isOpen={isReqOpen} setModel={setisReqOpen}>
             <MdClose
               onClick={() => setisReqOpen(false)}
-              className=" absolute right-10 cursor-pointer 
+              className="absolute right-10 cursor-pointer 
               hover:opacity-70 w-8 h-8 font-extrabold"
             />
-
             <Req title={title} />
           </Modal>
 
@@ -221,10 +218,9 @@ const Property = ({ property }: any) => {
           <Modal isOpen={isShareOpen} setModel={setisShareOpen}>
             <MdClose
               onClick={() => setisShareOpen(false)}
-              className=" absolute right-10 cursor-pointer 
+              className="absolute right-10 cursor-pointer 
               hover:opacity-70 w-8 h-8 font-extrabold"
             />
-
             <Share />
           </Modal>
         </div>
