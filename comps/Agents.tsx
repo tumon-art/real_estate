@@ -111,8 +111,8 @@ const Agents = () => {
     <section className=" flex flex-col min-w-full items-center">
       <h3 className=" text-center text-md font-OpenSans">OJO NETWORK AGENTS</h3>
       <h2 className=" text-center text-2xl font-semibold">
-        Agents in
-        <span className=" text-sky-600">San Francisco</span>
+        <span> Agents in </span>
+        <span className=" ml-1 text-sky-600">San Francisco</span>
       </h2>
 
       <div className="flex flex-wrap justify-center overflow-auto py-4 px-4 w-full gap-5">

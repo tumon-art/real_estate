@@ -12,13 +12,13 @@ const HomeSearch = () => {
         </h2>
 
         <div
-          className=" flex mt-5 bg-gray-200 overflow-hidden
+          className=" flex mt-5 bg-gray-100 shadow-sm   overflow-hidden
        sm:w-[430px] rounded-xl h-12 sm:h-14"
         >
           <input
             type="text"
-            placeholder=" Serach for City, Neighborhood, Zip..."
-            className=" sm:placeholder:text-xl pl-4 w-full bg-transparent"
+            placeholder=" Serach for City, Zip..."
+            className=" sm:placeholder:text-lg pl-4 w-full bg-transparent"
           />
           <button className=" bg-sky-600 cursor-pointer hover:bg-blue-600 text-white text-3xl px-4">
             <MdSearch />

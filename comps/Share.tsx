@@ -31,10 +31,10 @@ const Share = () => {
 
       {/* Email  */}
       <div>
-        <label className=" block text-sm text-gray-500">Share Home With:</label>
+        <label className=" my-1 block text-sm text-gray-500">Share Home With:</label>
         <input
-          className=" my-1 py-1 sm:py-2 placeholder:text-md sm:placeholder:text-xl w-[100%] font-light ring-gray-300
-           pl-4 ring-2 rounded-sm text-gray-400"
+          className=" my-2 py-1 sm:py-2 placeholder:text-md sm:placeholder:text-xl w-[100%] font-light
+           pl-4 ring-2 rounded-md ring-sky-200 text-gray-400"
           placeholder="Recipients Email Address"
         />
 
