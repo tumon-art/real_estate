@@ -5,12 +5,12 @@ import styles from "./ImageS.module.scss";
 const ImageScrollbar = memo(({ photos }: any) => {
   const rightArrow = () => {
     const auto = document.getElementById("auto") as HTMLElement;
-    auto.scrollLeft = auto?.scrollLeft + 1400 / 4;
+    auto.scrollLeft = auto?.scrollLeft + 1400;
   };
 
   const leftArrow = () => {
     const auto = document.getElementById("auto") as HTMLElement;
-    auto.scrollLeft = auto?.scrollLeft - 1400 / 4;
+    auto.scrollLeft = auto?.scrollLeft - 1400;
   };
 
   return (
@@ -44,7 +44,7 @@ const ImageScrollbar = memo(({ photos }: any) => {
           return (
             <Image
               id={i}
-              className=" rounder-xl cursor-grab object-cover"
+              className=" rounder-xl ring-4 cursor-grab object-cover"
               key={i}
               width="1400"
               height="200"
