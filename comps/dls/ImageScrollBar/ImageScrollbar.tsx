@@ -44,7 +44,7 @@ const ImageScrollbar = memo(({ photos }: any) => {
           return (
             <Image
               id={i}
-              className=" rounder-xl ring-4 cursor-grab object-cover"
+              className=" rounder-xl cursor-grab object-cover"
               key={i}
               width="1400"
               height="200"

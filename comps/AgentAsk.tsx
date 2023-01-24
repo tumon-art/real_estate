@@ -27,8 +27,8 @@ export default function AgentAsk({ agent }: { agent: AgenstData }) {
           type="text"
           name="name"
           placeholder="Your Name"
-          className=" ring-4 ring-sky-100 rounded-sm my-2 py-2 pl-4
-        bg-zinc-100 shadow-md"
+          className=" ring-4 ring-sky-100 rounded-sm my-2 py-2 pl-4 
+          focus:outline-none bg-zinc-100 shadow-md"
         />
 
         <input
@@ -36,8 +36,8 @@ export default function AgentAsk({ agent }: { agent: AgenstData }) {
           type="email"
           name="email"
           placeholder="Email"
-          className=" ring-4 ring-sky-100 rounded-sm my-2 py-2 pl-4
-        bg-zinc-100 shadow-md"
+          className=" ring-4 ring-sky-100 rounded-sm my-2 py-2 pl-4 
+          focus:outline-none bg-zinc-100 shadow-md"
         />
 
         <input
@@ -45,8 +45,8 @@ export default function AgentAsk({ agent }: { agent: AgenstData }) {
           type="number"
           name="Phone"
           placeholder="Phone"
-          className=" ring-4 ring-sky-100 rounded-sm my-2 py-2 pl-4
-        bg-zinc-100 shadow-md"
+          className=" ring-4 ring-sky-100 rounded-sm my-2 py-2 pl-4 
+          focus:outline-none bg-zinc-100 shadow-md"
         />
 
         <input
@@ -54,8 +54,8 @@ export default function AgentAsk({ agent }: { agent: AgenstData }) {
           type="number"
           name="Zip"
           placeholder="Zip Code"
-          className=" ring-4 ring-sky-100 rounded-sm my-2 py-2 pl-4
-        bg-zinc-100 shadow-md"
+          className=" ring-4 ring-sky-100 rounded-sm my-2 py-2 pl-4 
+          focus:outline-none bg-zinc-100 shadow-md"
         />
 
         <button

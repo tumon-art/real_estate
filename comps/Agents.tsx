@@ -172,8 +172,12 @@ const Agents = () => {
           );
         })}
         {/* === Modal  */}
-        <div className=" relative block w-full text-sky-600">
-          <Modal isOpen={isModelOpen} setModel={setisModelOpen}>
+        <div className="relative block w-full text-sky-600">
+          <Modal
+            isOpen={isModelOpen}
+            tailwindClasses=" rounded-md"
+            setModel={setisModelOpen}
+          >
             {agentData && <AgentAsk agent={agentData} />}
             <MdClose
               onClick={() => setisModelOpen(false)}
