@@ -51,7 +51,7 @@ const Sidebar = () => {
       </ul>
 
       <div className=" self-end text-black text-center">
-        © 2022 Real Estate, Inc.
+        © 2023 Real Estate, Inc.
       </div>
       <BottomSvg Sidebar />
     </nav>

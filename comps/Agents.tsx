@@ -120,7 +120,7 @@ const Agents = () => {
           return (
             <div
               className=" ring-1 ring-zinc-200 flex-col flex justify-center
-               bg-zinc-100 min-w-[260px] h-44 rounded-xl"
+               bg-zinc-100 min-w-[100%] sm:min-w-[260px] h-44 rounded-xl"
               key={e.id}
             >
               {/* === IMG AND TEXT HOLD */}

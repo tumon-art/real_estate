@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./Navbar.module.scss";
 import Sidebar from "../../Sidebar";
 import { memo, useEffect } from "react";
 import { IsLoggedIn } from "../../IsLoggedIn";
@@ -24,7 +23,8 @@ const Navbar = () => {
 
   return (
     <div
-      className={`${styles.NavbarMain} font-FiraMono items-center`}
+      className={` flex relative z-50 m-0 w-full justify-between
+     bg-white sm:h-[60px] font-FiraMono items-center`}
       id="navbar"
     >
       {/* === HEADER */}
@@ -68,7 +68,9 @@ const Navbar = () => {
       </div>
 
       {/* == NAVBAR LINKS FOR DESKTOP AND TABLETS */}
-      <ul className={`${styles.navLinksUl} `}>
+      <ul
+        className={` bg-slate-100 rounded-md hidden sm:flex justify-center items-center`}
+      >
         <li>
           <Link href="/">
             <Btn text={"Home"} />
@@ -95,7 +97,7 @@ const Navbar = () => {
       </ul>
 
       <div
-        className={`${styles.flex} sm:flex justify-center items-center hidden`}
+        className={`text-white gap-1 sm:flex justify-center items-center hidden`}
       >
         <Fav />
         <IsLoggedIn />
@@ -104,13 +106,13 @@ const Navbar = () => {
       {/* ==== SIDEBAR/MENU ICON  */}
       <div className="flex sm:hidden">
         <div
-          className={` transition hover:scale-125 cursor-pointer
+          className={` transition cursor-pointer
       p-2`}
           onClick={setSideBar}
         >
           <svg
             className=" h-5 w-5 text-sky-600"
-            strokeWidth="1.5"
+            strokeWidth="2.5"
             stroke="currentColor"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />

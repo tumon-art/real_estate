@@ -59,7 +59,8 @@ export default function AgentAsk({ agent }: { agent: AgenstData }) {
         />
 
         <button
-          className=" py-2 w-2/3 mt-4 bg-sky-600 text-white hover:bg-sky-800
+          className=" py-2 w-2/3 mt-4 bg-sky-600
+           text-white hover:bg-sky-800
          rounded-xl shadow-xl  shadow-sky-300 font-semibold
         "
         >
