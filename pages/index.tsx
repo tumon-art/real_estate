@@ -62,8 +62,7 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
         <ForWhat text="For Rent" />
         {/* === PROPERTY MAP */}
         <div
-          className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10
-        "
+          className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10"
         >
           {count &&
             propertyForSale

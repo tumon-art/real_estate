@@ -53,10 +53,14 @@ const Property = ({ property }: any) => {
   const [update, setupdate] = useState<number>(0);
 
   return (
-    <div className=" md:px-20 text-sky-700">
+    <div className=" md:px-20 text-sky-700 px-2 relative">
+      <div className="w-12 h-12 bg-sky-400 z-10
+      rounded-full right-1 sm:right-5 py-2 bottom-5 px-2 fixed"> span </div>
+
       {photos && <ImageScrollbar photos={photos} />}
 
-      <div className=" md:flex justify-between ">
+
+      <div className=" md:flex justify-between">
         <div className="  md:order-2 sm:mx-0 gap-3">
           <div className="  font-bold">
             AED
