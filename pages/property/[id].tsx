@@ -23,6 +23,7 @@ export interface DaysTypes {
   date: string;
   month: string;
 }
+
 var days: DaysTypes[] = [];
 
 for (let i = 1; i <= 7; i++) {
