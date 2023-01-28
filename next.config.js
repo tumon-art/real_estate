@@ -5,6 +5,11 @@ const nextConfig = {
   images: {
     domains: ["bayut-production.s3.eu-central-1.amazonaws.com"],
   },
+  modularizeImports: {
+    'react-icons': {
+      transform: 'react-icons/{{member}}',
+    },
+  },
 };
 
 module.exports = nextConfig;

@@ -5,6 +5,8 @@ import {
   MdLocationCity,
   MdOutlineBathtub,
 } from "react-icons/md";
+
+
 import millify from "millify";
 import moment from "moment";
 import { baseUrl, fetchApi } from "../../utils/fetchData";
@@ -17,6 +19,7 @@ import Req from "../../comps/Req";
 import Fav from "../../comps/Fav";
 import useDB from "../../comps/dls/useDB";
 import Share from "../../comps/Share";
+import Chat from "../../comps/Chat";
 
 export interface DaysTypes {
   day: string;
@@ -55,9 +58,7 @@ const Property = ({ property }: any) => {
 
   return (
     <div className=" md:px-20 text-sky-700 px-2 relative">
-      <div className="w-12 h-12 bg-sky-400 z-10
-      rounded-full right-1 sm:right-5 py-2 bottom-5 px-2 fixed"> span </div>
-
+      <Chat />
       {photos && <ImageScrollbar photos={photos} />}
 
 
