@@ -74,3 +74,6 @@
   pointer-events: none;
   background: linear-gradient(to bottom, transparent, white);
 }
+.clipP {
+clip-path: polygon(0 0, 100% 0, 100% 45%, 0 55%)
+} 
