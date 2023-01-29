@@ -6,7 +6,6 @@ import {
   MdOutlineBathtub,
 } from "react-icons/md";
 
-
 import millify from "millify";
 import moment from "moment";
 import { baseUrl, fetchApi } from "../../utils/fetchData";
@@ -57,12 +56,11 @@ const Property = ({ property }: any) => {
   const [update, setupdate] = useState<number>(0);
 
   return (
-    <div className=" md:px-20 text-sky-700 px-2 relative">
+    <div className=" md:px-20 text-sky-700 relative">
       <Chat />
       {photos && <ImageScrollbar photos={photos} />}
 
-
-      <div className=" md:flex justify-between">
+      <div className=" md:flex px-2 sm:px-0 justify-between">
         <div className="  md:order-2 sm:mx-0 gap-3">
           <div className="  font-bold">
             AED
@@ -102,22 +100,23 @@ const Property = ({ property }: any) => {
               }}
               className={` cursor-pointer  text-white 
             items-center flex gap-1 ring-2 px-2 p-[2px] rounded-sm
-              ${global.localStorage?.fav &&
-                  JSON.parse(localStorage.fav).filter(
-                    (e: any) => e == property.externalID
-                  ).length >= 1
+              ${
+                global.localStorage?.fav &&
+                JSON.parse(localStorage.fav).filter(
+                  (e: any) => e == property.externalID
+                ).length >= 1
                   ? " bg-red-500 hover:bg-red-600"
                   : " bg-sky-500 hover:bg-sky-700"
-                }
+              }
             `}
             >
               <span className=" hidden sm:block text-white">
                 <Fav noBorder />
               </span>
               {global.localStorage?.fav &&
-                JSON.parse(localStorage.fav).filter(
-                  (e: any) => e == property.externalID
-                ).length >= 1
+              JSON.parse(localStorage.fav).filter(
+                (e: any) => e == property.externalID
+              ).length >= 1
                 ? "Saved"
                 : "Save"}
             </div>

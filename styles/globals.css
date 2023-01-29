@@ -75,5 +75,5 @@
   background: linear-gradient(to bottom, transparent, white);
 }
 .clipP {
-clip-path: polygon(0 0, 100% 0, 100% 45%, 0 55%)
-} 
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 60%);
+}
