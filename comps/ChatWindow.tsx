@@ -4,11 +4,32 @@ import { MdSupportAgent } from "react-icons/md";
 function AskEmail() {
   const [email, setEmail] = useState<string>("");
 
-  const handleForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
 
+  const getOrCreateChat = () => {
+    const url = "https://api.chatengine.io/chats/";
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Project-ID": String(process.env.NEXT_PUBLIC_PROJECT_ID),
+      },
+      body: JSON.stringify({
+        usernames: ["adam_la_morre", "bob_baker", "wendy_walker"],
+        title: "Another Surprise Party!",
+        is_direct_chat: false
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  const getOrCreateUser = () => {
     const url = "https://api.chatengine.io/users/";
-
     fetch(url, {
       method: "PUT",
       headers: {
@@ -27,6 +48,12 @@ function AskEmail() {
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  const handleForm = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+
 
     // RESET STATE
     setEmail("");
@@ -83,7 +110,7 @@ export default function ChatWindow({ setShowWindow }: { setShowWindow: any }) {
       ></div>
 
       <nav
-        className="right-0 flex flex-col gap-4 justify-center 
+        className="right-0 flex flex-col gap-4 justify-center
       sm:right-5 bottom-20 fixed
       shadow-2xl items-center overflow-hidden
       h-80 sm:h-96 w-60 sm:w-80 z-20 rounded-l-lg sm:rounded-lg  bg-zinc-50"
