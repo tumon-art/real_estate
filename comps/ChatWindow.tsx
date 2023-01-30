@@ -14,15 +14,13 @@ export default function ChatWindow({ setShowWindow }: { setShowWindow: any }) {
 
       <nav
         className="right-0 flex flex-col gap-4 justify-center
-      sm:right-5 bottom-20 fixed
-      shadow-2xl items-center overflow-hidden
-      h-80 sm:h-96 w-60 sm:w-80 z-20 rounded-l-lg sm:rounded-lg  bg-zinc-50"
+        sm:right-5 bottom-20 fixed shadow-2xl items-center 
+        overflow-hidden h-80 sm:h-96 w-60 sm:w-80 z-20
+        rounded-l-lg sm:rounded-lg bg-zinc-50"
       >
-        <AskEmail
-          setUser={setUser}
-          setChat={setchat}
-          visible={user === null || chat === null}
-        />
+        {user === null || chat === null ? (
+          <AskEmail setUser={setUser} setChat={setchat} />
+        ) : null}
       </nav>
     </nav>
   );

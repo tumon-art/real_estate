@@ -4,11 +4,9 @@ import { MdSupportAgent } from "react-icons/md";
 export default function AskEmail({
   setUser,
   setChat,
-  visible,
 }: {
   setUser: any;
   setChat: any;
-  visible: boolean;
 }) {
   const [email, setEmail] = useState<string>("");
 
@@ -42,6 +40,7 @@ export default function AskEmail({
       },
       body: JSON.stringify({
         usernames: ["mail@mail.com", email],
+        title: "mail@mail.com",
         is_direct_chat: false,
       }),
     })
