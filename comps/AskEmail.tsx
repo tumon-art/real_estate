@@ -57,10 +57,10 @@ export default function AskEmail({
     const user = await getOrCreateUser();
 
     if (user.id) {
-      console.log(user);
+      console.log("USERS", user);
       // GET OR CREATE CHAT
       const chat = await getOrCreateChat();
-      console.log(chat);
+      console.log("CHAT", chat);
     }
     // RESET STATE
     // setEmail("");
@@ -84,7 +84,7 @@ export default function AskEmail({
       >
         <input
           className="ring-2 outline-none rounded-md py-2 w-48 pl-2
-             ring-sky-400 placeholder:text-xs text-xs"
+           ring-sky-400 placeholder:text-xs text-xs"
           placeholder="enter you email"
           type="email"
           required
@@ -99,8 +99,10 @@ export default function AskEmail({
 
         <button
           type="submit"
-          className=" shadow-xl px-4 py-1 font-semibold text-white bg-sky-400
-            rounded-xl cursor-pointer hover:bg-sky-600 transition-colors"
+          className=" shadow-xl py-[2px] px-3 sm:px-4 sm:py-1 
+           text-base font-semibold text-white 
+           bg-sky-400 rounded-xl cursor-pointer
+          hover:bg-sky-600 transition-colors"
         >
           Submit
         </button>
