@@ -1,28 +1,16 @@
 import { FormEvent, useState } from "react";
 import { MdSupportAgent } from "react-icons/md";
 
-export default function AskEmail() {
+export default function AskEmail({
+  setUser,
+  setChat,
+  visible,
+}: {
+  setUser: any;
+  setChat: any;
+  visible: boolean;
+}) {
   const [email, setEmail] = useState<string>("");
-
-
-  const getOrCreateChat = async () => {
-    const url = "https://api.chatengine.io/chats/";
-    const res = await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "PRIVATE-KEY": String(process.env.NEXT_PUBLIC_PRIVET_KEY),
-      },
-      body: JSON.stringify({
-        usernames: ["mail@mail.com", email],
-        is_direct_chat: false
-      }),
-    })
-      .then(response => response.json())
-      .then(result => result)
-      .catch((error: any) => console.error(error))
-    return res
-  }
 
   const getOrCreateUser = async () => {
     const url = "https://api.chatengine.io/users/";
@@ -38,27 +26,47 @@ export default function AskEmail() {
         secret: email,
       }),
     })
-      .then(response => response.json())
-      .then(result => result)
-      .catch((error: any) => console.error(error))
-    return res
-  }
+      .then((response) => response.json())
+      .then((result) => result)
+      .catch((error: any) => console.error(error));
+    return res;
+  };
+
+  const getOrCreateChat = async () => {
+    const url = "https://api.chatengine.io/chats/";
+    const res = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "PRIVATE-KEY": String(process.env.NEXT_PUBLIC_PRIVET_KEY),
+      },
+      body: JSON.stringify({
+        usernames: ["mail@mail.com", email],
+        is_direct_chat: false,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => result)
+      .catch((error: any) => console.error(error));
+    return res;
+  };
 
   const handleForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // GET OR CREATE USER
-    const user = await getOrCreateUser()
+    const user = await getOrCreateUser();
 
     if (user.id) {
-      console.log(user)
+      console.log(user);
       // GET OR CREATE CHAT
-      const chat = await getOrCreateChat()
-      console.log(chat)
+      const chat = await getOrCreateChat();
+      console.log(chat);
     }
     // RESET STATE
     // setEmail("");
   };
+
   return (
     <>
       <div

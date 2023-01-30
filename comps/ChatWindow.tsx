@@ -1,6 +1,10 @@
+import { useState } from "react";
 import AskEmail from "./AskEmail";
 
 export default function ChatWindow({ setShowWindow }: { setShowWindow: any }) {
+  const [user, setUser] = useState(null);
+  const [chat, setchat] = useState(null);
+
   return (
     <nav className=" fixed h-[100vh] w-[100vw] z-50">
       <div
@@ -14,7 +18,11 @@ export default function ChatWindow({ setShowWindow }: { setShowWindow: any }) {
       shadow-2xl items-center overflow-hidden
       h-80 sm:h-96 w-60 sm:w-80 z-20 rounded-l-lg sm:rounded-lg  bg-zinc-50"
       >
-        <AskEmail />
+        <AskEmail
+          setUser={setUser}
+          setChat={setchat}
+          visible={user === null || chat === null}
+        />
       </nav>
     </nav>
   );
