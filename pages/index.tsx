@@ -1,3 +1,4 @@
+// TODO fix chat
 import { useEffect, useState } from "react";
 import { MdSell } from "react-icons/md";
 import Agents from "../comps/Agents";
@@ -61,9 +62,7 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
       <div>
         <ForWhat text="For Rent" />
         {/* === PROPERTY MAP */}
-        <div
-          className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10"
-        >
+        <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10">
           {count &&
             propertyForSale
               .slice(1, 7)
