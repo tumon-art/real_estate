@@ -52,18 +52,18 @@ export default function AskEmail({
 
   const handleForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // TODO chat is unavailable
+    // // GET OR CREATE USER
+    // const user = await getOrCreateUser();
 
-    // GET OR CREATE USER
-    const user = await getOrCreateUser();
-
-    if (user.id) {
-      console.log("USERS", user);
-      // GET OR CREATE CHAT
-      const chat = await getOrCreateChat();
-      console.log("CHAT", chat);
-    }
+    // if (user.id) {
+    //   console.log("USERS", user);
+    //   // GET OR CREATE CHAT
+    //   const chat = await getOrCreateChat();
+    //   console.log("CHAT", chat);
+    // }
     // RESET STATE
-    // setEmail("");
+    setEmail("");
   };
 
   return (
