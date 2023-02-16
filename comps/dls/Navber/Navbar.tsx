@@ -104,14 +104,17 @@ const Navbar = () => {
       </div>
 
       {/* ==== SIDEBAR/MENU ICON  */}
-      <div className="flex sm:hidden">
+      <div className="flex w-32 h-8 bg-sky-400 sm:hidden relative">
+        {/* === CLIP PATH */}
+        <div className="navClip h-full"> </div>
+
         <div
-          className={` transition cursor-pointer
-      p-2`}
+          className={` transition cursor-pointer p-2 
+        flex justify-center items-center`}
           onClick={setSideBar}
         >
           <svg
-            className=" h-5 w-5 text-sky-600"
+            className=" h-5 w-5 text-white"
             strokeWidth="2.5"
             stroke="currentColor"
           >
