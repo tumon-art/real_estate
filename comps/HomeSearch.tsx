@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MdFavorite, MdHomeWork, MdLocationOn, MdSearch } from "react-icons/md";
 
 const HomeSearch = () => {
@@ -20,9 +21,13 @@ const HomeSearch = () => {
             placeholder=" Serach for City, Zip..."
             className=" sm:placeholder:text-lg pl-4 w-full bg-transparent"
           />
-          <button className=" bg-sky-600 cursor-pointer hover:bg-blue-600 text-white text-3xl px-4">
+          <Link
+            href="/search"
+            className=" bg-sky-600 cursor-pointer flex justify-center 
+            items-center hover:bg-blue-600 text-white text-3xl px-4"
+          >
             <MdSearch />
-          </button>
+          </Link>
         </div>
       </div>
 

@@ -29,9 +29,9 @@ const Navbar = () => {
     >
       {/* === HEADER */}
 
-      <div className=" flex gap-2 ml-2">
+      <div className=" flex gap-2 ml-2 items-center">
         <svg
-          className=" h-6 w-6 hidden md:inline-block text-sky-600"
+          className=" h-6 w-6 inline-block text-sky-600"
           strokeWidth="2"
           stroke="skyblue"
           fill="currentColor"
