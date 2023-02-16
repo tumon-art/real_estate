@@ -13,8 +13,8 @@ const HomeSearch = () => {
         </h2>
 
         <div
-          className=" flex mt-5 bg-gray-100 shadow-sm   overflow-hidden
-       sm:w-[430px] rounded-xl h-12 sm:h-14"
+          className=" flex mt-5 bg-gray-100 shadow-sm overflow-hidden
+          sm:w-[430px] rounded-xl h-12 sm:h-14"
         >
           <input
             type="text"
@@ -23,7 +23,7 @@ const HomeSearch = () => {
           />
           <Link
             href="/search"
-            className=" bg-sky-600 cursor-pointer flex justify-center 
+            className="bg-sky-600 cursor-pointer flex justify-center 
             items-center hover:bg-blue-600 text-white text-3xl px-4"
           >
             <MdSearch />
@@ -31,7 +31,10 @@ const HomeSearch = () => {
         </div>
       </div>
 
-      <div className=" flex items-center md:text-2xl font-bold mt-20 justify-center text-sky-900">
+      <div
+        className=" flex items-center md:text-2xl font-bold 
+        mt-20 justify-center text-sky-900"
+      >
         discover
         <span className=" mx-1">
           <MdLocationOn className=" text-2xl md:text-4xl text-blue-400 opacity-70" />

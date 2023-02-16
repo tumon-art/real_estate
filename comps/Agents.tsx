@@ -30,21 +30,21 @@ let agentsData: AgenstData[] = [
     img: "/michael.jpeg",
     name: `Micheal 
       Fadeeff`,
-    rating: 4.3,
+    rating: 4.8,
   },
   {
     id: 3,
     img: "/raul.jpeg",
     name: `Roul 
       Alcaraz`,
-    rating: 3.3,
+    rating: 4.8,
   },
   {
     id: 4,
     img: "/francisco.jpeg",
     name: `Francisco 
       Gonzalez`,
-    rating: 3.8,
+    rating: 4.8,
   },
 ];
 const Agents = () => {
@@ -52,65 +52,23 @@ const Agents = () => {
   const [agentData, setAgentData] = useState<AgenstData>();
 
   const getStar = (e: any): any => {
-    if (e.rating > 4.4) {
-      return (
-        <div className=" flex text-sky-600">
-          <MdStar className="" />
-          <MdStar />
-          <MdStar />
-          <MdStar />
-          <MdStar />
-        </div>
-      );
-    }
-
-    if (e.rating > 4) {
-      if (e.rating < 4.4) {
-        return (
-          <div className="flex text-sky-600">
-            <MdStar />
-            <MdStar />
-            <MdStar />
-            <MdStar />
-            <MdStarHalf />
-          </div>
-        );
-      }
-    }
-
-    if (e.rating > 3.5) {
-      if (e.rating < 3.9) {
-        return (
-          <div className="flex text-sky-600">
-            <MdStar />
-            <MdStar />
-            <MdStar />
-            <MdStar />
-            <MdStarOutline />
-          </div>
-        );
-      }
-    }
-
-    if (e.rating > 3.1) {
-      if (e.rating < 3.5) {
-        return (
-          <div className="flex text-sky-600">
-            <MdStar />
-            <MdStar />
-            <MdStar />
-            <MdStarHalf />
-            <MdStarOutline />
-          </div>
-        );
-      }
-    }
+    return (
+      <div className="flex text-sky-600">
+        <MdStar />
+        <MdStar />
+        <MdStar />
+        <MdStar />
+        <MdStarHalf />
+      </div>
+    );
   };
 
   return (
     <section className=" flex flex-col min-w-full items-center">
-      <h3 className=" text-center text-md font-OpenSans">OJO NETWORK AGENTS</h3>
-      <h2 className=" text-center text-2xl font-semibold">
+      <h3 className=" text-center text-md font-bold font-OpenSans">
+        OJO NETWORK AGENTS
+      </h3>
+      <h2 className=" font-OpenSans font-bold text-center text-2xl">
         <span> Agents in </span>
         <span className=" ml-1 text-sky-600">San Francisco</span>
       </h2>

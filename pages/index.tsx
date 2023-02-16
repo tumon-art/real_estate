@@ -53,7 +53,7 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
       <Banner />
 
       <h1
-        className=" text-lg sm:text-4xl my-5 sm:my-10 font-extrabold animate-pulse font-FiraMono
+        className=" font-OpenSans text-lg sm:text-4xl my-5 sm:my-10 font-extrabold animate-pulse
         text-sky-400 border-l-8 border-sky-200 px-8 drop-shadow-2xl"
       >
         Explore homes with us ...

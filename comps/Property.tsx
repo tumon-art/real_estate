@@ -42,24 +42,25 @@ const Property = ({
 
   return (
     <div
-      className=" group hover:shadow-xl shadow-zinc-200 transition-shadow
-      overflow-hidden relative
+      className=" rounded-xl group shadow-md hover:shadow-xl
+       hover:shadow-sky-200 shadow-sky-200 transition-shadow
+      overflow-hidden relative drop-shadow-2xl
       "
     >
       {/* === AFTER */}
       <div
-        className={` blur-[30px] group-hover:skew-x-[0deg] duration-1000 
-      absolute bg-sky-600 w-full  skew-x-[40deg] z-[-1] h-full`}
+        className={` h-full propertyAfter duration-1000 
+      absolute bg-sky-400 w-full z-[-1]`}
       ></div>
-      {/* <div className=" absolute bg-cyan-100 w-full  skew-y-2 z-[-10] h-full"></div> */}
-      <div className=" box-border mt-1 mr-1 ml-1 overflow-hidden">
+
+      <div className=" rounded-t-lg box-border mt-[3px] mr-[3px] ml-[3px] overflow-hidden">
         <Image
           src={coverPhoto ? coverPhoto.url : DefaultImage}
           width={400}
           height={260}
           alt="img"
-          className=" h-[260px] cursor-text min-w-full group-hover:scale-125 
-          transition-transform sm:rounded-sm duration-1000"
+          className=" h-[200px] sm:h-[260px] cursor-text min-w-full group-hover:scale-125 
+          transition-transform sm:rounded-sm duration-1000 object-cover"
         />
 
         {/* === FAV */}

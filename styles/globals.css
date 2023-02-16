@@ -84,3 +84,7 @@
   width: 100%;
   height: 100%;
 }
+
+.propertyAfter {
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 1% 100%);
+}
