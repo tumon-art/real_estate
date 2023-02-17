@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@next-auth/mongodb-adapter': ^1.1.1
-  '@prisma/client': ^4.9.0
   '@react-google-maps/api': ^2.18.1
   '@types/node': ^18.11.18
   '@types/nprogress': ^0.2.0
@@ -17,7 +16,6 @@ specifiers:
   next-auth: ^4.19.0
   nprogress: ^0.2.0
   postcss: ^8.4.21
-  prisma: ^4.9.0
   react: 18.2.0
   react-dom: 18.2.0
   react-icons: ^4.7.1
@@ -28,7 +26,6 @@ specifiers:
 
 dependencies:
   '@next-auth/mongodb-adapter': 1.1.1_vjdin6ifz4yqi3kcqwbqj7pjw4
-  '@prisma/client': 4.9.0_prisma@4.9.0
   '@react-google-maps/api': 2.18.1_biqbaboplfbrettd7655fr4n2y
   millify: 5.0.1
   moment: 2.29.4
@@ -50,7 +47,6 @@ devDependencies:
   eslint: 8.32.0
   eslint-config-next: 13.1.6_7uibuqfxkfaozanbtbziikiqje
   postcss: 8.4.21
-  prisma: 4.9.0
   tailwindcss: 3.2.4_postcss@8.4.21
   typescript: 4.9.4
 
@@ -1100,28 +1096,6 @@ packages:
       tiny-glob: 0.2.9
       tslib: 2.5.0
     dev: true
-
-  /@prisma/client/4.9.0_prisma@4.9.0:
-    resolution: {integrity: sha512-bz6QARw54sWcbyR1lLnF2QHvRW5R/Jxnbbmwh3u+969vUKXtBkXgSgjDA85nji31ZBlf7+FrHDy5x+5ydGyQDg==}
-    engines: {node: '>=14.17'}
-    requiresBuild: true
-    peerDependencies:
-      prisma: '*'
-    peerDependenciesMeta:
-      prisma:
-        optional: true
-    dependencies:
-      '@prisma/engines-version': 4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5
-      prisma: 4.9.0
-    dev: false
-
-  /@prisma/engines-version/4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5:
-    resolution: {integrity: sha512-M16aibbxi/FhW7z1sJCX8u+0DriyQYY5AyeTH7plQm9MLnURoiyn3CZBqAyIoQ+Z1pS77usCIibYJWSgleBMBA==}
-    dev: false
-
-  /@prisma/engines/4.9.0:
-    resolution: {integrity: sha512-t1pt0Gsp+HcgPJrHFc+d/ZSAaKKWar2G/iakrE07yeKPNavDP3iVKPpfXP22OTCHZUWf7OelwKJxQgKAm5hkgw==}
-    requiresBuild: true
 
   /@react-google-maps/api/2.18.1_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-KVlUO/Shh+0g/3egWaKmY0sz6+0QOnYkBGvrBMJbz23519LauA+iJFc4NDCmWNHqD5Vhb/Bkg0kSJgq0Stz3Iw==}
@@ -3093,14 +3067,6 @@ packages:
   /pretty-format/3.8.0:
     resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
     dev: false
-
-  /prisma/4.9.0:
-    resolution: {integrity: sha512-bS96oZ5oDFXYgoF2l7PJ3Mp1wWWfLOo8B/jAfbA2Pn0Wm5Z/owBHzaMQKS3i1CzVBDWWPVnOohmbJmjvkcHS5w==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      '@prisma/engines': 4.9.0
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}

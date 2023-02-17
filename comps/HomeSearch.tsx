@@ -13,7 +13,7 @@ const HomeSearch = () => {
         </h2>
 
         <div
-          className=" flex mt-5 bg-gray-100 shadow-sm overflow-hidden
+          className=" flex mt-5 ring-1 ring-sky-200 bg-gray-100 shadow-lg shadow-sky-100 overflow-hidden
           sm:w-[430px] rounded-xl h-12 sm:h-14"
         >
           <input

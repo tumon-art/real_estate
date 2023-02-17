@@ -3,7 +3,6 @@ import { useState } from "react";
 import {
   MdStar,
   MdStarHalf,
-  MdStarOutline,
   MdHomeRepairService,
   MdClose,
 } from "react-icons/md";
@@ -77,7 +76,7 @@ const Agents = () => {
         {agentsData.map((e: AgenstData) => {
           return (
             <div
-              className=" ring-1 ring-zinc-200 flex-col flex justify-center
+              className=" cursor-pointer hover:shadow-xl shadow-lg shadow-sky-100 ring-1 ring-sky-300 flex-col flex justify-center
                bg-zinc-100 min-w-[100%] sm:min-w-[260px] h-44 rounded-xl"
               key={e.id}
             >
