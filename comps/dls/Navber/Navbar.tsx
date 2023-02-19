@@ -104,7 +104,7 @@ const Navbar = () => {
       </div>
 
       {/* ==== SIDEBAR/MENU ICON  */}
-      <div className="flex w-32 h-8 bg-sky-400 sm:hidden relative">
+      <div className="flex w-32 h-10 bg-sky-400 sm:hidden relative">
         {/* === CLIP PATH */}
         <div className="navClip h-full"> </div>
 
@@ -115,7 +115,7 @@ const Navbar = () => {
         >
           <svg
             className=" h-5 w-5 text-white"
-            strokeWidth="2.5"
+            strokeWidth="3"
             stroke="currentColor"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
