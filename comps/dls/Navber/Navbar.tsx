@@ -43,7 +43,7 @@ const Navbar = () => {
         </svg>
         <Link
           href="/"
-          className="text-sky-600 text-xl col-start-3 col-end-5 font-extrabold"
+          className="text-sky-600 font-OpenSans pt-[1px] text-xl col-start-3 col-end-5 font-extrabold"
         >
           Real Estate
         </Link>
