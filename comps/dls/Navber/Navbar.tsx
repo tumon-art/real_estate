@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Sidebar from "../../Sidebar";
 import { memo, useEffect } from "react";
@@ -9,6 +10,7 @@ import useMainStore from "../../../context/mainStore";
 
 const Navbar = () => {
   const sidebar = useMainStore((state) => state.sidebar);
+
   const setSideBar = useMainStore((state) => state.setSideBar);
 
   useEffect(() => {
@@ -111,7 +113,7 @@ const Navbar = () => {
         <div
           className={` transition cursor-pointer p-2 
         flex justify-center items-center`}
-          onClick={setSideBar}
+          // onClick={setSideBar}
         >
           <svg
             className=" h-5 w-5 text-white"

@@ -50,42 +50,43 @@ export default function Home({ propertyForSale, propertyForRent }: any) {
   return (
     <div className=" flex flex-col items-center ">
       <Banner />
-
-      <h1
-        className=" font-OpenSans text-lg sm:text-4xl my-5 sm:my-10 font-extrabold animate-pulse
+      <div className=" rounded-t-2 border-t-4 border-cyan-400 bg-white z-50 flex flex-col items-center ">
+        <h1
+          className=" font-OpenSans text-lg sm:text-4xl my-5 sm:my-10 font-extrabold animate-pulse
         text-sky-400 border-l-8 border-sky-200 px-8 drop-shadow-2xl"
-      >
-        Explore homes with us ...
-      </h1>
+        >
+          Explore homes with us ...
+        </h1>
 
-      <div>
-        <ForWhat text="For Rent" />
-        {/* === PROPERTY MAP */}
-        <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10">
-          {count &&
-            propertyForSale
-              .slice(1, 7)
-              .map((property: any) => (
-                <Property property={property} key={property.id} />
-              ))}
+        <div>
+          <ForWhat text="For Rent" />
+          {/* === PROPERTY MAP */}
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10">
+            {count &&
+              propertyForSale
+                .slice(1, 7)
+                .map((property: any) => (
+                  <Property property={property} key={property.id} />
+                ))}
+          </div>
         </div>
-      </div>
 
-      <div>
-        <ForWhat text="For Sell" />
-        {/* === PROPERTY MAP */}
-        <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10">
-          {count &&
-            propertyForRent
-              .slice(0, 6)
-              .map((property: any) => (
-                <Property property={property} key={property.id} />
-              ))}
+        <div>
+          <ForWhat text="For Sell" />
+          {/* === PROPERTY MAP */}
+          <div className=" grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-8 lg:mx-10 mb-10">
+            {count &&
+              propertyForRent
+                .slice(0, 6)
+                .map((property: any) => (
+                  <Property property={property} key={property.id} />
+                ))}
+          </div>
         </div>
+        <Agents />
+        <HomeSearch />
+        <FooterLinks />
       </div>
-      <Agents />
-      <HomeSearch />
-      <FooterLinks />
     </div>
   );
 }
