@@ -15,10 +15,10 @@ export default function AskEmail({
 
     const res = await fetch(url, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "PRIVATE-KEY": String(process.env.NEXT_PUBLIC_PRIVET_KEY),
-      },
+      // headers: {
+      //   "Content-Type": "application/json",
+      //   "PRIVATE-KEY": String(process.env.NEXT_PUBLIC_PRIVET_KEY),
+      // },
       body: JSON.stringify({
         username: email,
         secret: email,
@@ -34,10 +34,10 @@ export default function AskEmail({
     const url = "https://api.chatengine.io/chats/";
     const res = await fetch(url, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "PRIVATE-KEY": String(process.env.NEXT_PUBLIC_PRIVET_KEY),
-      },
+      // headers: {
+      //   "Content-Type": "application/json",
+      //   "PRIVATE-KEY": String(process.env.NEXT_PUBLIC_PRIVET_KEY),
+      // },
       body: JSON.stringify({
         usernames: ["mail@mail.com", email],
         title: "mail@mail.com",
