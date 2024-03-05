@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-google-maps/api": "^2.19.2",
+    "@react-google-maps/api": "^2.19.3",
     "millify": "^6.1.0",
     "moment": "^2.29.4",
     "next": "13.4.12",
